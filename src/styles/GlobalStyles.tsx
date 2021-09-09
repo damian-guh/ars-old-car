@@ -15,7 +15,11 @@ const GlobalStyles = createGlobalStyle`
     
    a {
      text-decoration: none;
-     color: ${({ theme }) => theme.colors.white};
+     color: ${({ theme }) => theme.colors.black};
+
+     :hover {
+       color: ${({ theme }) => theme.colors.red};
+     }
    }
    
    *,

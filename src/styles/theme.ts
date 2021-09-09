@@ -6,12 +6,12 @@ export const theme = {
   },
   fontSizes: {
     initial: '15px',
-    xs: '0.9rem',
-    sm: '1rem',
+    xs: '1rem',
+    sm: '1.1rem',
     md: '1.2rem',
-    lg: '1.5rem',
-    xl: '2rem',
-    xxl: '2.5rem',
+    lg: '1.3rem',
+    xl: '1.9rem',
+    xxl: '2.3rem',
   },
   fontFamilies: {
     default: 'Poppins, sans-serif',
