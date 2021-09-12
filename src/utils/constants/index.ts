@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const NAV_ITEMS = [
   'Aktualności',
   'Galeria',
@@ -7,3 +6,6 @@ export const NAV_ITEMS = [
   'W okolicy',
   'Kontakt',
 ];
+
+export const MAIL = 'kontakt@arsoldcar.pl';
+export const PHONE = '123456789';

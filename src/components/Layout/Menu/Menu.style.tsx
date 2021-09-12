@@ -13,6 +13,7 @@ export const StyledNav = styled.nav<Props>`
   width: 100vw;
   transition: all 0.3s linear;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100vw')});
+  background-color: ${({ theme }) => theme.colors.white};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     position: static;
@@ -27,15 +28,22 @@ export const NavList = styled.ul`
   flex-direction: column;
   height: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 25px;
+  gap: 30px;
+
+  :first-child {
+    margin-top: 30px;
+  }
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     flex-direction: row;
     justify-content: center;
+
+    :first-child {
+      margin-top: 0;
+    }
   }
 `;
 
 export const NavListItem = styled.li`
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
 `;

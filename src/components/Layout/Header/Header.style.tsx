@@ -4,13 +4,14 @@ import { BURGER_DIMENSIONS } from 'components/Layout/Menu/Burger/Burger.style';
 export const HEADER_HEIGHT = '80px';
 
 export const Wrapper = styled.header`
-  position: fixed;
+  position: sticky;
+  background-color: ${({ theme }) => theme.colors.white};
+  inset: 0;
   display: grid;
   grid-template-columns: calc(2 * ${BURGER_DIMENSIONS}) 1fr;
   justify-items: center;
   align-items: center;
   height: ${HEADER_HEIGHT};
-  width: 100vw;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 5fr;
