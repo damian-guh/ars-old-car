@@ -1,6 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Theme from 'components/Theme';
 import Header from 'components/Layout/Header';
+import Footer, { FOOTER_HEIGHT } from 'components/Layout/Footer';
+
+const Wrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
+`;
+
+const ContentWrapper = styled.div`
+  padding-bottom: ${FOOTER_HEIGHT};
+`;
 
 type Props = {
   children?: React.ReactNode;
@@ -8,8 +19,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => (
   <Theme>
-    <Header />
-    {children}
+    <Wrapper>
+      <Header />
+      <ContentWrapper>{children}</ContentWrapper>
+      <Footer />
+    </Wrapper>
   </Theme>
 );
 

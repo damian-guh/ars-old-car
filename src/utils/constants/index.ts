@@ -1,3 +1,6 @@
+export const APP_NAME = 'Ars Old Car';
+export const APP_AUTHOR = 'Damian Głuch';
+
 export const NAV_ITEMS = [
   'Aktualności',
   'Galeria',
