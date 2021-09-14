@@ -61,8 +61,10 @@ const Home: NextPage = () => (
     </Head>
     <Wrapper>
       <Image src='/logo.png' width={256} height={256} />
-      <Heading>Muzeum i strona w budowie 🏗️</Heading>
-      <Heading>Otwarcie wkrótce️</Heading>
+      <Heading>Strona w budowie 🏗️</Heading>
+      <Heading>
+        Rezerwacje możliwe na razie tylko pod numerem: 515 355 533
+      </Heading>
       <Heading>Obserwuj nas na bieżąco!️</Heading>
       <SocialWrapper>
         <a
