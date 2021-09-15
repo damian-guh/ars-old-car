@@ -11,4 +11,4 @@ export const NAV_ITEMS = [
 ];
 
 export const MAIL = 'kontakt@arsoldcar.pl';
-export const PHONE = '123456789';
+export const PHONE = '515 355 533';

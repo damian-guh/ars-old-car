@@ -7,6 +7,7 @@ import Footer, { FOOTER_HEIGHT } from 'components/Layout/Footer';
 const Wrapper = styled.div`
   position: relative;
   min-height: 100vh;
+  overflow-y: hidden;
 `;
 
 const ContentWrapper = styled.div`
