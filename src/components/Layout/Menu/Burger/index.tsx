@@ -1,7 +1,7 @@
 import { StyledBurger } from 'components/Layout/Menu/Burger/Burger.style';
 
 type Props = {
-  isOpen: boolean;
+  isOpen: boolean | null;
   onClick: () => void;
 };
 

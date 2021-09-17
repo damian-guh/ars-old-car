@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useContext } from 'react';
+import { BurgerContext } from 'components/Layout';
 import { Wrapper, Logo } from 'components/Layout/Header/Header.style';
 import Menu from 'components/Layout/Menu';
 import Burger from 'components/Layout/Menu/Burger';
@@ -6,7 +7,7 @@ import useDesktopMediaQuery from 'hooks/useDesktopMediaQuery';
 import useMounted from 'hooks/useMounted';
 
 const Header = () => {
-  const [isMenuOpen, toggleMenu] = useState(false);
+  const [isMenuOpen, toggleMenu] = useContext(BurgerContext);
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
   const isBurger = !isDesktop && isMounted;
@@ -18,7 +19,7 @@ const Header = () => {
       {isBurger && (
         <Burger
           isOpen={isMenuOpen}
-          onClick={() => toggleMenu((prevState) => !prevState)}
+          onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
     </Wrapper>

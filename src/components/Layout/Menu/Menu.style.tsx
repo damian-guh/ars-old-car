@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 type Props = {
-  isOpen: boolean;
+  isOpen: boolean | null;
 };
 
 export const StyledNav = styled.nav<Props>`
   position: absolute;
   top: ${HEADER_HEIGHT};
   left: 0;
-  height: calc(100vh - ${HEADER_HEIGHT});
+  min-height: ${({ isOpen }) => (isOpen ? '100vh' : 'inherit')};
   width: 100vw;
   transition: all 0.3s linear;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100vw')});
@@ -19,6 +19,7 @@ export const StyledNav = styled.nav<Props>`
     position: static;
     height: 100%;
     width: inherit;
+    min-height: inherit;
     transform: translateX(0);
   }
 `;

@@ -3,11 +3,11 @@ import { NAV_ITEMS } from 'utils/constants';
 import { StyledNav, NavList, NavListItem } from './Menu.style';
 
 type Props = {
-  isOpen: boolean;
+  isOpen: boolean | null;
 };
 
 const adjustNavItemNameForUrl = (name: string) =>
-  name.replace(/\s+/g, '-').replace(/^#/, '').toLowerCase();
+  name.replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's').toLowerCase();
 
 const Menu = ({ ...props }: Props) => (
   <StyledNav {...props}>

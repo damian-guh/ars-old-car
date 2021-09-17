@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const BURGER_DIMENSIONS = '30px';
 
 type Props = {
-  isOpen: boolean;
+  isOpen: boolean | null;
 };
 
 export const StyledBurger = styled.button<Props>`
