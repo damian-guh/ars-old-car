@@ -10,8 +10,13 @@ const Wrapper = styled.div<{ isMenuOpen: boolean }>`
   overflow-y: ${({ isMenuOpen }) => (isMenuOpen ? 'hidden' : 'inherit')};
   height: ${({ isMenuOpen }) => (isMenuOpen ? '100vh' : 'inherit')};
 
+  @media (orientation: landscape) {
+    overflow-y: ${({ isMenuOpen }) => (isMenuOpen ? 'inherit' : 'hidden')};
+  }
+
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     height: inherit;
+    overflow-y: inherit;
   }
 `;
 

@@ -19,6 +19,7 @@
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-image-gallery": "^1.2.7",
     "react-responsive": "^9.0.0-beta.4",
     "react-toastify": "^8.0.2",
     "styled-components": "^5.3.0",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
     "@types/react": "17.0.17",
+    "@types/react-image-gallery": "^1.0.4",
     "@types/styled-components": "^5.1.12",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",

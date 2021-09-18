@@ -12,6 +12,7 @@ export const Wrapper = styled.header`
   justify-items: center;
   align-items: center;
   height: ${HEADER_HEIGHT};
+  z-index: 10;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 5fr;
