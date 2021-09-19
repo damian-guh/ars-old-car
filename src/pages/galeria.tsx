@@ -79,12 +79,14 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         ...data,
       },
+      revalidate: 60,
     };
   } catch {
     return {
       props: {
         error: 'Nie udało się pobrać zdjęć',
       },
+      revalidate: 60,
     };
   }
 };

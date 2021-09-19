@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 import { BurgerContext } from 'components/Layout';
 import { Wrapper, Logo } from 'components/Layout/Header/Header.style';
 import Menu from 'components/Layout/Menu';
@@ -14,7 +15,9 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Logo>ArsOldCar</Logo>
+      <Link href='/'>
+        <Logo>ArsOldCar</Logo>
+      </Link>
       <Menu isOpen={isMenuOpen} />
       {isBurger && (
         <Burger
