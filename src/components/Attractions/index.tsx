@@ -15,7 +15,12 @@ const Attractions = () => (
       samochodem, w tym zaskakującą kolekcję &quot;kaczek&quot;.
     </div>
     <ImageWrapper>
-      <StyledImage src={forest2CVImage} layout='fill' quality={100} />
+      <StyledImage
+        src={forest2CVImage}
+        layout='fill'
+        quality={100}
+        placeholder='blur'
+      />
     </ImageWrapper>
   </AttractionsWrapper>
 );
