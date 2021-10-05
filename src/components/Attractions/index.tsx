@@ -20,6 +20,8 @@ const Attractions = () => (
         layout='fill'
         quality={100}
         placeholder='blur'
+        objectFit='cover'
+        alt='2CV w lesie'
       />
     </ImageWrapper>
   </AttractionsWrapper>

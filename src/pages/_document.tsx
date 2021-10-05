@@ -36,7 +36,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='pl'>
         <Head>
           <link
             href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'

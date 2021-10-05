@@ -21,6 +21,7 @@ const Hero = () => (
         layout='fill'
         objectFit='cover'
         quality={90}
+        alt='2CV tło'
       />
     </HeroImageWrapper>
   </HeroWrapper>

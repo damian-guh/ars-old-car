@@ -24,6 +24,7 @@ const Nearby = () => (
               quality={95}
               placeholder='blur'
               objectFit='cover'
+              alt={title}
             />
           </ImageWrapper>
         </ItemWrapper>
