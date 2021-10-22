@@ -71,6 +71,7 @@ const ContactForm = () => {
       const response: { ok: boolean } = await axios.post('/api/register', {
         captcha: captchaCode,
       });
+      console.log(response);
       if (!response.ok) {
         throw new Error('Something went wrong');
       }
@@ -127,7 +128,7 @@ const ContactForm = () => {
           <ReCAPTCHA
             ref={recaptchaRef}
             size='invisible'
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_TEST}
             onChange={onReCAPTCHAChange}
           />
           <Input type='text' name='name' placeholder='Imię' />
