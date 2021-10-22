@@ -128,7 +128,7 @@ const ContactForm = () => {
           <ReCAPTCHA
             ref={recaptchaRef}
             size='invisible'
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_TEST}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
             onChange={onReCAPTCHAChange}
           />
           <Input type='text' name='name' placeholder='Imię' />
