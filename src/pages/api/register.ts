@@ -18,6 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (method === 'POST') {
     if (!captcha) {
+      console.log(captcha);
       return res.status(422).json({
         message: 'Unproccesable request, please provide the required fields',
       });
