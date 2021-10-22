@@ -2,7 +2,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 type Data = {
-  success: boolean;
+  data: {
+    success: boolean;
+  };
 };
 
 const sleep = () =>
@@ -18,7 +20,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (method === 'POST') {
     if (!captcha) {
-      console.log(captcha);
       return res.status(422).json({
         message: 'Unproccesable request, please provide the required fields',
       });
@@ -35,7 +36,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
       );
 
-      if (response.success) {
+      if (response.data.success) {
         await sleep();
         return res.status(200).send('OK');
       }
