@@ -68,11 +68,10 @@ const ContactForm = () => {
       return;
     }
     try {
-      const response: { ok: boolean } = await axios.post('/api/register', {
+      const response = await axios.post('/api/register', {
         captcha: captchaCode,
       });
-      console.log(response);
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error('Something went wrong');
       }
     } catch {
