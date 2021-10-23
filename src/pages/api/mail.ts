@@ -1,29 +1,61 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import mail from '@sendgrid/mail';
 import { MAIL } from 'utils/constants';
+import axios from 'axios';
+
+type Data = {
+  data: {
+    success: boolean;
+  };
+};
 
 mail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  const body = JSON.parse(JSON.stringify(req.body));
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { body, method } = req;
+  const { captcha, formValues } = body;
+  const { name, email, message } = formValues;
 
-  if (body !== '') {
-    const message = `
-   Imię: ${body.name}\r\n
-   Email: ${body.email}\r\n
-   Wiadomość: ${body.message}
-  `;
+  if (method === 'POST') {
+    if (!captcha || !name || !email || !message) {
+      return res.status(422).json({
+        message: 'Unproccesable request, please provide the required fields',
+      });
+    }
 
-    const data = {
-      to: MAIL,
-      from: 'formularz@mail.arsoldcar.pl',
-      subject: 'Nowa wiadomość z formularza kontaktowego',
-      text: message,
-      html: message.replace(/\r\n/g, '<br>'),
-    };
+    try {
+      const response: Data = await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`
+      );
 
-    mail.send(data).then(() => res.status(200).json({ message: 'Ok' }));
-  } else {
-    res.status(400).json({ message: 'Empty body' });
+      if (response.data.success) {
+        const mailMessage = `
+          Imię: ${name}\r\n
+          Email: ${email}\r\n
+          Wiadomość: ${message}
+        `;
+
+        const mailData = {
+          to: MAIL,
+          from: 'formularz@mail.arsoldcar.pl',
+          subject: 'Nowa wiadomość z formularza kontaktowego',
+          text: mailMessage,
+          html: mailMessage.replace(/\r\n/g, '<br>'),
+        };
+        return mail
+          .send(mailData)
+          .then(() => res.status(200).json({ message: 'Ok' }))
+          .catch(() =>
+            res.status(422).json({ message: 'Something went wrong' })
+          );
+      }
+
+      return res.status(422).json({
+        message: 'Unproccesable request, Invalid captcha code',
+      });
+    } catch {
+      return res.status(422).json({ message: 'Something went wrong' });
+    }
   }
+  return res.status(404).send('Not found');
 };

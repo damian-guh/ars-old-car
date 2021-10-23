@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import axios from 'axios';
 import { Formik, useField } from 'formik';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -62,20 +62,22 @@ const TextArea = ({ ...props }: InputProps) => {
 
 const ContactForm = () => {
   const recaptchaRef = useRef<any>(null);
+  const [formValues, setFormValues] = useState<Values | null>(null);
 
   const onReCAPTCHAChange = async (captchaCode: string) => {
     if (!captchaCode) {
       return;
     }
     try {
-      const response = await axios.post('/api/register', {
+      const response = await axios.post('/api/mail', {
         captcha: captchaCode,
+        formValues,
       });
-      if (response.status !== 200) {
-        throw new Error('Something went wrong');
+      if (response.status === 200) {
+        toast.success('Wiadomość została wysłana', toastOptions);
       }
     } catch {
-      throw new Error('Something went wrong');
+      toast.error('Wiadomość nie została wysłana', toastOptions);
     } finally {
       recaptchaRef.current.reset();
     }
@@ -100,25 +102,11 @@ const ContactForm = () => {
           .required('Wymagane'),
       })}
       onSubmit={(values: Values, { setSubmitting, resetForm }) => {
-        recaptchaRef.current
-          .execute()
-          .then(() => {
-            axios
-              .post('/api/mail', values)
-              .then(() => {
-                toast.success('Wiadomość została wysłana', toastOptions);
-                resetForm();
-              })
-              .catch(() => {
-                toast.error('Wiadomość nie została wysłana', toastOptions);
-              })
-              .finally(() => {
-                setSubmitting(false);
-              });
-          })
-          .catch(() => {
-            toast.error('Wiadomość nie została wysłana', toastOptions);
-          });
+        setFormValues(values);
+        recaptchaRef.current.execute().then(() => {
+          resetForm();
+          setSubmitting(false);
+        });
       }}
     >
       <>
