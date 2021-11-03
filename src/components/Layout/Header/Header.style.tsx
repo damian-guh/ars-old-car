@@ -14,12 +14,26 @@ export const Wrapper = styled.header`
   height: ${HEADER_HEIGHT};
   z-index: 10;
 
+  svg {
+    height: 100%;
+    max-width: 100px;
+    cursor: pointer;
+    position: absolute;
+    overflow: visible;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+  }
+
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 5fr;
   }
 `;
 
-export const Logo = styled.h1`
+export const LogoWrapper = styled.div`
+  height: ${HEADER_HEIGHT};
+  width: 100%;
+  position: relative;
   grid-column: 2/3;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {

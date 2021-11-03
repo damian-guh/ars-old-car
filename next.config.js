@@ -11,6 +11,7 @@ module.exports = {
           options: {
             svgoConfig: {
               plugins: [{ cleanupIDs: false }],
+              ref: true,
             },
           },
         },

@@ -14,3 +14,8 @@ export const NAV_ITEMS = [
 
 export const MAIL = 'kontakt@arsoldcar.pl';
 export const PHONE = '515 355 533';
+
+export const LATITUDE =
+  process.env.NODE_ENV === 'production' ? 50.7479 : 50.8904;
+export const LONGITUDE =
+  process.env.NODE_ENV === 'production' ? 20.4697 : 20.6278;
