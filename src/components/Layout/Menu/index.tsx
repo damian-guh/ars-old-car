@@ -25,6 +25,8 @@ const Menu = ({ ...props }: Props) => {
           <NavListItem key={item}>
             {isDesktop ? (
               <span
+                role='link'
+                tabIndex={0}
                 onClick={(event) =>
                   carAnimation(
                     props.logoRef,
