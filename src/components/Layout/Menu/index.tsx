@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { NAV_ITEMS } from 'utils/constants';
 import carAnimation from 'helpers/carAnimation';
 import useDesktopMediaQuery from 'hooks/useDesktopMediaQuery';
+import useMounted from 'hooks/useMounted';
 import { StyledNav, NavList, NavListItem } from './Menu.style';
 
 type Props = {
@@ -16,6 +17,7 @@ const adjustNavItemNameForUrl = (name: string) =>
 
 const Menu = ({ ...props }: Props) => {
   const isDesktop = useDesktopMediaQuery();
+  const { isMounted } = useMounted();
   const router = useRouter();
 
   return (
@@ -23,7 +25,7 @@ const Menu = ({ ...props }: Props) => {
       <NavList>
         {NAV_ITEMS.map((item) => (
           <NavListItem key={item}>
-            {isDesktop ? (
+            {isDesktop && isMounted ? (
               <span
                 role='link'
                 tabIndex={0}

@@ -8,7 +8,7 @@ const carAnimation = (
   href: string,
   router: NextRouter
 ) => {
-  if (ref.current) {
+  if (ref.current && router.pathname !== href) {
     const svg = ref.current.children[0];
     const group = svg.children[0].children[1];
     const car = group.children[1];
