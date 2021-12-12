@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { Formik, useField } from 'formik';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
 import * as Yup from 'yup';
 import { setCookies, checkCookies, getCookie } from 'cookies-next';
@@ -13,6 +14,8 @@ import {
 import { QuizRules } from 'components/Quiz/Layout/StartSection/StartSection.style';
 import getTomorrowDate from 'helpers/getTomorrowDate';
 import axios from 'axios';
+import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
+import firebaseApp from '../../../../../firebase';
 
 type Values = {
   name: string;
@@ -45,6 +48,9 @@ const Input = ({ ...props }: InputProps) => {
   );
 };
 
+const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
+
 const StartSection = ({ color }: Props) => {
   const recaptchaRef = useRef<any>(null);
   const [formValues, setFormValues] = useState<Values | null>(null);
@@ -56,12 +62,13 @@ const StartSection = ({ color }: Props) => {
       return;
     }
     try {
-      await axios.post('/api/newsletter', {
+      await signInAnonymously(auth);
+      await axios.post('/api/recaptcha', {
         captcha: captchaCode,
-        formValues,
       });
-    } catch (error) {
-      throw Error(error);
+      await addDoc(collection(db, 'emails'), { email: formValues?.email });
+    } catch (err) {
+      throw Error(err);
     } finally {
       recaptchaRef.current.reset();
     }

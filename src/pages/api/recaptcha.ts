@@ -9,11 +9,10 @@ type Data = {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, method } = req;
-  const { captcha, formValues } = body;
-  const { email } = formValues;
+  const { captcha } = body;
 
   if (method === 'POST') {
-    if (!captcha || !email) {
+    if (!captcha) {
       return res.status(422).json({
         message: 'Unproccesable request, please provide the required fields',
       });
@@ -24,21 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`
       );
 
-      if (response.data.success) {
-        // const db = firebase.firestore();
-        // try {
-        //   await db
-        //     .collection('users')
-        //     .doc('allUsers')
-        //     .update({
-        //       emails: firebase.firestore.FieldValue.arrayUnion(email),
-        //     });
-        // } catch {
-        //   throw new Error('DUPA');
-        // }
-
-        return res.status(200).json({ message: 'OK' });
-      }
+      if (response.data.success) return res.status(200).json({ message: 'OK' });
 
       return res.status(422).json({
         message: 'Unproccesable request, Invalid captcha code',
