@@ -32,7 +32,7 @@ export const StyledInput = styled.input`
   border-bottom: 2px solid ${({ color }) => handleColor(color)};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
-  margin: 20px;
+  margin-bottom: 20px;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ theme }) => theme.fontFamilies.default};
   outline: none;
@@ -85,4 +85,5 @@ export const StyledTextArea = styled.textarea`
 export const InputError = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.red};
+  margin: -15px 0 20px 0;
 `;

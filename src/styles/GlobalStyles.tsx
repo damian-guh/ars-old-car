@@ -35,6 +35,20 @@ const GlobalStyles = createGlobalStyle`
    ul {
      list-style-type: none;
    }
+   
+   .react-datepicker-wrapper {
+     width: inherit;
+   }
+
+   .react-datepicker__day--keyboard-selected, .react-datepicker__day--keyboard-selected:hover, .react-datepicker__month-text--keyboard-selected:hover, .react-datepicker__quarter-text--keyboard-selected:hover, .react-datepicker__year-text--keyboard-selected:hover, .react-datepicker__day--selected, .react-datepicker__day--selected:hover, .react-datepicker__time-list-item--selected, .react-datepicker__time-list-item--selected:hover {
+     background-color: ${({ theme }) => theme.colors.red} !important;
+   }
+   
+   .react-datepicker__input-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
 `;
 
 export default GlobalStyles;

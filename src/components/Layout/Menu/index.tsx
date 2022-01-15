@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NAV_ITEMS } from 'utils/constants';
@@ -11,6 +12,10 @@ type Props = {
   isOpen: boolean | null;
   logoRef: React.RefObject<HTMLDivElement>;
 };
+
+const DesktopLink = styled.span`
+  cursor: pointer;
+`;
 
 const adjustNavItemNameForUrl = (name: string) =>
   name.replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's').toLowerCase();
@@ -26,7 +31,7 @@ const Menu = ({ ...props }: Props) => {
         {NAV_ITEMS.map((item) => (
           <NavListItem key={item}>
             {isDesktop && isMounted ? (
-              <span
+              <DesktopLink
                 role='link'
                 tabIndex={0}
                 onClick={(event) =>
@@ -39,7 +44,7 @@ const Menu = ({ ...props }: Props) => {
                 }
               >
                 {item}
-              </span>
+              </DesktopLink>
             ) : (
               <Link href={`/${adjustNavItemNameForUrl(item)}`}>{item}</Link>
             )}

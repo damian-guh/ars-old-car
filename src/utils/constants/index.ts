@@ -16,6 +16,9 @@ export const MAIL = 'kontakt@arsoldcar.pl';
 export const PHONE = '515 355 533';
 
 export const LATITUDE =
-  process.env.NODE_ENV === 'production' ? 50.7479 : 50.8904;
+  process.env.NODE_ENV === 'production' ? 50.7479 : 52.2377;
 export const LONGITUDE =
-  process.env.NODE_ENV === 'production' ? 20.4697 : 20.6278;
+  process.env.NODE_ENV === 'production' ? 20.4697 : 20.9937;
+
+export const OPENING_MUSEUM_HOUR = 10;
+export const CLOSING_MUSEUM_HOUR = 20;
