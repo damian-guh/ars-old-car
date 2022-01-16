@@ -138,8 +138,9 @@ const ReservationPage: NextPage = () => {
         const date = dayjs(reservation.data().date.seconds * 1000).toString();
         setBlockedDaysInCalendar((prevDates) => [...prevDates, date]);
       });
-    } catch {
-      throw Error('Bagno');
+    } catch (err) {
+      console.log(err);
+      setFormErrorMessage('Coś poszło nie tak :(');
     }
   };
 
