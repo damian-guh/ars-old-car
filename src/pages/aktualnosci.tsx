@@ -1,7 +1,14 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
 import axios from 'axios';
 import Layout from 'components/Layout';
-import { Wrapper, Article, ArticleTitle } from 'components/Article';
+import {
+  Wrapper,
+  Article,
+  ArticleTitle,
+  ImagesWrapper,
+  ImageWrapper,
+} from 'components/Article';
 
 type Props = {
   allArticles?: [
@@ -10,6 +17,11 @@ type Props = {
       title: string;
       _status: string;
       _firstPublishedAt: string;
+      images: [
+        {
+          url: string;
+        }
+      ];
       content: {
         value: {
           document: {
@@ -58,6 +70,9 @@ export const getStaticProps: GetStaticProps = async () => {
             }
             _status
             _firstPublishedAt
+            images {
+              url
+            }
           }
         }
     `,
@@ -94,23 +109,36 @@ const NewsPage: NextPage = ({
       <Layout>
         <Wrapper>
           {allArticles &&
-            allArticles.map((article) => (
-              <Article key={article.id}>
-                <ArticleTitle>{article.title}</ArticleTitle>
+            allArticles.map(({ id, title, content, images }) => (
+              <Article key={id}>
+                <ArticleTitle>{title}</ArticleTitle>
                 <div>
-                  {article.content.value.document.children.map(({ children }) =>
+                  {content.value.document.children.map(({ children }) =>
                     children.map(({ value, type, url }) => {
                       if (type === 'link') {
                         return (
-                          <a key={article.id} href={url}>
+                          <a key={id} href={url}>
                             {url}
                           </a>
                         );
                       }
-                      return <div key={article.id}>{value}</div>;
+                      return <div key={id}>{value}</div>;
                     })
                   )}
                 </div>
+                <ImagesWrapper>
+                  {images.map(({ url }) => (
+                    <ImageWrapper key={url}>
+                      <Image
+                        src={url}
+                        layout='fill'
+                        quality={95}
+                        objectFit='cover'
+                        objectPosition='center'
+                      />
+                    </ImageWrapper>
+                  ))}
+                </ImagesWrapper>
               </Article>
             ))}
         </Wrapper>
