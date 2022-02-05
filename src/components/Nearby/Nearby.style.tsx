@@ -39,9 +39,25 @@ export const ImageWrapper = styled.div<Props>`
   }
 `;
 
+export const NearbyTitleSectionWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  margin: 30px;
+  top: 0;
+  background-color: ${({ theme }) => theme.colors.white};
+  z-index: 1;
+`;
+
 export const NearbySectionTitle = styled.h1`
   text-align: center;
   padding: 15px;
+`;
+
+export const NearbyDesc = styled.p`
+  max-width: 800px;
+  padding: 15px 5px 5px 5px;
 `;
 
 export const NearbyTitle = styled.h2<Props>`
