@@ -22,3 +22,12 @@ export const LONGITUDE =
 
 export const OPENING_MUSEUM_HOUR = 10;
 export const CLOSING_MUSEUM_HOUR = 20;
+
+export const PRICING_SECTION_TEXT = [
+  '25 zł – bilet indywidualny',
+  '20 zł – bilet grupowy powyżej 10 osób (bezpłatny wstęp dla opiekuna grupy)',
+  'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
+  'Wstęp dla osób w wieku od 4 do 99 lat.',
+  'Miejsce przyjazne dla zwierząt - Zapraszamy fanów motoryzacji wraz z czworonogami',
+  'Miejsce przyjazne rowerzystom - Przygotowaliśmy stojaki dla Waszych rowerów.',
+];

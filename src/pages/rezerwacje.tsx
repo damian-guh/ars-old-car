@@ -13,7 +13,11 @@ import {
 import DatePicker from 'react-datepicker';
 import pl from 'date-fns/locale/pl';
 import dayjs from 'dayjs';
-import { OPENING_MUSEUM_HOUR, CLOSING_MUSEUM_HOUR } from 'utils/constants';
+import {
+  OPENING_MUSEUM_HOUR,
+  CLOSING_MUSEUM_HOUR,
+  PRICING_SECTION_TEXT,
+} from 'utils/constants';
 import 'react-datepicker/dist/react-datepicker.css';
 import Layout from 'components/Layout';
 import {
@@ -23,8 +27,11 @@ import {
   StyledButton as Button,
 } from 'components/Form/Form.style';
 import {
-  Wrapper,
+  FormSectionWrapper,
   StyledHeading,
+  ReservationPageWrapper,
+  PricingAndInfoSection,
+  PricingAndInfoText,
 } from 'components/Reservation/Reservation.style';
 import * as Yup from 'yup';
 import 'yup-phone';
@@ -138,8 +145,7 @@ const ReservationPage: NextPage = () => {
         const date = dayjs(reservation.data().date.seconds * 1000).toString();
         setBlockedDaysInCalendar((prevDates) => [...prevDates, date]);
       });
-    } catch (err) {
-      console.log(err);
+    } catch {
       setFormErrorMessage('Coś poszło nie tak :(');
     }
   };
@@ -192,7 +198,7 @@ const ReservationPage: NextPage = () => {
   if (isSubmitted && !isReservationEnded) {
     return (
       <Layout>
-        <Wrapper>
+        <FormSectionWrapper>
           <>
             <StyledHeading>
               Podaj kod wysłany na podany numer telefonu
@@ -240,7 +246,7 @@ const ReservationPage: NextPage = () => {
               </Form>
             </Formik>
           </>
-        </Wrapper>
+        </FormSectionWrapper>
       </Layout>
     );
   }
@@ -248,21 +254,27 @@ const ReservationPage: NextPage = () => {
   if (isReservationEnded) {
     return (
       <Layout>
-        <Wrapper>
+        <FormSectionWrapper>
           <StyledHeading>
             🎉 Udało się zarezerwować termin{' '}
             {dayjs(formData.date).format('DD/MM/YYYY HH:mm')} 🎉
           </StyledHeading>
           <StyledHeading>Nie zapomnij być 15 minut wcześniej</StyledHeading>
-        </Wrapper>
+        </FormSectionWrapper>
       </Layout>
     );
   }
 
   return (
     <Layout>
-      <Wrapper>
-        <>
+      <ReservationPageWrapper>
+        <PricingAndInfoSection>
+          <PricingAndInfoText>Cennik</PricingAndInfoText>
+          {PRICING_SECTION_TEXT.map((text) => (
+            <PricingAndInfoText key={text}>{text}</PricingAndInfoText>
+          ))}
+        </PricingAndInfoSection>
+        <FormSectionWrapper>
           <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
           <Formik
             key='reservation-form'
@@ -342,8 +354,8 @@ const ReservationPage: NextPage = () => {
               </Button>
             </Form>
           </Formik>
-        </>
-      </Wrapper>
+        </FormSectionWrapper>
+      </ReservationPageWrapper>
     </Layout>
   );
 };
