@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const AttractionsWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
   padding: 40px 10px 10px 10px;
@@ -12,7 +12,7 @@ export const AttractionsWrapper = styled.section`
 
   @media screen and ${({ theme }) => theme.screenSizes.sm} {
     grid-template-columns: repeat(2, minmax(300px, 500px));
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
   }
 `;
 
