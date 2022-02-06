@@ -1,6 +1,10 @@
 import type { GetStaticProps } from 'next';
 import axios from 'axios';
-import { Wrapper } from 'components/Layout/Gallery/Gallery.style';
+import {
+  Wrapper as GalleryWrapper,
+  GalleryDesc,
+  GalleryDescWrapper,
+} from 'components/Layout/Gallery/Gallery.style';
 import adjustImagesObjects from 'helpers/adjustImagesObjects';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -26,7 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
       {
         query: `
         {
-          allGalleries {
+          allLubie2cvs {
             asset {
               id
               url
@@ -56,19 +60,26 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 };
-
-const GalleryPage = ({
-  allGalleries,
+const Lubie2cvPage = ({
+  allLubie2cvs,
   error,
 }: {
-  allGalleries: Assets;
+  allLubie2cvs: Assets;
   error?: string;
 }) => {
   if (error === undefined) {
-    const images = adjustImagesObjects(allGalleries);
+    const images = adjustImagesObjects(allLubie2cvs);
     return (
       <Layout>
-        <Wrapper>
+        <GalleryDescWrapper>
+          <GalleryDesc>
+            Fanów 2CV zapraszamy do przesyłania Waszych ciekawych zdjęć w tle z
+            samochodem lub gadżetami , w szczególności z pobytu w naszym muzeum.
+            Spośród najciekawszych zdjęć wybierzemy zdjęcie miesiąca i sezonu.
+            Dla laureatów czekają nagrody w tematyce związanej oczywiście z 2CV.
+          </GalleryDesc>
+        </GalleryDescWrapper>
+        <GalleryWrapper>
           <ImageGallery
             items={images}
             lazyLoad
@@ -76,11 +87,11 @@ const GalleryPage = ({
             showFullscreenButton={false}
             showBullets
           />
-        </Wrapper>
+        </GalleryWrapper>
       </Layout>
     );
   }
   return <Layout>{error}</Layout>;
 };
 
-export default GalleryPage;
+export default Lubie2cvPage;
