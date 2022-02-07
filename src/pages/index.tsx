@@ -1,97 +1,147 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
+import type { GetStaticProps } from 'next';
 import styled from 'styled-components';
-import { FaFacebookF as FacebookIcon } from '@react-icons/all-files/fa/FaFacebookF';
-import { FaInstagram as InstagramIcon } from '@react-icons/all-files/fa/FaInstagram';
-import GlobalStyles from 'styles/GlobalStyles';
+import axios from 'axios';
+import Layout from 'components/Layout';
+import { Map } from 'components/Layout/Map';
+import Hero from 'components/Hero';
+import Attractions from 'components/Attractions';
 
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-`;
+type AllQuicknews = [{ description: string; id: string }];
+type AllQuicknewsRes = { data: { data: AllQuicknews } };
+type AllMainnews = [
+  {
+    description: {
+      value: {
+        document: {
+          type: string;
+          children: [
+            {
+              type: string;
+              children: [{ type: string; marks: string[]; value: string }];
+            }
+          ];
+        };
+        schema: string;
+      };
+    };
+    title: string;
+  }
+];
+type AllMainnewsRes = { data: { data: AllMainnews } };
 
-const Heading = styled.h1`
-  font-size: 25px;
-  letter-spacing: 3px;
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const {
+      data: { data },
+    }: AllQuicknewsRes & AllMainnewsRes = await axios.post(
+      'https://graphql.datocms.com/',
+      {
+        query: `
+        {
+          allQuicknews {
+            description
+            id
+          }
+          allMainnews {
+            title
+            description {
+              value
+            }
+          }
+        }
+    `,
+      },
+      {
+        headers: {
+          authorization: `Bearer ${process.env.DATOCMS_API_KEY}`,
+        },
+      }
+    );
+
+    return {
+      props: {
+        ...data,
+      },
+      revalidate: 60,
+    };
+  } catch {
+    return {
+      props: {
+        error: 'Nie udało się pobrać wiadomości',
+      },
+      revalidate: 60,
+    };
+  }
+};
+
+const QuicknewsWrapper = styled.section`
   text-align: center;
-`;
+  padding: 5px;
 
-const GallerySection = styled.section`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    margin: 10px;
-  }
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
+  p {
+    margin: 3px;
   }
 `;
 
-const ImageContainer = styled.div`
-  width: 300px;
-  height: 250px;
-  position: relative;
+const MainnewsWrapper = styled.section`
+  padding: 5px;
+  text-align: justify;
+  margin: 20px;
 `;
 
-const SocialWrapper = styled.section`
-  display: flex;
-  font-size: 35px;
-
-  svg {
-    height: 35px;
-    margin: 15px;
-  }
-`;
-
-const Home: NextPage = () => (
-  <>
-    <GlobalStyles />
-    <Head>
-      <title>Ars Old Car</title>
-      <link
-        href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'
-        rel='stylesheet'
-      />
-    </Head>
-    <Wrapper>
-      <Image src='/logo.png' width={256} height={256} />
-      <Heading>Strona w budowie 🏗️</Heading>
-      <Heading>
-        Rezerwacje możliwe na razie tylko pod numerem: 515 355 533
-      </Heading>
-      <Heading>Obserwuj nas na bieżąco!️</Heading>
-      <SocialWrapper>
-        <a
-          href='https://www.facebook.com/ARS-OLD-CAR-Muzeum-Motoryzacji-137529865169438'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <FacebookIcon />
-        </a>
-        <a
-          href='https://www.instagram.com/ars_old_car/'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <InstagramIcon />
-        </a>
-      </SocialWrapper>
-      <GallerySection>
-        <ImageContainer>
-          <Image src='/background.png' layout='fill' objectFit='contain' />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src='/train.png' layout='fill' objectFit='contain' />
-        </ImageContainer>
-      </GallerySection>
-    </Wrapper>
-  </>
+const Quicknews = ({ allQuickNews }: { allQuickNews: AllQuicknews }) => (
+  <QuicknewsWrapper>
+    {allQuickNews.map(({ description, id }) => {
+      const endOfLineIndexes = [
+        ...description.matchAll(new RegExp('\\n', 'gi')),
+      ].map((a) => a.index);
+      endOfLineIndexes.push(description.length);
+      return (
+        <div key={`${description}${id}`}>
+          {endOfLineIndexes.map((endOfLineIndex, index) => (
+            <p key={`${description}${endOfLineIndex}${id}`}>
+              {description.slice(
+                index === 0 ? 0 : endOfLineIndexes[index - 1],
+                endOfLineIndex
+              )}
+            </p>
+          ))}
+        </div>
+      );
+    })}
+  </QuicknewsWrapper>
 );
 
+const Mainnews = ({ allMainnews }: { allMainnews: AllMainnews }) => (
+  <MainnewsWrapper>
+    {allMainnews.map(({ title, description }) => (
+      <div>
+        <strong>{title}</strong>
+        {description.value.document.children.map(({ children }) => (
+          <>
+            {children.map(({ value }) => (
+              <p>{value}</p>
+            ))}
+          </>
+        ))}
+      </div>
+    ))}
+  </MainnewsWrapper>
+);
+
+const Home = ({
+  allQuicknews,
+  allMainnews,
+}: {
+  allQuicknews: AllQuicknews;
+  allMainnews: AllMainnews;
+}) => (
+  <Layout>
+    <Quicknews allQuickNews={allQuicknews} />
+    <Hero />
+    <Attractions />
+    <Mainnews allMainnews={allMainnews} />
+    <Map />
+  </Layout>
+);
 export default Home;
