@@ -143,6 +143,5 @@ const Home = ({
     <Mainnews allMainnews={allMainnews} />
     <Map />
   </Layout>
-);
 
 export default Home;
