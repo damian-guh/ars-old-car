@@ -33,7 +33,8 @@ export const GalleryDescWrapper = styled.section`
 `;
 
 export const GalleryDesc = styled.p`
-  max-width: 500px;
+  max-width: 700px;
+  font-size: ${({ theme }) => theme.fontSizes.md};
   text-align: justify;
   padding: 15px;
 `;

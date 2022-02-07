@@ -85,7 +85,7 @@ const QuicknewsWrapper = styled.section`
 
 const MainnewsWrapper = styled.section`
   padding: 5px;
-  text-align: center;
+  text-align: justify;
   margin: 20px;
 `;
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BURGER_DIMENSIONS } from 'components/Layout/Menu/Burger/Burger.style';
 
-export const HEADER_HEIGHT = '80px';
+export const HEADER_HEIGHT = '95px';
 
 export const Wrapper = styled.header`
   position: sticky;
@@ -21,7 +21,7 @@ export const Wrapper = styled.header`
     position: absolute;
     overflow: visible;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1.2);
     z-index: 30;
   }
 

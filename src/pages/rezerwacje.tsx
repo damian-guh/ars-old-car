@@ -269,9 +269,11 @@ const ReservationPage: NextPage = () => {
     <Layout>
       <ReservationPageWrapper>
         <PricingAndInfoSection>
-          <PricingAndInfoText>Cennik</PricingAndInfoText>
-          {PRICING_SECTION_TEXT.map((text) => (
-            <PricingAndInfoText key={text}>{text}</PricingAndInfoText>
+          <PricingAndInfoText bold>Cennik</PricingAndInfoText>
+          {PRICING_SECTION_TEXT.map(({ text, bold }) => (
+            <PricingAndInfoText bold={bold} key={text}>
+              {text}
+            </PricingAndInfoText>
           ))}
         </PricingAndInfoSection>
         <FormSectionWrapper>
