@@ -145,5 +145,4 @@ const Home = ({
     <Map />
   </Layout>
 );
-
 export default Home;
