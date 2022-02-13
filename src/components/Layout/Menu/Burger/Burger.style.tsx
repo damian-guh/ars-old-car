@@ -23,7 +23,7 @@ export const StyledBurger = styled.button<Props>`
   span {
     width: 100%;
     height: 0.25rem;
-    background: ${({ theme }) => theme.colors.black};
+    background: ${({ theme }) => theme.colors.white};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

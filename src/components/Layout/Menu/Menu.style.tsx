@@ -13,7 +13,7 @@ export const StyledNav = styled.nav<Props>`
   width: 100vw;
   transition: all 0.3s linear;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100vw')});
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.headerGray};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     position: static;

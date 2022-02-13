@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { IoMdClose } from '@react-icons/all-files/io/IoMdClose';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 type Props = {
   index: number;
@@ -11,6 +13,30 @@ export const Wrapper = styled.section`
   justify-items: center;
   padding: 10px;
   gap: 50px;
+`;
+
+export const InfoSectionWrapper = styled.section<Props>`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-column: ${({ index }) => (index % 2 === 0 ? '1' : '2')};
+    grid-row: 1;
+  }
+`;
+
+export const MoreInfoLink = styled.a`
+  background-color: ${({ theme }) => theme.colors.red};
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  align-self: center;
+  cursor: pointer;
+
+  :hover {
+    color: inherit;
+  }
 `;
 
 export const ItemWrapper = styled.div`
@@ -44,9 +70,8 @@ export const NearbyTitleSectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   position: sticky;
-  margin: 30px;
-  top: 0;
-  background-color: ${({ theme }) => theme.colors.white};
+  top: ${HEADER_HEIGHT};
+  background-color: ${({ theme }) => theme.colors.darkGray};
   z-index: 1;
 `;
 
@@ -57,14 +82,26 @@ export const NearbySectionTitle = styled.h1`
 
 export const NearbyDesc = styled.p`
   max-width: 800px;
-  padding: 15px 5px 5px 5px;
+  padding: 0 10px 15px 10px;
 `;
 
-export const NearbyTitle = styled.h2<Props>`
-  text-align: center;
+export const NearbyTitle = styled.h2`
+  text-align: justify-all;
+`;
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-column: ${({ index }) => (index % 2 === 0 ? '1' : '2')};
-    grid-row: 1;
-  }
+export const ImageFullWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export const CloseIcon = styled(IoMdClose)`
+  fill: ${({ theme }) => theme.colors.white};
+  position: fixed;
+  right: 35px;
+  top: 35px;
+  transform: scale(2.3);
+  cursor: pointer;
 `;

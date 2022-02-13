@@ -1,7 +1,7 @@
 export const APP_NAME = 'Ars Old Car';
 export const APP_AUTHOR = 'Damian Głuch';
 export const APP_DESC =
-  'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujący świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
+  'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
 
 export const NAV_ITEMS = [
   'Aktualności',
@@ -33,7 +33,7 @@ export const PRICING_SECTION_TEXT = [
     text: 'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
     bold: true,
   },
-  { text: 'Wstęp dla osób w wieku od 4 do 99 lat.', bold: true },
+  { text: 'Wstęp dla osób w wieku od 4 do 99 lat.', bold: false },
   {
     text: 'Miejsce przyjazne dla zwierząt - Zapraszamy fanów motoryzacji wraz z czworonogami',
     bold: false,

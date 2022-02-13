@@ -30,8 +30,8 @@ export const StyledInput = styled.input`
   padding: 10px;
   border: none;
   border-bottom: 2px solid ${({ color }) => handleColor(color)};
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.white};
   margin-bottom: 20px;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ theme }) => theme.fontFamilies.default};
@@ -71,8 +71,8 @@ export const StyledTextArea = styled.textarea`
   border: none;
   padding: 10px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.red};
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.white};
   resize: none;
   margin: 20px;
   font-family: ${({ theme }) => theme.fontFamilies.default};

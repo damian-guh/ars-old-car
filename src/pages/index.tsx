@@ -137,8 +137,9 @@ const Home = ({
   allMainnews: AllMainnews;
 }) => (
   <Layout>
-    <Quicknews allQuickNews={allQuicknews} />
-    <Hero />
+    <Hero>
+      <Quicknews allQuickNews={allQuicknews} />
+    </Hero>
     <Attractions />
     <Mainnews allMainnews={allMainnews} />
     <Map />

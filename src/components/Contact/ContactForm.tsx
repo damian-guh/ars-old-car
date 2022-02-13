@@ -98,7 +98,7 @@ const ContactForm = () => {
         email: Yup.string().email('Nieprawidłowy email').required('Wymagane'),
         message: Yup.string()
           .min(10, 'Wiadomość zawierać przynajmniej 10 znaków')
-          .max(100, 'Wiadomość nie może być dłuższa niż 100 znaków')
+          .max(400, 'Wiadomość nie może być dłuższa niż 400 znaków')
           .required('Wymagane'),
       })}
       onSubmit={(values: Values, { setSubmitting, resetForm }) => {

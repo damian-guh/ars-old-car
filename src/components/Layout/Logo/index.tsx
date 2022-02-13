@@ -25,7 +25,7 @@ const Logo = () => {
         <g
           stroke='null'
           id='svg_1'
-          fill='#000000'
+          fill='#ffffff'
           transform='translate(0 1000) scale(0.1 -0.1)'
         >
           <path

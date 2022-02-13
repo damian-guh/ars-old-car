@@ -5,7 +5,7 @@ export const HEADER_HEIGHT = '95px';
 
 export const Wrapper = styled.header`
   position: sticky;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.headerGray};
   inset: 0;
   display: grid;
   grid-template-columns: calc(2 * ${BURGER_DIMENSIONS}) 1fr;
