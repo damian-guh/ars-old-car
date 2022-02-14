@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import StaticImageData from 'next';
 import Image from 'next/image';
 import {
   HeroWrapper,
@@ -6,33 +6,31 @@ import {
   Overlay,
   HeroTitle,
   HeroDesc,
+  HeroTextWrapper,
 } from 'components/Hero/Hero.style';
-import HeroImage from '../../../public/hero1.png';
 
 type Props = {
-  children: ReactNode;
+  image: StaticImageData;
+  title?: string;
+  desc: string;
 };
 
-const Hero = ({ children }: Props) => (
+const Hero = ({ image, title, desc }: Props) => (
   <HeroWrapper>
-    <section>
-      <HeroTitle>Witaj w Naszym Muzeum</HeroTitle>
-      <HeroDesc>
-        To nieoczywiste, rodzinne miejsce miłośników motoryzacji, w niebanalny
-        sposób ukazujący świat odchodzącej historii pojazdów
-      </HeroDesc>
-      {children}
-    </section>
     <HeroImageWrapper>
       <Overlay />
       <Image
-        src={HeroImage}
+        src={image}
         placeholder='blur'
         layout='fill'
         objectFit='cover'
         quality={90}
-        alt='2CV tło'
+        alt={title}
       />
+      <HeroTextWrapper>
+        <HeroTitle>{title}</HeroTitle>
+        <HeroDesc>{desc}</HeroDesc>
+      </HeroTextWrapper>
     </HeroImageWrapper>
   </HeroWrapper>
 );

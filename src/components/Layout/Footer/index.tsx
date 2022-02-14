@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { APP_NAME, APP_AUTHOR } from 'utils/constants';
 
-export const FOOTER_HEIGHT = '80px';
+export const FOOTER_HEIGHT = '100px';
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -14,7 +14,7 @@ const StyledFooter = styled.footer`
   bottom: 0;
   width: 100%;
   height: ${FOOTER_HEIGHT};
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({ theme }) => theme.colors.headerGray};
   color: ${({ theme }) => theme.colors.white};
 
   @media screen and ${({ theme }) => theme.screenSizes.md} {
