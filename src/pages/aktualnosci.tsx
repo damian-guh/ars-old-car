@@ -1,5 +1,5 @@
+import { MouseEvent, useState } from 'react';
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
 import axios from 'axios';
 import Layout from 'components/Layout';
 import {
@@ -8,7 +8,10 @@ import {
   ArticleTitle,
   ImagesWrapper,
   ImageWrapper,
+  StyledImage,
 } from 'components/Article';
+import dayjs from 'dayjs';
+import ImageModal from 'components/ImageModal';
 
 type Props = {
   allArticles?: [
@@ -104,44 +107,64 @@ const NewsPage: NextPage = ({
   allArticles,
   error,
 }: InferGetStaticPropsType<typeof getStaticProps> & Props) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [clickedImage, setClickedImage] = useState<
+    (EventTarget & { src: string; alt: string }) | null
+  >(null);
+  const handleModal = (event: MouseEvent<HTMLImageElement>) => {
+    setModalOpen(true);
+    setClickedImage(event.target as HTMLImageElement);
+  };
   if (error === undefined) {
     return (
       <Layout>
-        <Wrapper>
-          {allArticles &&
-            allArticles.map(({ id, title, content, images }) => (
-              <Article key={id}>
-                <ArticleTitle>{title}</ArticleTitle>
-                <div>
-                  {content.value.document.children.map(({ children }) =>
-                    children.map(({ value, type, url }) => {
-                      if (type === 'link') {
-                        return (
-                          <a key={id} href={url}>
-                            {url}
-                          </a>
-                        );
-                      }
-                      return <div key={id}>{value}</div>;
-                    })
-                  )}
-                </div>
-                <ImagesWrapper>
-                  {images.map(({ url }) => (
-                    <ImageWrapper key={url}>
-                      <Image
-                        src={url}
-                        layout='fill'
-                        quality={95}
-                        objectFit='cover'
-                        objectPosition='center'
-                      />
-                    </ImageWrapper>
-                  ))}
-                </ImagesWrapper>
-              </Article>
-            ))}
-        </Wrapper>
+        {!isModalOpen ? (
+          <Wrapper>
+            {allArticles &&
+              allArticles.map(
+                ({ id, title, content, images, _firstPublishedAt: date }) => (
+                  <Article key={id}>
+                    <ArticleTitle>{title}</ArticleTitle>
+                    <div>
+                      {content.value.document.children.map(({ children }) =>
+                        children.map(({ value, type, url }) => {
+                          if (type === 'link') {
+                            return (
+                              <a key={id} href={url}>
+                                {url}
+                              </a>
+                            );
+                          }
+                          return <div key={id}>{value}</div>;
+                        })
+                      )}
+                    </div>
+                    <div>{String(dayjs(date).format('DD.MM.YYYY'))}</div>
+                    <ImagesWrapper>
+                      {images.map(({ url }) => (
+                        <ImageWrapper key={url}>
+                          <StyledImage
+                            src={url}
+                            layout='fill'
+                            quality={95}
+                            objectFit='cover'
+                            objectPosition='center'
+                            onClick={(event) => handleModal(event)}
+                          />
+                        </ImageWrapper>
+                      ))}
+                    </ImagesWrapper>
+                  </Article>
+                )
+              )}
+          </Wrapper>
+        ) : (
+          <ImageModal
+            isModalOpen={isModalOpen}
+            setModalOpen={setModalOpen}
+            clickedImage={clickedImage}
+          />
+        )}
       </Layout>
     );
   }

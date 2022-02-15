@@ -1,10 +1,13 @@
+import { MouseEvent, useState } from 'react';
 import type { GetStaticProps } from 'next';
 import axios from 'axios';
-import { Wrapper } from 'components/Layout/Gallery/Gallery.style';
-import adjustImagesObjects from 'helpers/adjustImagesObjects';
-import ImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/css/image-gallery.css';
+import {
+  ImageWrapper,
+  Wrapper,
+  StyledImage,
+} from 'components/Layout/Gallery/Gallery.style';
 import Layout from 'components/Layout';
+import ImageModal from 'components/ImageModal';
 
 type Assets = [
   {
@@ -64,19 +67,42 @@ const GalleryPage = ({
   allGalleries: Assets;
   error?: string;
 }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [clickedImage, setClickedImage] = useState<
+    (EventTarget & { src: string; alt: string }) | null
+  >(null);
+  const handleModal = (event: MouseEvent<HTMLImageElement>) => {
+    setModalOpen(true);
+    setClickedImage(event.target as HTMLImageElement);
+  };
+
   if (error === undefined) {
-    const images = adjustImagesObjects(allGalleries);
     return (
       <Layout>
-        <Wrapper>
-          <ImageGallery
-            items={images}
-            lazyLoad
-            showPlayButton={false}
-            showFullscreenButton={false}
-            showBullets
+        {!isModalOpen ? (
+          <Wrapper>
+            {allGalleries.map(({ asset }) =>
+              asset.map(({ id, url }) => (
+                <ImageWrapper key={id}>
+                  <StyledImage
+                    layout='fill'
+                    src={url}
+                    quality={95}
+                    alt='Gallery image'
+                    objectFit='cover'
+                    onClick={(event) => handleModal(event)}
+                  />
+                </ImageWrapper>
+              ))
+            )}
+          </Wrapper>
+        ) : (
+          <ImageModal
+            isModalOpen={isModalOpen}
+            setModalOpen={setModalOpen}
+            clickedImage={clickedImage}
           />
-        </Wrapper>
+        )}
       </Layout>
     );
   }

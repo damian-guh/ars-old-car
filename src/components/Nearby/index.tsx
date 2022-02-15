@@ -8,34 +8,11 @@ import {
   NearbyTitle,
   NearbySectionTitle,
   NearbyDesc,
-  ImageFullWrapper,
-  CloseIcon,
   InfoSectionWrapper,
   MoreInfoLink,
 } from 'components/Nearby/Nearby.style';
 import NEARBY_DATA from 'components/Nearby/NearbyData';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#__next');
-
-const modalStyles = {
-  content: {
-    backgroundColor: '#272727',
-    border: '0',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  overlay: {
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: '#272727',
-    zIndex: '20',
-    position: 'absolute',
-    left: '0',
-    top: '0',
-    border: '0',
-  },
-};
+import ImageModal from 'components/ImageModal';
 
 const Nearby = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -91,25 +68,11 @@ const Nearby = () => {
           </Wrapper>
         </>
       ) : (
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={() => setModalOpen(false)}
-          /* @ts-ignore */
-          style={modalStyles}
-        >
-          {clickedImage ? (
-            <>
-              <ImageFullWrapper>
-                <img
-                  src={clickedImage.src}
-                  alt={clickedImage.alt}
-                  style={{ maxWidth: '95%', maxHeight: '95%' }}
-                />
-              </ImageFullWrapper>
-              <CloseIcon onClick={() => setModalOpen(false)} />
-            </>
-          ) : null}
-        </Modal>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+          clickedImage={clickedImage}
+        />
       )}
     </>
   );

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const Wrapper = styled.section`
   display: grid;
@@ -10,8 +11,12 @@ export const Wrapper = styled.section`
 `;
 
 export const Article = styled.article`
-  max-width: 1000px;
+  max-width: 930px;
   font-size: ${({ theme }) => theme.fontSizes.md};
+
+  > * {
+    margin: 20px;
+  }
 `;
 
 export const ArticleTitle = styled.h1`
@@ -37,4 +42,17 @@ export const ImageWrapper = styled.div`
   width: 300px;
   height: 200px;
   position: relative;
+  cursor: pointer;
+
+  span {
+    border-radius: 10px;
+  }
+`;
+
+export const StyledImage = styled(Image)`
+  transition-duration: 0.2s;
+
+  :hover {
+    transform: scale(1.2);
+  }
 `;

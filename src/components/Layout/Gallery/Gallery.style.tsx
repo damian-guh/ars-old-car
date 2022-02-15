@@ -1,28 +1,35 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const Wrapper = styled.div`
-  width: calc(100vw - 20px);
+  display: grid;
+  grid-template-columns: 300px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+  gap: 50px;
 
-  .image-gallery-image {
-    height: 400px !important;
-    padding: 10px;
-
-    @media (orientation: landscape) {
-      height: 200px !important;
-    }
-
-    @media (min-width: 1024px) {
-      height: 500px !important;
-    }
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-template-columns: repeat(2, 400px);
   }
+`;
 
-  .image-gallery-icon:hover {
-    color: ${({ theme }) => theme.colors.red};
+export const ImageWrapper = styled.div`
+  position: relative;
+  height: 200px;
+
+  span {
+    border-radius: 10px;
   }
+`;
 
-  .image-gallery-bullet:hover {
-    background-color: ${({ theme }) => theme.colors.red} !important;
-    border-color: ${({ theme }) => theme.colors.red} !important;
+export const StyledImage = styled(Image)`
+  cursor: pointer;
+  transition-duration: 0.2s;
+
+  :hover {
+    transform: scale(1.2);
   }
 `;
 

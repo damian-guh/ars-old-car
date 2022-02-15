@@ -3,6 +3,7 @@ import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const HeroWrapper = styled.section`
   height: calc(100vh - ${HEADER_HEIGHT});
+  margin-bottom: 50px;
 `;
 
 export const Overlay = styled.div`
@@ -16,7 +17,7 @@ export const Overlay = styled.div`
 export const HeroTextWrapper = styled.section`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
   width: 100%;
   display: flex;
