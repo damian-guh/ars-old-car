@@ -22,6 +22,7 @@ export const HeroTextWrapper = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   z-index: 3;
 `;
 
@@ -34,7 +35,8 @@ export const HeroTitle = styled.h1`
 export const HeroDesc = styled.p`
   font-style: italic;
   padding: 20px 10px;
-  text-align: center;
+  max-width: 900px;
+  text-align: justify;
   font-size: ${({ theme }) => theme.fontSizes.md};
 `;
 

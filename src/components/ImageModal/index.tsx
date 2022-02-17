@@ -13,9 +13,7 @@ const modalStyles = {
     alignItems: 'center',
   },
   overlay: {
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: '#272727',
+    backgroundColor: 'rgba(39,39,39,0.7)',
     zIndex: '20',
     position: 'absolute',
     left: '0',
@@ -27,27 +25,48 @@ const modalStyles = {
 const CloseIcon = styled(IoMdClose)`
   fill: ${({ theme }) => theme.colors.white};
   position: fixed;
-  right: 35px;
-  top: 35px;
-  transform: scale(2.3);
+  right: 20px;
+  top: 20px;
+  transform: scale(2.5);
   cursor: pointer;
 `;
 
 const ImageFullWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 20px;
   width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+`;
+
+const ImageFull = styled.img<{ isFirst: boolean }>`
+  max-width: 90%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin: 10px;
+  order: ${({ isFirst }) => (isFirst ? '-1' : null)};
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    max-height: 700px;
+  }
 `;
 
 type Props = {
   isModalOpen: boolean;
   setModalOpen: Dispatch<SetStateAction<boolean>>;
-  clickedImage: (EventTarget & { src: string; alt: string }) | null;
+  clickedImage: (EventTarget & { src: string; alt: string; id: string }) | null;
+  allImages: [{ asset: [{ url: string; id: string }] }] | [];
 };
 
-const ImageModal = ({ isModalOpen, setModalOpen, clickedImage }: Props) => (
+const ImageModal = ({
+  isModalOpen,
+  setModalOpen,
+  clickedImage,
+  allImages,
+}: Props) => (
   <Modal
     isOpen={isModalOpen}
     onRequestClose={() => setModalOpen(false)}
@@ -57,11 +76,16 @@ const ImageModal = ({ isModalOpen, setModalOpen, clickedImage }: Props) => (
     {clickedImage ? (
       <>
         <ImageFullWrapper>
-          <img
-            src={clickedImage.src}
-            alt={clickedImage.alt}
-            style={{ maxWidth: '95%', maxHeight: '95%', borderRadius: '10px' }}
-          />
+          {allImages.map(({ asset }) =>
+            asset.map(({ id, url }) => (
+              <ImageFull
+                src={url}
+                id={id}
+                isFirst={id === clickedImage.id}
+                alt='Gallery image'
+              />
+            ))
+          )}
         </ImageFullWrapper>
         <CloseIcon onClick={() => setModalOpen(false)} />
       </>

@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import type { GetStaticProps } from 'next';
 import axios from 'axios';
 import {
@@ -69,12 +69,17 @@ const GalleryPage = ({
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [clickedImage, setClickedImage] = useState<
-    (EventTarget & { src: string; alt: string }) | null
+    (EventTarget & { src: string; alt: string; id: string }) | null
   >(null);
+  const [allImages, setAllImages] = useState(allGalleries);
   const handleModal = (event: MouseEvent<HTMLImageElement>) => {
     setModalOpen(true);
     setClickedImage(event.target as HTMLImageElement);
   };
+
+  useEffect(() => {
+    setAllImages(allGalleries);
+  }, []);
 
   if (error === undefined) {
     return (
@@ -90,6 +95,7 @@ const GalleryPage = ({
                     quality={95}
                     alt='Gallery image'
                     objectFit='cover'
+                    id={id}
                     onClick={(event) => handleModal(event)}
                   />
                 </ImageWrapper>
@@ -101,6 +107,7 @@ const GalleryPage = ({
             isModalOpen={isModalOpen}
             setModalOpen={setModalOpen}
             clickedImage={clickedImage}
+            allImages={allImages}
           />
         )}
       </Layout>
