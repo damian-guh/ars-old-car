@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { APP_NAME, APP_AUTHOR } from 'utils/constants';
+import { APP_AUTHOR } from 'utils/constants';
+import Logo from 'components/Layout/Logo';
+import { FaFacebookF as FacebookIcon } from '@react-icons/all-files/fa/FaFacebookF';
+import { AiOutlineInstagram as InstagramIcon } from '@react-icons/all-files/ai/AiOutlineInstagram';
 
-export const FOOTER_HEIGHT = '100px';
+export const FOOTER_HEIGHT = '120px';
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -44,15 +47,47 @@ const AuthorSection = styled.section`
   }
 `;
 
-const CopyrightSection = styled.section``;
+const CopyrightAndSocialSection = styled.section`
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  div svg {
+    width: 30px;
+    margin: 5px;
+  }
+
+  svg {
+    height: 100%;
+    max-width: 100px;
+  }
+`;
 
 const Footer = () => (
   <StyledFooter>
     <LawSection>
-      <Link href='/regulamin'>Regulamin</Link>
-      <Link href='/polityka-prywatności'>Polityka prywatności</Link>
+      <Link href=''>Regulamin</Link>
+      <Link href=''>Polityka prywatności</Link>
     </LawSection>
-    <CopyrightSection>© {APP_NAME}</CopyrightSection>
+    <CopyrightAndSocialSection>
+      <Logo />
+      <div>
+        <a
+          href='https://www.facebook.com/ARS-OLD-CAR-Muzeum-Motoryzacji-137529865169438'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FacebookIcon />
+        </a>
+        <a
+          href='https://www.instagram.com/ars_old_car/'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <InstagramIcon />
+        </a>
+      </div>
+    </CopyrightAndSocialSection>
     <AuthorSection>Realizacja: {APP_AUTHOR}</AuthorSection>
   </StyledFooter>
 );
