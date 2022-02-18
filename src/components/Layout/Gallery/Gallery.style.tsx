@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -36,6 +37,10 @@ export const StyledImage = styled(Image)`
 export const GalleryDescWrapper = styled.section`
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: ${HEADER_HEIGHT};
+  z-index: 3;
+  background-color: ${({ theme }) => theme.colors.darkGray};
 `;
 
 export const GalleryDesc = styled.p`
