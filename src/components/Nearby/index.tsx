@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, useEffect } from 'react';
 import {
   Wrapper,
   ItemWrapper,
@@ -17,12 +17,24 @@ import ImageModal from 'components/ImageModal';
 const Nearby = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [clickedImage, setClickedImage] = useState<
-    (EventTarget & { src: string; alt: string }) | null
+    (EventTarget & { src: string; alt: string; id: string }) | null
   >(null);
+  const [allImages, setAllImages] = useState<
+    [] | { asset: [{ url: string; id: string }] }[]
+  >([]);
   const handleModal = (event: MouseEvent<HTMLImageElement>) => {
     setModalOpen(true);
     setClickedImage(event.target as HTMLImageElement);
   };
+
+  useEffect(() => {
+    NEARBY_DATA.forEach(({ image, title: id }) =>
+      setAllImages((prevState) => [
+        ...prevState,
+        { asset: [{ url: image.src, id }] },
+      ])
+    );
+  }, []);
 
   return (
     <>
@@ -60,6 +72,7 @@ const Nearby = () => {
                     quality={95}
                     placeholder='blur'
                     objectFit='cover'
+                    id={title}
                     alt={title}
                   />
                 </ImageWrapper>
@@ -72,6 +85,7 @@ const Nearby = () => {
           isModalOpen={isModalOpen}
           setModalOpen={setModalOpen}
           clickedImage={clickedImage}
+          allImages={allImages}
         />
       )}
     </>

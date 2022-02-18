@@ -58,7 +58,7 @@ type Props = {
   isModalOpen: boolean;
   setModalOpen: Dispatch<SetStateAction<boolean>>;
   clickedImage: (EventTarget & { src: string; alt: string; id: string }) | null;
-  allImages: [{ asset: [{ url: string; id: string }] }] | [];
+  allImages: { asset: [{ url: string; id: string }] }[] | [];
 };
 
 const ImageModal = ({
@@ -81,6 +81,7 @@ const ImageModal = ({
               <ImageFull
                 src={url}
                 id={id}
+                key={id}
                 isFirst={id === clickedImage.id}
                 alt='Gallery image'
               />
