@@ -4,12 +4,12 @@ export const APP_DESC =
   'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
 
 export const NAV_ITEMS = [
-  'Aktualności',
-  'Galeria',
-  '#LUBIE2CV',
-  'Rezerwacje',
-  'W okolicy',
-  'Kontakt',
+  { title: 'Aktualności' },
+  { title: 'Galeria' },
+  { title: 'Konkursy', subtitles: ['#LUBIE2CV'] },
+  { title: 'Kup bilet', subtitles: ['Rezerwacje'] },
+  { title: 'W okolicy' },
+  { title: 'Kontakt' },
 ];
 
 export const MAIL = 'kontakt@arsoldcar.pl';
