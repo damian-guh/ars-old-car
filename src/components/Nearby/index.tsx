@@ -41,9 +41,7 @@ const Nearby = () => {
       {!isModalOpen ? (
         <>
           <NearbyTitleSectionWrapper>
-            <NearbySectionTitle>
-              Atrakcje turystyczne w pobliżu
-            </NearbySectionTitle>
+            <NearbySectionTitle>Zaplanuj wycieczkę z Nami</NearbySectionTitle>
             <NearbyDesc>
               Zapraszamy do Nas wszystkich fanów motoryzacji, ale nie tylko.
               Jeśli chcesz spędzić w okolicy cały dzień, weekend lub wręcz kilka

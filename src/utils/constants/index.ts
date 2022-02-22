@@ -6,8 +6,8 @@ export const APP_DESC =
 export const NAV_ITEMS = [
   { title: 'Aktualności' },
   { title: 'Galeria' },
-  { title: 'Konkursy', subtitles: ['#LUBIE2CV'] },
-  { title: 'Kup bilet', subtitles: ['Rezerwacje'] },
+  { title: 'Konkursy', subtitles: ['#LUBIE2CV', 'QR'] },
+  { title: 'Kup bilet', subtitles: ['Rezerwacje', 'Cennik'] },
   { title: 'W okolicy' },
   { title: 'Kontakt' },
 ];
