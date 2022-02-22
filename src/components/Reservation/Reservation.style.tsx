@@ -35,10 +35,10 @@ export const FormSectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    width: 50%;
-  }
+  padding: 50px 5px;
+  // @media screen and ${({ theme }) => theme.screenSizes.lg} {
+  //   width: 50%;
+  // }
 `;
 
 export const StyledHeading = styled.h1`

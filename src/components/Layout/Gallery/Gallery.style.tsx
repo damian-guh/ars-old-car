@@ -38,7 +38,7 @@ export const GalleryDescWrapper = styled.section`
   display: flex;
   justify-content: center;
   position: sticky;
-  top: ${HEADER_HEIGHT};
+  top: calc(${HEADER_HEIGHT} + 10px);
   z-index: 3;
   background-color: ${({ theme }) => theme.colors.darkGray};
 `;

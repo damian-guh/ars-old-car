@@ -15,7 +15,7 @@ const modalStyles = {
   overlay: {
     backgroundColor: 'rgba(39,39,39,0.7)',
     zIndex: '20',
-    position: 'absolute',
+    position: 'fixed',
     left: '0',
     top: '0',
     border: '0',

@@ -84,32 +84,29 @@ const GalleryPage = ({
   if (error === undefined) {
     return (
       <Layout>
-        {!isModalOpen ? (
-          <Wrapper>
-            {allGalleries.map(({ asset }) =>
-              asset.map(({ id, url }) => (
-                <ImageWrapper key={id}>
-                  <StyledImage
-                    layout='fill'
-                    src={url}
-                    quality={95}
-                    alt='Gallery image'
-                    objectFit='cover'
-                    id={id}
-                    onClick={(event) => handleModal(event)}
-                  />
-                </ImageWrapper>
-              ))
-            )}
-          </Wrapper>
-        ) : (
-          <ImageModal
-            isModalOpen={isModalOpen}
-            setModalOpen={setModalOpen}
-            clickedImage={clickedImage}
-            allImages={allImages}
-          />
-        )}
+        <Wrapper>
+          {allGalleries.map(({ asset }) =>
+            asset.map(({ id, url }) => (
+              <ImageWrapper key={id}>
+                <StyledImage
+                  layout='fill'
+                  src={url}
+                  quality={95}
+                  alt='Gallery image'
+                  objectFit='cover'
+                  id={id}
+                  onClick={(event) => handleModal(event)}
+                />
+              </ImageWrapper>
+            ))
+          )}
+        </Wrapper>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+          clickedImage={clickedImage}
+          allImages={allImages}
+        />
       </Layout>
     );
   }

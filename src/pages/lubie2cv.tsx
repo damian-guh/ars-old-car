@@ -85,43 +85,40 @@ const Lubie2cvPage = ({
   if (error === undefined) {
     return (
       <Layout>
-        {!isModalOpen ? (
-          <>
-            <GalleryDescWrapper>
-              <GalleryDesc>
-                Fanów 2CV zapraszamy do przesyłania Waszych ciekawych zdjęć w
-                tle z samochodem lub gadżetami , w szczególności z pobytu w
-                naszym muzeum. Spośród najciekawszych zdjęć wybierzemy zdjęcie
-                miesiąca i sezonu. Dla laureatów czekają nagrody w tematyce
-                związanej oczywiście z 2CV.
-              </GalleryDesc>
-            </GalleryDescWrapper>
-            <GalleryWrapper>
-              {allLubie2cvs.map(({ asset }) =>
-                asset.map(({ url, id }) => (
-                  <ImageWrapper key={id}>
-                    <StyledImage
-                      layout='fill'
-                      src={url}
-                      quality={95}
-                      alt='Gallery image'
-                      objectFit='cover'
-                      id={id}
-                      onClick={(event) => handleModal(event)}
-                    />
-                  </ImageWrapper>
-                ))
-              )}
-            </GalleryWrapper>
-          </>
-        ) : (
-          <ImageModal
-            isModalOpen={isModalOpen}
-            setModalOpen={setModalOpen}
-            clickedImage={clickedImage}
-            allImages={allImages}
-          />
-        )}
+        <>
+          <GalleryDescWrapper>
+            <GalleryDesc>
+              Fanów 2CV zapraszamy do przesyłania Waszych ciekawych zdjęć w tle
+              z samochodem lub gadżetami , w szczególności z pobytu w naszym
+              muzeum. Spośród najciekawszych zdjęć wybierzemy zdjęcie miesiąca i
+              sezonu. Dla laureatów czekają nagrody w tematyce związanej
+              oczywiście z 2CV.
+            </GalleryDesc>
+          </GalleryDescWrapper>
+          <GalleryWrapper>
+            {allLubie2cvs.map(({ asset }) =>
+              asset.map(({ url, id }) => (
+                <ImageWrapper key={id}>
+                  <StyledImage
+                    layout='fill'
+                    src={url}
+                    quality={95}
+                    alt='Gallery image'
+                    objectFit='cover'
+                    id={id}
+                    onClick={(event) => handleModal(event)}
+                  />
+                </ImageWrapper>
+              ))
+            )}
+          </GalleryWrapper>
+        </>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+          clickedImage={clickedImage}
+          allImages={allImages}
+        />
       </Layout>
     );
   }

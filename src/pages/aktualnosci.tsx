@@ -10,7 +10,6 @@ import {
   ImageWrapper,
   StyledImage,
 } from 'components/Article';
-import dayjs from 'dayjs';
 import ImageModal from 'components/ImageModal';
 
 type Props = {
@@ -139,55 +138,49 @@ const NewsPage: NextPage = ({
   if (error === undefined) {
     return (
       <Layout>
-        {!isModalOpen ? (
-          <Wrapper>
-            {allArticles &&
-              allArticles.map(
-                ({ id, title, content, images, _firstPublishedAt: date }) => (
-                  <Article key={id}>
-                    <ArticleTitle>{title}</ArticleTitle>
-                    <div>
-                      {content.value.document.children.map(({ children }) =>
-                        children.map(({ value, type, url }) => {
-                          if (type === 'link') {
-                            return (
-                              <a key={id} href={url}>
-                                {url}
-                              </a>
-                            );
-                          }
-                          return <div key={id}>{value}</div>;
-                        })
-                      )}
-                    </div>
-                    <div>{String(dayjs(date).format('DD.MM.YYYY'))}</div>
-                    <ImagesWrapper>
-                      {images.map(({ url, id: imageId }) => (
-                        <ImageWrapper key={imageId}>
-                          <StyledImage
-                            src={url}
-                            layout='fill'
-                            quality={95}
-                            id={imageId}
-                            objectFit='cover'
-                            objectPosition='center'
-                            onClick={(event) => handleModal(event)}
-                          />
-                        </ImageWrapper>
-                      ))}
-                    </ImagesWrapper>
-                  </Article>
-                )
-              )}
-          </Wrapper>
-        ) : (
-          <ImageModal
-            isModalOpen={isModalOpen}
-            setModalOpen={setModalOpen}
-            clickedImage={clickedImage}
-            allImages={allImages}
-          />
-        )}
+        <Wrapper>
+          {allArticles &&
+            allArticles.map(({ id, title, content, images }) => (
+              <Article key={id}>
+                <ArticleTitle>{title}</ArticleTitle>
+                <div>
+                  {content.value.document.children.map(({ children }) =>
+                    children.map(({ value, type, url }) => {
+                      if (type === 'link') {
+                        return (
+                          <a key={id} href={url}>
+                            {url}
+                          </a>
+                        );
+                      }
+                      return <div key={id}>{value}</div>;
+                    })
+                  )}
+                </div>
+                <ImagesWrapper>
+                  {images.map(({ url, id: imageId }) => (
+                    <ImageWrapper key={imageId}>
+                      <StyledImage
+                        src={url}
+                        layout='fill'
+                        quality={95}
+                        id={imageId}
+                        objectFit='cover'
+                        objectPosition='center'
+                        onClick={(event) => handleModal(event)}
+                      />
+                    </ImageWrapper>
+                  ))}
+                </ImagesWrapper>
+              </Article>
+            ))}
+        </Wrapper>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+          clickedImage={clickedImage}
+          allImages={allImages}
+        />
       </Layout>
     );
   }

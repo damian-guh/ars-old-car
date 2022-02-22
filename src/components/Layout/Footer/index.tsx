@@ -29,14 +29,6 @@ const StyledFooter = styled.footer`
 const LawSection = styled.section`
   display: flex;
   gap: 25px;
-
-  a {
-    color: ${({ theme }) => theme.colors.white};
-
-    :hover {
-      color: ${({ theme }) => theme.colors.black};
-    }
-  }
 `;
 
 const AuthorSection = styled.section`
@@ -87,7 +79,9 @@ const Footer = () => (
           <InstagramIcon />
         </a>
       </div>
+      <Link href='/rezerwacje'>Rezerwacje</Link>
     </CopyrightAndSocialSection>
+
     <AuthorSection>Realizacja: {APP_AUTHOR}</AuthorSection>
   </StyledFooter>
 );

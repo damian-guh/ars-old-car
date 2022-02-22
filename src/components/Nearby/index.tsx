@@ -38,54 +38,51 @@ const Nearby = () => {
 
   return (
     <>
-      {!isModalOpen ? (
-        <>
-          <NearbyTitleSectionWrapper>
-            <NearbySectionTitle>Zaplanuj wycieczkę z Nami</NearbySectionTitle>
-            <NearbyDesc>
-              Zapraszamy do Nas wszystkich fanów motoryzacji, ale nie tylko.
-              Jeśli chcesz spędzić w okolicy cały dzień, weekend lub wręcz kilka
-              dni zorganizujemy dla Ciebie program atrakcji i pokażemy Ci
-              miejsca, które nie zawsze są oczywistym wyborem. Napisz do Nas lub
-              zadzwoń. Podaj tylko datę pobytu, ilość osób i ich wiek, a resztą
-              się już zajmiemy.
-            </NearbyDesc>
-          </NearbyTitleSectionWrapper>
-          <Wrapper>
-            {NEARBY_DATA.map(({ title, distance, image, link }, index) => (
-              <ItemWrapper key={title}>
-                <InfoSectionWrapper index={index}>
-                  <NearbyTitle>
-                    {title} - tylko {distance} od ARS OLD CAR
-                  </NearbyTitle>
-                  <MoreInfoLink href={link} target='_blank' rel='noreferrer'>
-                    Więcej informacji
-                  </MoreInfoLink>
-                </InfoSectionWrapper>
-                <ImageWrapper index={index}>
-                  <StyledImage
-                    src={image}
-                    onClick={(event) => handleModal(event)}
-                    layout='fill'
-                    quality={95}
-                    placeholder='blur'
-                    objectFit='cover'
-                    id={title}
-                    alt={title}
-                  />
-                </ImageWrapper>
-              </ItemWrapper>
-            ))}
-          </Wrapper>
-        </>
-      ) : (
+      <>
+        <NearbyTitleSectionWrapper>
+          <NearbySectionTitle>Zaplanuj wycieczkę z Nami</NearbySectionTitle>
+          <NearbyDesc>
+            Zapraszamy do Nas wszystkich fanów motoryzacji, ale nie tylko. Jeśli
+            chcesz spędzić w okolicy cały dzień, weekend lub wręcz kilka dni
+            zorganizujemy dla Ciebie program atrakcji i pokażemy Ci miejsca,
+            które nie zawsze są oczywistym wyborem. Napisz do Nas lub zadzwoń.
+            Podaj tylko datę pobytu, ilość osób i ich wiek, a resztą się już
+            zajmiemy.
+          </NearbyDesc>
+        </NearbyTitleSectionWrapper>
+        <Wrapper>
+          {NEARBY_DATA.map(({ title, distance, image, link }, index) => (
+            <ItemWrapper key={title}>
+              <InfoSectionWrapper index={index}>
+                <NearbyTitle>
+                  {title} - tylko {distance} od ARS OLD CAR
+                </NearbyTitle>
+                <MoreInfoLink href={link} target='_blank' rel='noreferrer'>
+                  Więcej informacji
+                </MoreInfoLink>
+              </InfoSectionWrapper>
+              <ImageWrapper index={index}>
+                <StyledImage
+                  src={image}
+                  onClick={(event) => handleModal(event)}
+                  layout='fill'
+                  quality={95}
+                  placeholder='blur'
+                  objectFit='cover'
+                  id={title}
+                  alt={title}
+                />
+              </ImageWrapper>
+            </ItemWrapper>
+          ))}
+        </Wrapper>
         <ImageModal
           isModalOpen={isModalOpen}
           setModalOpen={setModalOpen}
           clickedImage={clickedImage}
           allImages={allImages}
         />
-      )}
+      </>
     </>
   );
 };

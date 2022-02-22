@@ -59,6 +59,7 @@ const Menu = ({ ...props }: Props) => {
                           <span
                             role='link'
                             tabIndex={-1}
+                            key={subtitle}
                             onClick={(event) =>
                               carAnimation(
                                 props.logoRef,
@@ -92,7 +93,7 @@ const Menu = ({ ...props }: Props) => {
               <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
             ) : (
               subtitles.map((subtitle) => (
-                <MobileSubNavItemSection>
+                <MobileSubNavItemSection key={subtitle}>
                   <TitleForSubtitle>{title}</TitleForSubtitle>
                   <Link href={`/${adjustNavItemName(subtitle)}`}>
                     {subtitle}

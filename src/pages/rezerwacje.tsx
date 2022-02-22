@@ -13,7 +13,6 @@ import type { NextPage } from 'next';
 // import DatePicker from 'react-datepicker';
 // import pl from 'date-fns/locale/pl';
 // import dayjs from 'dayjs';
-import { PRICING_SECTION_TEXT } from 'utils/constants';
 // import 'react-datepicker/dist/react-datepicker.css';
 import Layout from 'components/Layout';
 // import {
@@ -25,9 +24,9 @@ import Layout from 'components/Layout';
 import {
   FormSectionWrapper,
   StyledHeading,
-  ReservationPageWrapper,
-  PricingAndInfoSection,
-  PricingAndInfoText,
+  // ReservationPageWrapper,
+  // PricingAndInfoSection,
+  // PricingAndInfoText,
 } from 'components/Reservation/Reservation.style';
 // import * as Yup from 'yup';
 // import 'yup-phone';
@@ -262,19 +261,13 @@ const ReservationPage: NextPage = () => (
   // }
 
   <Layout>
-    <ReservationPageWrapper>
-      <PricingAndInfoSection>
-        <PricingAndInfoText bold>Cennik</PricingAndInfoText>
-        {PRICING_SECTION_TEXT.map(({ text, bold }) => (
-          <PricingAndInfoText bold={bold} key={text}>
-            {text}
-          </PricingAndInfoText>
-        ))}
-      </PricingAndInfoSection>
-      <FormSectionWrapper>
-        <StyledHeading>System rezerwacji w budowie 🏗</StyledHeading>
-      </FormSectionWrapper>
-      {/* <FormSectionWrapper>
+    {/* <ReservationPageWrapper> */}
+    <FormSectionWrapper>
+      <StyledHeading>
+        System rezerwacji będzie dostępny 6 kwietnia 🏗
+      </StyledHeading>
+    </FormSectionWrapper>
+    {/* <FormSectionWrapper>
           <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
           <Formik
             key='reservation-form'
@@ -355,7 +348,7 @@ const ReservationPage: NextPage = () => (
             </Form>
           </Formik>
         </FormSectionWrapper> */}
-    </ReservationPageWrapper>
+    {/* </ReservationPageWrapper> */}
   </Layout>
 );
 export default ReservationPage;

@@ -78,7 +78,7 @@ export const NearbyTitleSectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   position: sticky;
-  top: ${HEADER_HEIGHT};
+  top: calc(${HEADER_HEIGHT} + 10px);
   background-color: ${({ theme }) => theme.colors.darkGray};
   z-index: 1;
 `;

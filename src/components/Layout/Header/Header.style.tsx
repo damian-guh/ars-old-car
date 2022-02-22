@@ -9,6 +9,7 @@ export const Wrapper = styled.header`
   inset: 0;
   display: grid;
   grid-template-columns: calc(2 * ${BURGER_DIMENSIONS}) 1fr;
+  grid-template-rows: 2fr 1fr;
   justify-items: center;
   align-items: center;
   height: ${HEADER_HEIGHT};
@@ -28,6 +29,14 @@ export const Wrapper = styled.header`
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 5fr;
   }
+`;
+
+export const CountdownSpan = styled.span`
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  width: 100%;
+  grid-column: 1/3;
+  text-align: center;
 `;
 
 export const LogoWrapper = styled.div`
