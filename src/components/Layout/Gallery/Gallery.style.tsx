@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 300px;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
+  margin: 40px 0;
   width: 100%;
   gap: 50px;
 
@@ -38,7 +38,7 @@ export const GalleryDescWrapper = styled.section`
   display: flex;
   justify-content: center;
   position: sticky;
-  top: calc(${HEADER_HEIGHT} + 10px);
+  top: calc(${HEADER_HEIGHT} + 20px);
   z-index: 3;
   background-color: ${({ theme }) => theme.colors.darkGray};
 `;

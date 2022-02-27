@@ -11,6 +11,7 @@ export const Wrapper = styled.section`
   grid-template-columns: 1fr;
   justify-items: center;
   padding: 10px;
+  margin: 25px 0;
   gap: 50px;
 `;
 
@@ -76,11 +77,16 @@ export const ImageWrapper = styled.div<Props>`
 export const NearbyTitleSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  margin: 40px 0;
   align-items: center;
-  position: sticky;
-  top: calc(${HEADER_HEIGHT} + 10px);
   background-color: ${({ theme }) => theme.colors.darkGray};
-  z-index: 1;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    position: sticky;
+    top: calc(${HEADER_HEIGHT} + 20px);
+    z-index: 1;
+    margin: 0;
+  }
 `;
 
 export const NearbySectionTitle = styled.h1`

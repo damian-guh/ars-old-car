@@ -92,14 +92,14 @@ const Menu = ({ ...props }: Props) => {
             {!subtitles ? (
               <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
             ) : (
-              subtitles.map((subtitle) => (
-                <MobileSubNavItemSection key={subtitle}>
-                  <TitleForSubtitle>{title}</TitleForSubtitle>
-                  <Link href={`/${adjustNavItemName(subtitle)}`}>
+              <MobileSubNavItemSection>
+                <TitleForSubtitle>{title}</TitleForSubtitle>
+                {subtitles.map((subtitle) => (
+                  <Link key={subtitle} href={`/${adjustNavItemName(subtitle)}`}>
                     {subtitle}
                   </Link>
-                </MobileSubNavItemSection>
-              ))
+                ))}
+              </MobileSubNavItemSection>
             )}
           </NavListItem>
         ))}

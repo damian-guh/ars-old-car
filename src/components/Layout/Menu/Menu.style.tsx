@@ -86,7 +86,8 @@ export const MobileSubNavItemSection = styled.div`
   width: 200px;
 
   a {
-    align-self: flex-end;
+    width: 200px;
+    text-align: justify;
   }
 `;
 
