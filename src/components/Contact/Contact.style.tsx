@@ -28,6 +28,7 @@ export const MuseumDataSection = styled.section`
   font-size: ${({ theme }) => theme.fontSizes.lg};
 
   button {
+    color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.fontSizes.md};
     background-color: transparent;
     font-family: ${({ theme }) => theme.fontFamilies.default};

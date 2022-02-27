@@ -1,28 +1,36 @@
+import StaticImageData from 'next';
 import Image from 'next/image';
 import {
   HeroWrapper,
   HeroImageWrapper,
-  Text,
   Overlay,
+  HeroTitle,
+  HeroDesc,
+  HeroTextWrapper,
 } from 'components/Hero/Hero.style';
-import HeroImage from '../../../public/hero.png';
 
-const Hero = () => (
+type Props = {
+  image: StaticImageData;
+  title?: string;
+  desc: string;
+};
+
+const Hero = ({ image, title, desc }: Props) => (
   <HeroWrapper>
     <HeroImageWrapper>
       <Overlay />
-      <Text>
-        Nieoczywiste, rodzinne miejsce miłośników motoryzacji, w niebanalny
-        sposób ukazujący świat odchodzącej historii pojazdów
-      </Text>
       <Image
-        src={HeroImage}
+        src={image}
         placeholder='blur'
         layout='fill'
         objectFit='cover'
         quality={90}
-        alt='2CV tło'
+        alt={title}
       />
+      <HeroTextWrapper>
+        <HeroTitle>{title}</HeroTitle>
+        <HeroDesc>{desc}</HeroDesc>
+      </HeroTextWrapper>
     </HeroImageWrapper>
   </HeroWrapper>
 );

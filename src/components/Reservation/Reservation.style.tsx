@@ -16,7 +16,6 @@ export const PricingAndInfoSection = styled.section`
   display: flex;
   flex-direction: column;
   text-align: justify-all;
-  background-color: ${({ theme }) => theme.colors.red};
   color: ${({ theme }) => theme.colors.white};
   padding: 10px;
 
@@ -28,17 +27,18 @@ export const PricingAndInfoSection = styled.section`
 export const PricingAndInfoText = styled.p<{ bold: boolean }>`
   font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  margin: 3px;
+  margin: ${({ bold }) => (bold ? '10px' : '1px')};
 `;
 
 export const FormSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    width: 50%;
-  }
+  justify-content: center;
+  padding: 50px 5px;
+  // @media screen and ${({ theme }) => theme.screenSizes.lg} {
+  //   width: 50%;
+  // }
 `;
 
 export const StyledHeading = styled.h1`

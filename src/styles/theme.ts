@@ -4,6 +4,8 @@ export const theme = {
     white: '#ffffff',
     red: '#e21f2c',
     gray: '#5e5959',
+    darkGray: '#464643',
+    headerGray: '#171716',
     yellow: '#e5ff00',
     blue: '#0051ff',
     green: '#00ff51',
@@ -19,7 +21,7 @@ export const theme = {
     xxl: '2.3rem',
   },
   fontFamilies: {
-    default: 'Poppins, sans-serif',
+    default: 'Mali',
   },
   screenSizes: {
     xs: '(min-width: 320px)',

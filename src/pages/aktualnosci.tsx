@@ -1,5 +1,5 @@
+import { MouseEvent, useEffect, useState } from 'react';
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
 import axios from 'axios';
 import Layout from 'components/Layout';
 import {
@@ -8,7 +8,9 @@ import {
   ArticleTitle,
   ImagesWrapper,
   ImageWrapper,
+  StyledImage,
 } from 'components/Article';
+import ImageModal from 'components/ImageModal';
 
 type Props = {
   allArticles?: [
@@ -20,6 +22,7 @@ type Props = {
       images: [
         {
           url: string;
+          id: string;
         }
       ];
       content: {
@@ -71,6 +74,7 @@ export const getStaticProps: GetStaticProps = async () => {
             _status
             _firstPublishedAt
             images {
+              id
               url
             }
           }
@@ -104,6 +108,33 @@ const NewsPage: NextPage = ({
   allArticles,
   error,
 }: InferGetStaticPropsType<typeof getStaticProps> & Props) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [clickedImage, setClickedImage] = useState<
+    (EventTarget & { src: string; alt: string; id: string }) | null
+  >(null);
+  const [allImages, setAllImages] = useState<
+    [] | { asset: [{ url: string; id: string }] }[]
+  >([]);
+  const handleModal = (event: MouseEvent<HTMLImageElement>) => {
+    setModalOpen(true);
+    setClickedImage(event.target as HTMLImageElement);
+  };
+
+  useEffect(() => {
+    if (allArticles) {
+      allArticles.forEach(({ images }) => {
+        images.forEach(({ url, id }) => {
+          setAllImages((prevState) => [
+            ...prevState,
+            {
+              asset: [{ url, id }],
+            },
+          ]);
+        });
+      });
+    }
+  }, []);
+
   if (error === undefined) {
     return (
       <Layout>
@@ -127,14 +158,16 @@ const NewsPage: NextPage = ({
                   )}
                 </div>
                 <ImagesWrapper>
-                  {images.map(({ url }) => (
-                    <ImageWrapper key={url}>
-                      <Image
+                  {images.map(({ url, id: imageId }) => (
+                    <ImageWrapper key={imageId}>
+                      <StyledImage
                         src={url}
                         layout='fill'
                         quality={95}
+                        id={imageId}
                         objectFit='cover'
                         objectPosition='center'
+                        onClick={(event) => handleModal(event)}
                       />
                     </ImageWrapper>
                   ))}
@@ -142,6 +175,12 @@ const NewsPage: NextPage = ({
               </Article>
             ))}
         </Wrapper>
+        <ImageModal
+          isModalOpen={isModalOpen}
+          setModalOpen={setModalOpen}
+          clickedImage={clickedImage}
+          allImages={allImages}
+        />
       </Layout>
     );
   }

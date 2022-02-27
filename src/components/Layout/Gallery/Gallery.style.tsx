@@ -1,35 +1,50 @@
 import styled from 'styled-components';
+import Image from 'next/image';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
-// eslint-disable-next-line import/prefer-default-export
 export const Wrapper = styled.div`
-  width: calc(100vw - 20px);
+  display: grid;
+  grid-template-columns: 300px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  width: 100%;
+  gap: 50px;
 
-  .image-gallery-image {
-    height: 400px !important;
-    padding: 10px;
-
-    @media (orientation: landscape) {
-      height: 200px !important;
-    }
-
-    @media (min-width: 1024px) {
-      height: 500px !important;
-    }
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-template-columns: repeat(2, 400px);
   }
+`;
 
-  .image-gallery-icon:hover {
-    color: ${({ theme }) => theme.colors.red};
+export const ImageWrapper = styled.div`
+  position: relative;
+  height: 200px;
+
+  span {
+    border-radius: 10px;
   }
+`;
 
-  .image-gallery-bullet:hover {
-    background-color: ${({ theme }) => theme.colors.red} !important;
-    border-color: ${({ theme }) => theme.colors.red} !important;
+export const StyledImage = styled(Image)`
+  cursor: pointer;
+  transition-duration: 0.2s;
+
+  :hover {
+    transform: scale(1.2);
   }
 `;
 
 export const GalleryDescWrapper = styled.section`
   display: flex;
   justify-content: center;
+  margin: 40px 0;
+  background-color: ${({ theme }) => theme.colors.darkGray};
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    position: sticky;
+    top: calc(${HEADER_HEIGHT} + 20px);
+    z-index: 3;
+  }
 `;
 
 export const GalleryDesc = styled.p`

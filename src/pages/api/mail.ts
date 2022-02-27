@@ -14,7 +14,7 @@ mail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, method } = req;
   const { captcha, formValues } = body;
-  const { name, email, message } = formValues;
+  const { name, email, phoneNumber, message } = formValues;
 
   if (method === 'POST') {
     if (!captcha || !name || !email || !message) {
@@ -32,6 +32,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         const mailMessage = `
           Imię: ${name}\r\n
           Email: ${email}\r\n
+          Number telefonu: ${!phoneNumber ? 'Niepodano' : phoneNumber}\r\n 
           Wiadomość: ${message}
         `;
 

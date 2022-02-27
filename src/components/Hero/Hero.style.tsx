@@ -1,20 +1,9 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
-const textAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-   
-    opacity: 1;
-  }
-`;
-
 export const HeroWrapper = styled.section`
-  position: relative;
   height: calc(100vh - ${HEADER_HEIGHT});
+  margin-bottom: 50px;
 `;
 
 export const Overlay = styled.div`
@@ -22,28 +11,33 @@ export const Overlay = styled.div`
   inset: 0;
   z-index: 2;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.3);
 `;
 
-export const Text = styled.p`
+export const HeroTextWrapper = styled.section`
   position: absolute;
-  bottom: 50%;
   left: 50%;
-  transform: translate(-50%, 50%);
-  padding: 15px;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 3;
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  font-style: italic;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.white};
-  animation: ${textAnimation} ease-in-out 2s;
+`;
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    font-size: ${({ theme }) => theme.fontSizes.xl};
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+export const HeroTitle = styled.h1`
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
+  text-align: center;
+  padding: 15px;
+`;
+
+export const HeroDesc = styled.p`
+  font-style: italic;
+  padding: 20px 10px;
+  max-width: 900px;
+  text-align: justify;
+  font-size: ${({ theme }) => theme.fontSizes.md};
 `;
 
 export const HeroImageWrapper = styled.div`

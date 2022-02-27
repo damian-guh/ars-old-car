@@ -8,14 +8,14 @@ const GlobalStyles = createGlobalStyle`
    body {
      margin: 0;
      min-width: 320px;
-     background-color: ${({ theme }) => theme.colors.white};
-     color: ${({ theme }) => theme.colors.black};
+     background-color: ${({ theme }) => theme.colors.darkGray};
+     color: ${({ theme }) => theme.colors.white};
      font-family: ${({ theme }) => theme.fontFamilies.default};
    }
     
    a {
      text-decoration: none;
-     color: ${({ theme }) => theme.colors.black};
+     color: ${({ theme }) => theme.colors.white};
 
      :hover {
        color: ${({ theme }) => theme.colors.red};
