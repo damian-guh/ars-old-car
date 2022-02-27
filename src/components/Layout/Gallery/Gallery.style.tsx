@@ -37,10 +37,14 @@ export const StyledImage = styled(Image)`
 export const GalleryDescWrapper = styled.section`
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: calc(${HEADER_HEIGHT} + 20px);
-  z-index: 3;
+  margin: 40px 0;
   background-color: ${({ theme }) => theme.colors.darkGray};
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    position: sticky;
+    top: calc(${HEADER_HEIGHT} + 20px);
+    z-index: 3;
+  }
 `;
 
 export const GalleryDesc = styled.p`

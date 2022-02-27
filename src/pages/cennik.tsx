@@ -28,7 +28,6 @@ const showContent = keyframes`
 `;
 
 const StyledDetails = styled.details`
-  //width: 600px;
   margin: 30px 0;
   position: relative;
   summary {
@@ -54,7 +53,6 @@ const StyledDetails = styled.details`
     }
   }
 
-  // Firefox animation workaround
   &[open] div {
     display: block;
   }

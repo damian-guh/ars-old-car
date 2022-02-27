@@ -38,7 +38,7 @@ export const PRICING_SECTION_TEXT = [
     title: 'Godziny otwarcia i wydarzenia',
     details: [
       'Majówka z ARS OLD CAR',
-      'Zapraszamy w dniach 29.04-3.05 w godz. 10-17.',
+      'Zapraszamy w dniach 29.04-3.05 w godz. 9:30-17:00.',
       'Zaczynamy tydzień przed majówką w dniach 22-24.04',
       '22.04.2022 - Dzień otwarty, bezpłatny wstęp dla mieszkańców gminy Chęciny',
       '23.04.2022 – Otwarcie sezonu 2022, wstęp dla posiadaczy zaproszeń',

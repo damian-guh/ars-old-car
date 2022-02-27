@@ -11,17 +11,19 @@ import {
   InputError,
 } from 'components/Form/Form.style';
 import * as Yup from 'yup';
+import 'yup-phone';
 
 type Values = {
   name: string;
   email: string;
+  phoneNumber?: string;
   message: string;
 };
 
 type InputProps = {
-  type?: 'text';
-  name: 'name' | 'email' | 'message';
-  placeholder: 'Imię' | 'Email' | 'Wiadomość';
+  type?: 'text' | 'tel';
+  name: 'name' | 'email' | 'message' | 'phoneNumber';
+  placeholder: 'Imię' | 'Email' | 'Wiadomość' | 'Numer telefonu';
 };
 
 const toastOptions: ToastOptions = {
@@ -88,6 +90,7 @@ const ContactForm = () => {
       initialValues={{
         name: '',
         email: '',
+        phoneNumber: '',
         message: '',
       }}
       validationSchema={Yup.object({
@@ -96,6 +99,11 @@ const ContactForm = () => {
           .max(15, 'Imię nie może być dłuższe od 15 znaków')
           .required('Wymagane'),
         email: Yup.string().email('Nieprawidłowy email').required('Wymagane'),
+        phoneNumber: Yup.string().phone(
+          'PL',
+          true,
+          'Niepoprawny numer telefonu'
+        ),
         message: Yup.string()
           .min(10, 'Wiadomość zawierać przynajmniej 10 znaków')
           .max(400, 'Wiadomość nie może być dłuższa niż 400 znaków')
@@ -120,6 +128,7 @@ const ContactForm = () => {
           />
           <Input type='text' name='name' placeholder='Imię' />
           <Input type='text' name='email' placeholder='Email' />
+          <Input type='tel' name='phoneNumber' placeholder='Numer telefonu' />
           <TextArea name='message' placeholder='Wiadomość' />
           <Button type='submit'>Wyślij</Button>
         </Form>
