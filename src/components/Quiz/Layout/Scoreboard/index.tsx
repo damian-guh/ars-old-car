@@ -6,8 +6,15 @@ import { getCookie } from 'cookies-next';
 
 const Scoreboard = () => {
   useCheckQuizUsernameCookie();
-  const [score, maxScore] = useQuizScore();
+  const { childrenQuizScore, f1QuizScore, womanQuizScore, youthQuizScore } =
+    useQuizScore();
   const [username, setUsername] = useState('');
+
+  const isAllScoresAreMax = () =>
+    childrenQuizScore.score === childrenQuizScore.maxScore &&
+    f1QuizScore.score === f1QuizScore.maxScore &&
+    womanQuizScore.score === womanQuizScore.maxScore &&
+    youthQuizScore.score === youthQuizScore.maxScore;
 
   useEffect(() => {
     setUsername(String(getCookie('quiz-username')));
@@ -17,12 +24,33 @@ const Scoreboard = () => {
     <Wrapper>
       <p>Gratulacje! 🎉</p>
       <p>
-        Twój wynik <strong>{username}</strong> to{' '}
+        Twoje wyniki <strong>{username}</strong> to:
+      </p>
+      <p>
+        Dla dzieci{' '}
         <strong>
-          {score} / {maxScore}
+          {childrenQuizScore.score}/{childrenQuizScore.maxScore}
         </strong>
       </p>
-      {score === maxScore ? <p>Odbierz swoją nagrodę! 🎁</p> : null}
+      <p>
+        Dla kobiet{' '}
+        <strong>
+          {womanQuizScore.score}/{womanQuizScore.maxScore}
+        </strong>
+      </p>
+      <p>
+        Dla fanów F1{' '}
+        <strong>
+          {f1QuizScore.score}/{f1QuizScore.maxScore}
+        </strong>
+      </p>
+      <p>
+        Dla młodzieży{' '}
+        <strong>
+          {youthQuizScore.score}/{youthQuizScore.maxScore}
+        </strong>
+      </p>
+      {isAllScoresAreMax() && <p>Odbierz swoją nagrodę! 🎁</p>}
     </Wrapper>
   );
 };

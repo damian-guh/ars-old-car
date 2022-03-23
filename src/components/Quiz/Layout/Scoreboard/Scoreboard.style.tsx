@@ -7,4 +7,5 @@ export const Wrapper = styled.section`
   font-size: ${({ theme }) => theme.fontSizes.xl};
   padding: 15px;
   text-align: center;
+  gap: 10px;
 `;
