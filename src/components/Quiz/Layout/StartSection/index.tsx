@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/router';
 import { Formik, useField } from 'formik';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -55,7 +54,6 @@ const StartSection = ({ color }: Props) => {
   const recaptchaRef = useRef<any>(null);
   const [formValues, setFormValues] = useState<Values | null>(null);
   const [isFormDisabled, setFormDisabled] = useState(false);
-  const router = useRouter();
 
   const onReCAPTCHAChange = async (captchaCode: string) => {
     if (!captchaCode) {
@@ -105,10 +103,6 @@ const StartSection = ({ color }: Props) => {
               recaptchaRef.current.execute();
             }
             setCookies('quiz-username', values.name, {
-              secure: true,
-              expires: getTomorrowDate(),
-            });
-            setCookies('quiz-category', router.pathname, {
               secure: true,
               expires: getTomorrowDate(),
             });

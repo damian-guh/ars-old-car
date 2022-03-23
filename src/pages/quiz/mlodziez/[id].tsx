@@ -24,18 +24,28 @@ const handleAnswer = (
   router: NextRouter
 ) => {
   const { value } = event.target;
-  const cookieKey = `quiz-answer-${router.query.id}`;
-  setCookies(cookieKey, value, {
+  const cookieKey = `quiz-answer-youth-`;
+  const cookieAnswer = `${cookieKey}${router.query.id}`;
+  setCookies(cookieAnswer, value, {
     secure: true,
     expires: getTomorrowDate(),
   });
-  setAnswerExist(checkCookies(cookieKey));
-  if (isAllAnswersExist(YOUTH_QUESTIONS.length)) router.push('/quiz/koniec');
+  setCookies('quiz-youth', '', { secure: true, expires: getTomorrowDate() });
+  setAnswerExist(checkCookies(cookieAnswer));
+  if (isAllAnswersExist(YOUTH_QUESTIONS.length, cookieKey))
+    router.push('/quiz/koniec');
 };
 
 const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
   const router = useRouter();
   const [isAnswerExist, setAnswerExist] = useCheckIsAnswerExist();
+
+  if (isAnswerExist)
+    return (
+      <QuizInfoSpan>
+        Udzielono odpowiedzi na to pytanie, szukaj kolejnych kodów QR
+      </QuizInfoSpan>
+    );
 
   return (
     <>
@@ -50,11 +60,6 @@ const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
           {answer}
         </QuizAnswerButton>
       ))}
-      {isAnswerExist && (
-        <QuizInfoSpan>
-          Udzielono odpowiedzi na to pytanie, szukaj kolejnych kodów QR
-        </QuizInfoSpan>
-      )}
     </>
   );
 };

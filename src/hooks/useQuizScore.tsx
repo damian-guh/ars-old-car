@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { getCookie, setCookies } from 'cookies-next';
+import { useEffect, useReducer } from 'react';
+import { getCookie, setCookies, getCookies } from 'cookies-next';
 import getTomorrowDate from 'helpers/getTomorrowDate';
 import CHILDREN_QUESTIONS from 'utils/constants/quizQuestions/childrenQuestions';
 import F1_QUESTIONS from 'utils/constants/quizQuestions/f1Questions';
@@ -14,40 +14,93 @@ type Question = {
 
 type Questions = Question[];
 
-const useQuizScore = () => {
-  const [score, setScore] = useState(0);
-  const [maxScore, setMaxScore] = useState(0);
+const initialScore = {
+  childrenQuizScore: {
+    score: 0,
+    maxScore: CHILDREN_QUESTIONS.length,
+  },
+  f1QuizScore: {
+    score: 0,
+    maxScore: F1_QUESTIONS.length,
+  },
+  womanQuizScore: {
+    score: 0,
+    maxScore: WOMAN_QUESTIONS.length,
+  },
+  youthQuizScore: {
+    score: 0,
+    maxScore: YOUTH_QUESTIONS.length,
+  },
+};
 
-  const checkAnswerAndSetScore = (questions: Questions) => {
+const scoreReducer = (
+  state: typeof initialScore,
+  { type }: { type: string }
+) => {
+  switch (type) {
+    case 'increment-children-score':
+      return {
+        ...state,
+        childrenQuizScore: {
+          score: state.childrenQuizScore.score + 1,
+          maxScore: state.childrenQuizScore.maxScore,
+        },
+      };
+    case 'increment-f1-score':
+      return {
+        ...state,
+        f1QuizScore: {
+          score: state.f1QuizScore.score + 1,
+          maxScore: state.f1QuizScore.maxScore,
+        },
+      };
+    case 'increment-woman-score':
+      return {
+        ...state,
+        womanQuizScore: {
+          score: state.womanQuizScore.score + 1,
+          maxScore: state.womanQuizScore.maxScore,
+        },
+      };
+    case 'increment-youth-score':
+      return {
+        ...state,
+        youthQuizScore: {
+          score: state.youthQuizScore.score + 1,
+          maxScore: state.youthQuizScore.maxScore,
+        },
+      };
+    default:
+      return state;
+  }
+};
+
+const useQuizScore = () => {
+  const [score, scoreDispatch] = useReducer(scoreReducer, initialScore);
+
+  const checkAnswerAndSetScore = (questions: Questions, category: string) => {
     questions.forEach((question, index) => {
-      if (question.correctAnswer === getCookie(`quiz-answer-${index + 1}`)) {
-        setScore((prevScore) => prevScore + 1);
+      if (
+        question.correctAnswer ===
+        getCookie(`quiz-answer-${category}-${index + 1}`)
+      ) {
+        scoreDispatch({ type: `increment-${category}-score` });
       }
     });
   };
 
   useEffect(() => {
-    if (score === 0) {
-      switch (getCookie('quiz-category')) {
-        case '/quiz/dzieci':
-          checkAnswerAndSetScore(CHILDREN_QUESTIONS);
-          setMaxScore(CHILDREN_QUESTIONS.length);
-          break;
-        case '/quiz/kobiety':
-          checkAnswerAndSetScore(WOMAN_QUESTIONS);
-          setMaxScore(WOMAN_QUESTIONS.length);
-          break;
-        case '/quiz/fani-f1':
-          checkAnswerAndSetScore(F1_QUESTIONS);
-          setMaxScore(F1_QUESTIONS.length);
-          break;
-        case '/quiz/mlodziez':
-          checkAnswerAndSetScore(YOUTH_QUESTIONS);
-          setMaxScore(YOUTH_QUESTIONS.length);
-          break;
-        default:
-          setScore(0);
-      }
+    if ('quiz-children' in getCookies()) {
+      checkAnswerAndSetScore(CHILDREN_QUESTIONS, 'children');
+    }
+    if ('quiz-woman' in getCookies()) {
+      checkAnswerAndSetScore(WOMAN_QUESTIONS, 'woman');
+    }
+    if ('quiz-youth' in getCookies()) {
+      checkAnswerAndSetScore(YOUTH_QUESTIONS, 'youth');
+    }
+    if ('quiz-f1' in getCookies()) {
+      checkAnswerAndSetScore(F1_QUESTIONS, 'f1');
     }
   }, []);
 
@@ -58,7 +111,7 @@ const useQuizScore = () => {
     });
   }, [score]);
 
-  return [score, maxScore];
+  return score;
 };
 
 export default useQuizScore;
