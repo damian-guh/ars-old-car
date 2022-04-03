@@ -308,6 +308,9 @@ const ReservationPage: NextPage = () => {
                               date,
                             })
                             .then(() => setReservationEnded(true))
+                            .catch(() =>
+                              setFormErrorMessage('Coś poszło nie tak :(')
+                            )
                         );
                       } catch {
                         setFormErrorMessage('Coś poszło nie tak :(');
