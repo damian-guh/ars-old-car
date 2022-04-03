@@ -21,7 +21,7 @@ export const LONGITUDE =
   process.env.NODE_ENV === 'production' ? 20.4697 : 20.6278;
 
 export const OPENING_MUSEUM_HOUR = 10;
-export const CLOSING_MUSEUM_HOUR = 20;
+export const CLOSING_MUSEUM_HOUR = 17;
 
 export const PRICING_SECTION_TEXT = [
   {

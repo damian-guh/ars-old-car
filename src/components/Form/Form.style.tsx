@@ -35,7 +35,6 @@ export const StyledInput = styled.input`
   margin-bottom: 20px;
   font-size: ${({ theme }) => theme.fontSizes.sm};
   font-family: ${({ theme }) => theme.fontFamilies.default};
-  outline: none;
 
   :disabled {
     color: ${({ theme }) => theme.colors.gray};

@@ -34,15 +34,15 @@ export const FormSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80vh;
   justify-content: center;
   padding: 50px 5px;
-  // @media screen and ${({ theme }) => theme.screenSizes.lg} {
-  //   width: 50%;
-  // }
+  background-color: ${({ theme }) => theme.colors.headerGray};
 `;
 
 export const StyledHeading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.xl};
-  padding: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
   text-align: center;
 `;
