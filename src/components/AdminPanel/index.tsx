@@ -6,6 +6,11 @@ import {
   TextField,
   DateField,
   TextInput,
+  Create,
+  SimpleForm,
+  NumberInput,
+  NumberField,
+  DateTimeInput,
 } from 'react-admin';
 import {
   FirebaseAuthProvider,
@@ -40,15 +45,29 @@ const ReservationDatesList = (props: any) => (
   <List {...props} filters={reservationFilters}>
     <Datagrid>
       <TextField label='ID' source='id' />
+      <NumberField label='Ilość osób' source='peopleAmount' />
       <DateField label='Data' source='date' showTime locales='pl-PL' />
     </Datagrid>
   </List>
 );
 
+const ReservationDateCreate = (props: any) => (
+  <Create {...props}>
+    <SimpleForm>
+      <NumberInput placeholder='Ilość osób' source='peopleAmount' />
+      <DateTimeInput placeholder='Data' source='date' />
+    </SimpleForm>
+  </Create>
+);
+
 const AdminPanel = () => (
   <Admin dataProvider={dataProvider} authProvider={authProvider}>
     <Resource name='reservations' list={ReservationsList} />
-    <Resource name='reservation-dates' list={ReservationDatesList} />
+    <Resource
+      name='reservation-dates'
+      list={ReservationDatesList}
+      create={ReservationDateCreate}
+    />
   </Admin>
 );
 

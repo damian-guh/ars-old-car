@@ -95,7 +95,9 @@ const DatePickerField = ({ ...props }: DatePickerProps) => {
       {...field}
       {...props}
       selected={
-        field.value.getTime() > now.getTime() + 86400 ? field.value : null
+        field.value && field.value.getTime() > now.getTime() + 86400
+          ? field.value
+          : null
       }
       customInput={<DatePickerInput />}
       timeCaption='Godzina'
@@ -105,6 +107,7 @@ const DatePickerField = ({ ...props }: DatePickerProps) => {
       maxTime={dayjs().hour(CLOSING_MUSEUM_HOUR).minute(0).second(0).toDate()}
       locale={pl}
       showTimeSelect
+      autoComplete='off'
       onChange={(value) => {
         setFieldValue(field.name, value);
       }}
@@ -267,8 +270,15 @@ const ReservationPage: NextPage = () => {
       setFormErrorMessage('Godzina rezerwacji musi być w godzinach otwarcia');
       return false;
     }
-    if (date.getDay() !== 0 && date.getDay() !== 6 && date.getDay() !== 5) {
-      setFormErrorMessage('Termin rezerwacji musi być sobotą lub niedzielą');
+    if (
+      date.getDay() !== 0 &&
+      date.getDay() !== 6 &&
+      date.getDay() !== 5 &&
+      !customOpeningDates.includes(dayjs(date.setHours(0, 0, 0, 0)).toString())
+    ) {
+      setFormErrorMessage(
+        'Termin rezerwacji musi być piątkiem, sobotą, niedzielą lub dniem wolnym'
+      );
       return false;
     }
     if (date <= minDate) {
@@ -426,7 +436,7 @@ const ReservationPage: NextPage = () => {
               .required('Wymagane'),
             adultAmount: Yup.number()
               .min(1, 'Minimalna liczba osób dorosłych to 1')
-              .max(15, 'Maksymalna liczba osób dorosłych to 15')
+              .max(16, 'Maksymalna liczba osób dorosłych to 16')
               .required('Wymagane'),
             childrenAmount: Yup.number()
               .min(0, 'Liczba dzieci nie może być mniejsza od 0')

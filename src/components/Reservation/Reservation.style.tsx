@@ -34,7 +34,7 @@ export const FormSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
+  min-height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
   justify-content: center;
   padding: 50px 5px;
   background-color: ${({ theme }) => theme.colors.headerGray};
