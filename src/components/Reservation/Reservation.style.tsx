@@ -46,3 +46,9 @@ export const StyledHeading = styled.h1`
   margin-bottom: 10px;
   text-align: center;
 `;
+
+export const StyledInfoP = styled.p`
+  margin: 0 0 30px 0;
+  text-align: justify;
+  padding: 0 25px;
+`;

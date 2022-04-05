@@ -24,6 +24,7 @@ import {
 import {
   FormSectionWrapper,
   StyledHeading,
+  StyledInfoP,
 } from 'components/Reservation/Reservation.style';
 import * as Yup from 'yup';
 import { OPENING_MUSEUM_HOUR, CLOSING_MUSEUM_HOUR } from 'utils/constants';
@@ -87,13 +88,17 @@ const DatePickerInput = forwardRef((props, ref) => (
 const DatePickerField = ({ ...props }: DatePickerProps) => {
   const { setFieldValue } = useFormikContext();
   const [field] = useField(props);
+  const now = new Date();
+
   return (
     <DatePicker
       {...field}
       {...props}
-      selected={(field.value && new Date(field.value)) || null}
+      selected={
+        field.value.getTime() > now.getTime() + 86400 ? field.value : null
+      }
       customInput={<DatePickerInput />}
-      timeCaption='Czas'
+      timeCaption='Godzina'
       timeIntervals={60}
       dateFormat='Pp'
       minTime={dayjs().hour(OPENING_MUSEUM_HOUR).minute(0).second(0).toDate()}
@@ -131,6 +136,7 @@ const ReservationPage: NextPage = () => {
   const [allReservations, setAllReservations] = useState<
     { bookedPeopleAmount: number; date: string }[] | []
   >([]);
+  const [customOpeningDates, setCustomOpeningDate] = useState<string[]>([]);
   const [formErrorMessage, setFormErrorMessage] = useState<string | null>(null);
   const [isSubmittedPersonalData, setIsSubmittedPersonalData] = useState(false);
   const [isReservationEnded, setReservationEnded] = useState(false);
@@ -138,13 +144,16 @@ const ReservationPage: NextPage = () => {
   const [verificationId, setVerificationId] = useState('');
   const dateFromFirebase = Timestamp.now().toDate();
   const minDate = dayjs(dateFromFirebase).add(2, 'day').toDate();
-  const maxDate = dayjs(dateFromFirebase).add(60, 'day').toDate();
+  const maxDate = dayjs(dateFromFirebase).add(150, 'day').toDate();
 
-  const getReservationDates = async () => {
+  const getReservationAndCustomOpeningDates = async () => {
     try {
       await signInAnonymously(auth);
       const reservationsQuery = await getDocs(
         collection(db, 'reservation-dates')
+      );
+      const customOpeningDaysQuery = await getDocs(
+        collection(db, 'special-opening-dates')
       );
       reservationsQuery.forEach((reservationFromDb) => {
         const reservationDate = dayjs(
@@ -175,6 +184,12 @@ const ReservationPage: NextPage = () => {
           ];
         });
       });
+      customOpeningDaysQuery.forEach((customDate) => {
+        setCustomOpeningDate((prevDates) => {
+          const date = dayjs(customDate.data().date.seconds * 1000).toString();
+          return [...prevDates, date];
+        });
+      });
     } catch {
       setFormErrorMessage('Coś poszło nie tak :(');
     }
@@ -184,12 +199,11 @@ const ReservationPage: NextPage = () => {
     setBlockedDaysInCalendar(() => {
       const blockedDays = allReservations.filter(
         ({ bookedPeopleAmount }) =>
-          bookedPeopleAmount + formData.adultAmount + formData.childrenAmount >
-          16
+          bookedPeopleAmount + formData.adultAmount > 16
       );
       return blockedDays.map(({ date }) => date);
     });
-  }, [allReservations, formData.adultAmount, formData.childrenAmount]);
+  }, [allReservations, formData.adultAmount]);
 
   const filterPassedTime = (time: Date) => {
     const selectedDate = dayjs(time).toString();
@@ -197,8 +211,13 @@ const ReservationPage: NextPage = () => {
   };
 
   const filterPassedDay = (day: Date) => {
-    const isWeekday = day.getDay() !== 0 && day.getDay() !== 6;
-    return !isWeekday && day > minDate;
+    const isCustomDate = customOpeningDates.includes(dayjs(day).toString());
+    const isOpeningDate =
+      day.getDay() !== 0 &&
+      day.getDay() !== 6 &&
+      day.getDay() !== 5 &&
+      !isCustomDate;
+    return !isOpeningDate && day > minDate;
   };
 
   const handleSubmit = async (formValues: typeof formInitialValues) => {
@@ -206,20 +225,19 @@ const ReservationPage: NextPage = () => {
       setFormData(formValues);
       setAllReservations([]);
       setFormErrorMessage(null);
-      if (formValues.adultAmount + formValues.childrenAmount > 16) {
-        setFormErrorMessage('Maksymalna liczba osób może wynosić 16');
-      } else {
-        const phoneNumber = formValues.phoneNumber.replace(/ /g, '');
-        const ajustedPhoneNumber =
-          phoneNumber.length === 9 ? `+48${phoneNumber}` : phoneNumber;
-        await getReservationDates();
-        const appVerifier = new RecaptchaVerifier(
-          'recaptcha-container',
-          {
-            size: 'invisible',
-          },
-          auth
-        );
+
+      const phoneNumber = formValues.phoneNumber.replace(/ /g, '');
+      const ajustedPhoneNumber =
+        phoneNumber.length === 9 ? `+48${phoneNumber}` : phoneNumber;
+      await getReservationAndCustomOpeningDates();
+      const appVerifier = new RecaptchaVerifier(
+        'recaptcha-container',
+        {
+          size: 'invisible',
+        },
+        auth
+      );
+      if (!formErrorMessage) {
         signInWithPhoneNumber(auth, ajustedPhoneNumber, appVerifier)
           .then((result) => {
             setIsSubmittedPersonalData(true);
@@ -249,7 +267,7 @@ const ReservationPage: NextPage = () => {
       setFormErrorMessage('Godzina rezerwacji musi być w godzinach otwarcia');
       return false;
     }
-    if (date.getDay() !== 0 && date.getDay() !== 6) {
+    if (date.getDay() !== 0 && date.getDay() !== 6 && date.getDay() !== 5) {
       setFormErrorMessage('Termin rezerwacji musi być sobotą lub niedzielą');
       return false;
     }
@@ -348,18 +366,33 @@ const ReservationPage: NextPage = () => {
   }
 
   if (isReservationEnded) {
+    const reservationSuccessText = () => {
+      const adultAmountText =
+        formData.adultAmount > 1
+          ? `${formData.adultAmount} osób`
+          : `jednej osoby`;
+      const childrenAmountText = () => {
+        if (formData.childrenAmount === 1)
+          return ` oraz jednego dziecka w wieku 4-6 lat.`;
+        if (formData.childrenAmount > 1)
+          return ` oraz ${formData.childrenAmount} dzieci w wieku 4-6 lat.`;
+        return '.';
+      };
+      return `Miło nam poinformować,że zarezerwowałeś termin ${dayjs(
+        formData.date
+      ).format(
+        'DD/MM/YYYY HH:mm'
+      )} dla ${adultAmountText}${childrenAmountText()}`;
+    };
     return (
       <Layout>
         <FormSectionWrapper>
+          <StyledHeading>{reservationSuccessText()}</StyledHeading>
           <StyledHeading>
-            🎉 Udało się zarezerwować termin{' '}
-            {dayjs(formData.date).format('DD/MM/YYYY HH:mm')} 🎉
-          </StyledHeading>
-          <StyledHeading>
-            Rezerwacja online nie jest biletem, umożliwia jedynie zakup biletu
-            minimum 20 minut przed planowaną godziną wejścia. Po upływie tego
-            czasu rezerwacja jest anulowana i wolne miejsca są kierowane do
-            sprzedaży.
+            Przypominamy jednocześnie, że rezerwacja online nie jest biletem,
+            umożliwia jedynie zakup biletu minimum 20 minut przed planowaną
+            godziną wejścia. Po upływie tego czasu rezerwacja jest anulowana i
+            wolne miejsca są kierowane do sprzedaży.
           </StyledHeading>
         </FormSectionWrapper>
       </Layout>
@@ -369,6 +402,10 @@ const ReservationPage: NextPage = () => {
     <Layout>
       <FormSectionWrapper>
         <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
+        <StyledInfoP>
+          Uwaga: Rezerwacji nie można dokonywać w planowanym dniu przyjazdu oraz
+          dniu poprzedzającym planowany przyjazd
+        </StyledInfoP>
         <Formik
           key='reservation-form'
           initialValues={formInitialValues}
@@ -407,10 +444,10 @@ const ReservationPage: NextPage = () => {
             <Input type='tel' name='phoneNumber' />
             <label htmlFor='email'>e-mail</label>
             <Input type='text' name='email' />
-            <label htmlFor='adultAmount'>Liczba osób dorosłych</label>
-            <Input type='number' name='adultAmount' min='1' max='15' />
-            <label htmlFor='childrenAmount'>Liczba dzieci</label>
-            <Input type='number' name='childrenAmount' min='0' max='15' />
+            <label htmlFor='adultAmount'>Liczba osób</label>
+            <Input type='number' name='adultAmount' min='1' max='16' />
+            <label htmlFor='childrenAmount'>Liczba dzieci 4-6 lat</label>
+            <Input type='number' name='childrenAmount' min='0' max='4' />
             {formErrorMessage ? (
               <FormError>{formErrorMessage}</FormError>
             ) : null}

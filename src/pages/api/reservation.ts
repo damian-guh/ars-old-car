@@ -7,7 +7,7 @@ import app from '../../../firebase/admin';
 const auth = getAuth(app);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { token, id, date, email } = req.body;
+  const { token, date, id, email, childrenAmount, adultAmount } = req.body;
 
   try {
     await auth.verifyIdToken(token);
@@ -25,13 +25,30 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     secure: true,
   });
 
+  const reservationSuccessText = () => {
+    const adultAmountText =
+      adultAmount > 1 ? `${adultAmount} osób` : `jednej osoby`;
+    const childrenAmountText = () => {
+      if (childrenAmount === 1) return ` oraz jednego dziecka w wieku 4-6 lat.`;
+      if (childrenAmount > 1)
+        return ` oraz ${childrenAmount} dzieci w wieku 4-6 lat.`;
+      return '.';
+    };
+    return `Miło nam poinformować,że zarezerwowałeś termin ${dayjs(date).format(
+      'DD/MM/YYYY HH:mm'
+    )} dla ${adultAmountText}${childrenAmountText()}`;
+  };
+
   const mailData = {
     from: 'kontakt@arsoldcar.pl',
     to: email,
-    subject: `Rezerwacja Ars Old Car`,
-    html: `<p>Zarezerwowałeś termin wizyty ${dayjs(date).format(
-      'DD/MM/YYYY HH:mm'
-    )}</p><p>Twój numer rezerwacji to: <strong>${id}</strong></p><strong>Rezerwacja online nie jest biletem, umożliwia jedynie zakup biletu
+    subject: `Rezerwacja Ars Old Car – Muzeum Motoryzacji`,
+    html: `<p>${reservationSuccessText()}</p><p>Twój numer rezerwacji to <strong>${id
+      .toUpperCase()
+      .slice(
+        0,
+        6
+      )}</strong></p><strong>Przypominamy jednocześnie, że rezerwacja online nie jest biletem, umożliwia jedynie zakup biletu
             minimum 20 minut przed planowaną godziną wejścia. Po upływie tego
             czasu rezerwacja jest anulowana i wolne miejsca są kierowane do
             sprzedaży.</strong>`,
