@@ -49,6 +49,12 @@ const GlobalStyles = createGlobalStyle`
      flex-direction: column;
      align-items: center;
    }
+
+     .react-datepicker__time-list-item--disabled {
+     text-decoration: line-through;
+       text-decoration-color: ${({ theme }) => theme.colors.red};
+   }
+
 `;
 
 export default GlobalStyles;

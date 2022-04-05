@@ -49,7 +49,7 @@ type InputProps = {
   name: string;
   innerRef?: any;
   placeholder?: string;
-  autocomplete?: string;
+  autoComplete?: string;
 };
 
 const Input = ({ ...props }: InputProps) => {
@@ -361,7 +361,7 @@ const ReservationPage: NextPage = () => {
                 <Input
                   type='text'
                   name='phoneAuthCode'
-                  autocomplete='one-time-code'
+                  autoComplete='one-time-code'
                 />
                 {formErrorMessage ? (
                   <FormError>{formErrorMessage}</FormError>
