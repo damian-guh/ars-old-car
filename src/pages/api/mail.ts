@@ -14,15 +14,20 @@ mail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, method } = req;
   const { captcha, formValues } = body;
+
+  if (
+    !captcha ||
+    !formValues.name ||
+    !formValues.email ||
+    !formValues.message
+  ) {
+    return res.status(422).json({
+      message: 'Unproccesable request, please provide the required fields',
+    });
+  }
   const { name, email, phoneNumber, message } = formValues;
 
   if (method === 'POST') {
-    if (!captcha || !name || !email || !message) {
-      return res.status(422).json({
-        message: 'Unproccesable request, please provide the required fields',
-      });
-    }
-
     try {
       const response: Data = await axios.post(
         `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`

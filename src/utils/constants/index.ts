@@ -7,7 +7,7 @@ export const NAV_ITEMS = [
   { title: 'Aktualności' },
   { title: 'Galeria' },
   { title: 'Konkursy', subtitles: ['#LUBIE2CV', 'QR'] },
-  { title: 'Kup bilet', subtitles: ['Cennik', 'Rezerwacje'] },
+  { title: 'Kup bilet', subtitles: ['Bilety', 'Rezerwacje'] },
   { title: 'W okolicy' },
   { title: 'Kontakt' },
 ];
@@ -21,11 +21,11 @@ export const LONGITUDE =
   process.env.NODE_ENV === 'production' ? 20.4697 : 20.6278;
 
 export const OPENING_MUSEUM_HOUR = 10;
-export const CLOSING_MUSEUM_HOUR = 20;
+export const CLOSING_MUSEUM_HOUR = 16;
 
 export const PRICING_SECTION_TEXT = [
   {
-    title: 'Cennik',
+    title: 'Bilety',
     details: [
       '25 zł – bilet indywidualny',
       '20 zł – bilet grupowy powyżej 10 osób',

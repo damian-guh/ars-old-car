@@ -63,8 +63,9 @@ const CopyrightAndSocialSection = styled.section`
 const Footer = () => (
   <StyledFooter>
     <LawSection>
-      <Link href=''>Regulamin</Link>
-      <Link href=''>Polityka prywatności</Link>
+      <a href='/regulamin.pdf' target='_blank'>
+        Regulamin
+      </a>
     </LawSection>
     <OpeningHoursSection>
       <p>Muzeum czynne: od 22.04 do 2.10.2022</p>
