@@ -7,7 +7,7 @@ export const NAV_ITEMS = [
   { title: 'Aktualności' },
   { title: 'Galeria' },
   { title: 'Konkursy', subtitles: ['#LUBIE2CV', 'QR'] },
-  { title: 'Kup bilet', subtitles: ['Bilety', 'Rezerwacje'] },
+  { title: 'Kup bilet', subtitles: ['Cennik', 'Rezerwacje'] },
   { title: 'W okolicy' },
   { title: 'Kontakt' },
 ];
