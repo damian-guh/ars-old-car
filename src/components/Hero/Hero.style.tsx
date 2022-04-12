@@ -3,7 +3,6 @@ import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const HeroWrapper = styled.section`
   height: calc(100vh - ${HEADER_HEIGHT});
-  margin-bottom: 50px;
 `;
 
 export const Overlay = styled.div`
