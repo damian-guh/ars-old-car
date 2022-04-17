@@ -2,14 +2,19 @@ import { MouseEvent, useEffect, useState } from 'react';
 import type { GetStaticProps } from 'next';
 import axios from 'axios';
 import {
-  Wrapper as GalleryWrapper,
+  ImagesWrapper as GalleryWrapper,
   GalleryDesc,
   GalleryDescWrapper,
   ImageWrapper,
   StyledImage,
+  Wrapper,
+  FlippingCardSection,
 } from 'components/Layout/Gallery/Gallery.style';
 import Layout from 'components/Layout';
 import ImageModal from 'components/ImageModal';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import FlippingCard from 'components/FlippingCard';
+import { FLIPPING_CARD_PAINTING } from 'utils/constants/flippingCardsContent';
 
 type Assets = [
   {
@@ -85,34 +90,40 @@ const Lubie2cvPage = ({
   if (error === undefined) {
     return (
       <Layout>
-        <>
-          <GalleryDescWrapper>
-            <GalleryDesc>
-              Fanów 2CV zapraszamy do przesyłania Waszych ciekawych zdjęć w tle
-              z samochodem lub gadżetami , w szczególności z pobytu w naszym
-              muzeum. Spośród najciekawszych zdjęć wybierzemy zdjęcie miesiąca i
-              sezonu. Dla laureatów czekają nagrody w tematyce związanej
-              oczywiście z 2CV.
-            </GalleryDesc>
-          </GalleryDescWrapper>
-          <GalleryWrapper>
-            {allLubie2cvs.map(({ asset }) =>
-              asset.map(({ url, id }) => (
-                <ImageWrapper key={id}>
-                  <StyledImage
-                    layout='fill'
-                    src={url}
-                    quality={95}
-                    alt='Gallery image'
-                    objectFit='cover'
-                    id={id}
-                    onClick={(event) => handleModal(event)}
-                  />
-                </ImageWrapper>
-              ))
-            )}
-          </GalleryWrapper>
-        </>
+        <Wrapper>
+          <div>
+            <GalleryDescWrapper>
+              <GalleryDesc>
+                Fanów 2CV zapraszamy do przesyłania Waszych ciekawych zdjęć w
+                tle z samochodem lub gadżetami , w szczególności z pobytu w
+                naszym muzeum. Spośród najciekawszych zdjęć wybierzemy zdjęcie
+                miesiąca i sezonu. Dla laureatów czekają nagrody w tematyce
+                związanej oczywiście z 2CV.
+              </GalleryDesc>
+            </GalleryDescWrapper>
+            <GalleryWrapper>
+              {allLubie2cvs.map(({ asset }) =>
+                asset.map(({ url, id }) => (
+                  <ImageWrapper key={id}>
+                    <StyledImage
+                      layout='fill'
+                      src={url}
+                      quality={95}
+                      alt='Gallery image'
+                      objectFit='cover'
+                      id={id}
+                      onClick={(event) => handleModal(event)}
+                    />
+                  </ImageWrapper>
+                ))
+              )}
+            </GalleryWrapper>
+          </div>
+          <FlippingCardSection>
+            <FlippingCard content={FLIPPING_CARD_PAINTING} />
+            <FirefighterTruckAttraction />
+          </FlippingCardSection>
+        </Wrapper>
         <ImageModal
           isModalOpen={isModalOpen}
           setModalOpen={setModalOpen}
