@@ -2,12 +2,17 @@ import { MouseEvent, useEffect, useState } from 'react';
 import type { GetStaticProps } from 'next';
 import axios from 'axios';
 import {
-  ImageWrapper,
   Wrapper,
+  ImageWrapper,
+  ImagesWrapper,
   StyledImage,
+  FlippingCardSection,
 } from 'components/Layout/Gallery/Gallery.style';
 import Layout from 'components/Layout';
 import ImageModal from 'components/ImageModal';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import FlippingCard from 'components/FlippingCard';
+import { FLIPPING_CARD_SCULPTURE } from 'utils/constants/flippingCardsContent';
 
 type Assets = [
   {
@@ -85,21 +90,27 @@ const GalleryPage = ({
     return (
       <Layout>
         <Wrapper>
-          {allGalleries.map(({ asset }) =>
-            asset.map(({ id, url }) => (
-              <ImageWrapper key={id}>
-                <StyledImage
-                  layout='fill'
-                  src={url}
-                  quality={95}
-                  alt='Gallery image'
-                  objectFit='cover'
-                  id={id}
-                  onClick={(event) => handleModal(event)}
-                />
-              </ImageWrapper>
-            ))
-          )}
+          <ImagesWrapper>
+            {allGalleries.map(({ asset }) =>
+              asset.map(({ id, url }) => (
+                <ImageWrapper key={id}>
+                  <StyledImage
+                    layout='fill'
+                    src={url}
+                    quality={95}
+                    alt='Gallery image'
+                    objectFit='cover'
+                    id={id}
+                    onClick={(event) => handleModal(event)}
+                  />
+                </ImageWrapper>
+              ))
+            )}
+          </ImagesWrapper>
+          <FlippingCardSection>
+            <FirefighterTruckAttraction />
+            <FlippingCard content={FLIPPING_CARD_SCULPTURE} />
+          </FlippingCardSection>
         </Wrapper>
         <ImageModal
           isModalOpen={isModalOpen}

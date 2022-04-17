@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 45px;
-  padding: 20px;
+  width: 100%;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-template-columns: 3fr 1fr;
+  }
+`;
+
+export const ArticlesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 45px;
+  padding: 30px;
   width: 100%;
 `;
 
@@ -36,6 +50,20 @@ export const ImagesWrapper = styled.section`
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     flex-direction: row;
   }
+`;
+
+export const FlippingCardSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  height: calc(100vh - ${HEADER_HEIGHT});
+  top: calc(${HEADER_HEIGHT} + 10px);
+  right: 0;
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  width: 100%;
+  padding: 10px;
 `;
 
 export const ImageWrapper = styled.div`

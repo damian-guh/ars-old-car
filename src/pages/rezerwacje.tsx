@@ -25,6 +25,8 @@ import {
   FormSectionWrapper,
   StyledHeading,
   StyledInfoP,
+  Wrapper,
+  FlippingCardSection,
 } from 'components/Reservation/Reservation.style';
 import * as Yup from 'yup';
 import { OPENING_MUSEUM_HOUR, CLOSING_MUSEUM_HOUR } from 'utils/constants';
@@ -40,6 +42,9 @@ import {
   Timestamp,
 } from 'firebase/firestore/lite';
 import axios from 'axios';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import FlippingCard from 'components/FlippingCard';
+import { FLIPPING_CARD_COMPANY_EVENTS } from 'utils/constants/flippingCardsContent';
 import firebaseApp from '../../firebase';
 
 type InputProps = {
@@ -410,64 +415,70 @@ const ReservationPage: NextPage = () => {
   }
   return (
     <Layout>
-      <FormSectionWrapper>
-        <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
-        <StyledInfoP>
-          Uwaga: Rezerwacji nie można dokonywać w planowanym dniu przyjazdu oraz
-          dniu poprzedzającym planowany przyjazd
-        </StyledInfoP>
-        <Formik
-          key='reservation-form'
-          initialValues={formInitialValues}
-          validationSchema={Yup.object({
-            name: Yup.string()
-              .min(3, 'Imię musi zawierać przynajmniej 3 znaki')
-              .max(15, 'Imię nie może być dłuższe od 15 znaków')
-              .required('Wymagane'),
-            lastname: Yup.string()
-              .min(3, 'Nazwisko musi zawierać przynajmniej 3 znaki')
-              .max(15, 'Nazwisko nie może być dłuższe od 15 znaków')
-              .required('Wymagane'),
-            phoneNumber: Yup.string()
-              .phone('PL', true, 'Niepoprawny numer telefonu')
-              .required('Wymagane'),
-            email: Yup.string()
-              .email('Nieprawidłowy email')
-              .required('Wymagane'),
-            adultAmount: Yup.number()
-              .min(1, 'Minimalna liczba osób dorosłych to 1')
-              .max(16, 'Maksymalna liczba osób dorosłych to 16')
-              .required('Wymagane'),
-            childrenAmount: Yup.number()
-              .min(0, 'Liczba dzieci nie może być mniejsza od 0')
-              .max(15, 'Maksymalna liczba dzieci to 15')
-              .required('Wymagane'),
-          })}
-          onSubmit={handleSubmit}
-        >
-          <Form>
-            <label htmlFor='name'>Imię</label>
-            <Input type='text' name='name' />
-            <label htmlFor='lastname'>Nazwisko</label>
-            <Input type='text' name='lastname' />
-            <label htmlFor='phoneNumber'>Numer telefonu</label>
-            <Input type='tel' name='phoneNumber' />
-            <label htmlFor='email'>e-mail</label>
-            <Input type='text' name='email' />
-            <label htmlFor='adultAmount'>Liczba osób</label>
-            <Input type='number' name='adultAmount' min='1' max='16' />
-            <label htmlFor='childrenAmount'>Liczba dzieci 4-6 lat</label>
-            <Input type='number' name='childrenAmount' min='0' max='4' />
-            {formErrorMessage ? (
-              <FormError>{formErrorMessage}</FormError>
-            ) : null}
-            <div id='recaptcha-container' />
-            <Button id='reservation-submit' type='submit'>
-              Dalej
-            </Button>
-          </Form>
-        </Formik>
-      </FormSectionWrapper>
+      <Wrapper>
+        <FormSectionWrapper>
+          <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
+          <StyledInfoP>
+            Uwaga: Rezerwacji nie można dokonywać w planowanym dniu przyjazdu
+            oraz dniu poprzedzającym planowany przyjazd
+          </StyledInfoP>
+          <Formik
+            key='reservation-form'
+            initialValues={formInitialValues}
+            validationSchema={Yup.object({
+              name: Yup.string()
+                .min(3, 'Imię musi zawierać przynajmniej 3 znaki')
+                .max(15, 'Imię nie może być dłuższe od 15 znaków')
+                .required('Wymagane'),
+              lastname: Yup.string()
+                .min(3, 'Nazwisko musi zawierać przynajmniej 3 znaki')
+                .max(15, 'Nazwisko nie może być dłuższe od 15 znaków')
+                .required('Wymagane'),
+              phoneNumber: Yup.string()
+                .phone('PL', true, 'Niepoprawny numer telefonu')
+                .required('Wymagane'),
+              email: Yup.string()
+                .email('Nieprawidłowy email')
+                .required('Wymagane'),
+              adultAmount: Yup.number()
+                .min(1, 'Minimalna liczba osób dorosłych to 1')
+                .max(16, 'Maksymalna liczba osób dorosłych to 16')
+                .required('Wymagane'),
+              childrenAmount: Yup.number()
+                .min(0, 'Liczba dzieci nie może być mniejsza od 0')
+                .max(15, 'Maksymalna liczba dzieci to 15')
+                .required('Wymagane'),
+            })}
+            onSubmit={handleSubmit}
+          >
+            <Form>
+              <label htmlFor='name'>Imię</label>
+              <Input type='text' name='name' />
+              <label htmlFor='lastname'>Nazwisko</label>
+              <Input type='text' name='lastname' />
+              <label htmlFor='phoneNumber'>Numer telefonu</label>
+              <Input type='tel' name='phoneNumber' />
+              <label htmlFor='email'>e-mail</label>
+              <Input type='text' name='email' />
+              <label htmlFor='adultAmount'>Liczba osób</label>
+              <Input type='number' name='adultAmount' min='1' max='16' />
+              <label htmlFor='childrenAmount'>Liczba dzieci 4-6 lat</label>
+              <Input type='number' name='childrenAmount' min='0' max='4' />
+              {formErrorMessage ? (
+                <FormError>{formErrorMessage}</FormError>
+              ) : null}
+              <div id='recaptcha-container' />
+              <Button id='reservation-submit' type='submit'>
+                Dalej
+              </Button>
+            </Form>
+          </Formik>
+        </FormSectionWrapper>
+        <FlippingCardSection>
+          <FirefighterTruckAttraction />
+          <FlippingCard content={FLIPPING_CARD_COMPANY_EVENTS} />
+        </FlippingCardSection>
+      </Wrapper>
     </Layout>
   );
 };

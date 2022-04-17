@@ -2,38 +2,36 @@ import styled from 'styled-components';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 import { FOOTER_HEIGHT } from 'components/Layout/Footer';
 
-export const ReservationPageWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  width: 100%;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    flex-direction: row;
+    grid-template-columns: 3fr 1fr;
   }
 `;
 
-export const PricingAndInfoSection = styled.section`
+export const FlippingCardSection = styled.section`
   display: flex;
   flex-direction: column;
-  text-align: justify-all;
-  color: ${({ theme }) => theme.colors.white};
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  height: calc(100vh - ${HEADER_HEIGHT});
+  top: calc(${HEADER_HEIGHT} + 10px);
+  right: 0;
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  width: 100%;
   padding: 10px;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    width: 50%;
-  }
-`;
-
-export const PricingAndInfoText = styled.p<{ bold: boolean }>`
-  font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  margin: ${({ bold }) => (bold ? '10px' : '1px')};
 `;
 
 export const FormSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   min-height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
   justify-content: center;
   padding: 50px 5px;
