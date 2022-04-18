@@ -4,6 +4,7 @@ import exclusiveCarImage from '../../../../public/obrazy-aut-ekskluzywnych.jpg';
 import sculptureImage from '../../../../public/rzezba.jpeg';
 import paintingImage from '../../../../public/malarstwo-olejne.jpg';
 import checinyImage from '../../../../public/zamek-noc.jpg';
+import canoesImage from '../../../../public/kajak.png';
 
 // eslint-disable-next-line import/prefer-default-export
 export const FLIPPING_CARD_WEEDING2CV = {
@@ -23,20 +24,15 @@ export const FLIPPING_CARD_WEEDING2CV = {
 export const FLIPPING_CARD_COMPANY_EVENTS = {
   image: companyEventsImage,
   title: 'Imprezy firmowe',
-  text: ['imprezy firmowe'],
+  text: [
+    'Zorganizujemy dla Ciebie imprezę firmową łączącą świetną zabawę z wysiłkiem fizycznym, uchylimy rąbka tajemnicy świata motoryzacji oraz troszeczkę historii średniowiecza.',
+    'Zapraszamy: kontakt@arsoldcar.pl, tel. 515 355 533',
+  ],
 };
 
 export const FLIPPING_CARD_EXCLUSIVE_CAR_PICS = {
   image: exclusiveCarImage,
   title: 'Obrazy aut ekskluzywnych',
-  // text: [
-  //   'Artystka rodzona w 1994 roku w Warszawie zakochana w motoryzacji. Specjalizuje się w niezwykle ekspresyjnych obrazach rzadko spotykanych aut.',
-  //   'W 2018 roku ukończyła Architekturę Wnętrz na Polsko-Japońskiej Akademii Technik Komputerowych; dwa lata później uzyskała tytuł Magistra Sztuki na WIT Szkole Wyższej pod Auspicjami PAN, na kierunku Grafiki Komputerowej.',
-  //   'Od najmłodszych lat interesuje się sztukami plastycznymi i rozwija się w tym kierunku. Lubi próbować nowych technik, nie zamyka się na jeden styl wizualny.',
-  //   'W pracy zawodowej łączy dwa wykształcenia a malarstwo stanowi pasję, której oddaje się po godzinach.',
-  //   'Kontakt: wazwojcik@gmail.com',
-  //   '501 367 088',
-  // ],
   text: [
     'Młoda artystka zakochana w motoryzacji.',
     'Niezwykle ekspresyjne obrazy rzadko spotykanych aut (niestety z uwagi na cenę).',
@@ -76,4 +72,16 @@ export const FLIPPING_CARD_CHECINY_TOURING = {
     'Czy to możliwe?',
     '#nocnezwiedzaniechecin',
   ],
+};
+
+export const FLIPPING_CARD_CANOES = {
+  image: canoesImage,
+  title: 'Kajaki',
+  text: [
+    'Przepływająca w pobliżu ARS OLD CAR rzeka Nida to mekka turystyki kajakowej w Świętokrzyskim.',
+    'Spływy kajakowe to tak naprawdę rozrywka dla osób w każdym wieku i o dowolnym stopniu sprawności fizycznej.',
+    'Zapraszamy do skorzystania z tej niezwykle urokliwej atrakcji, którą masz na wyciągnięcie ręki.',
+    'https://nidy.pl/',
+  ],
+  urlTitle: '(Zobacz więcej)',
 };

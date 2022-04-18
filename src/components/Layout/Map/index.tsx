@@ -11,10 +11,10 @@ export const Map = styled.iframe.attrs(() => ({
   height: 450px;
   border: none;
   overflow-x: hidden;
-  grid-row: 3/3;
+  grid-row: 4/5;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-column: 1/3;
-    grid-row: 2/2;
+    grid-row: 3/3;
   }
 `;
