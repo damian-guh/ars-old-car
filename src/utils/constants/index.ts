@@ -28,7 +28,7 @@ export const PRICING_SECTION_TEXT = [
     title: 'Bilety',
     details: [
       '25 zł – bilet indywidualny',
-      '20 zł – bilet grupowy powyżej 10 osób (bezpłatny wstęp dla opiekuna grupy)',
+      '20 zł – bilet grupowy powyżej 10 osób',
       '25 zł - trasa widokowa wozem strażackim (rezerwacja w kasie muzeum)',
       'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
       'Bezpłatny wstęp dla dzieci w wieku od 4 do 6 lat',
