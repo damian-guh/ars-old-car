@@ -24,7 +24,9 @@ const FlippingCard = ({
       isFrontSide={isFrontSide}
     >
       <FlippingCardFront>
-        <Image src={image} alt={`${title}-image`} placeholder='blur' />
+        {isFrontSide && (
+          <Image src={image} alt={`${title}-image`} placeholder='blur' />
+        )}
         <h3>{title}</h3>
       </FlippingCardFront>
       <FlippingCardBack>

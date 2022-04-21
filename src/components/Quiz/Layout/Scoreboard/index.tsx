@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import useQuizScore from 'hooks/useQuizScore';
 import useCheckQuizUsernameCookie from 'hooks/useCheckQuizUsernameCookie';
 import { Wrapper } from 'components/Quiz/Layout/Scoreboard/Scoreboard.style';
-import { getCookie } from 'cookies-next';
+import { getCookie, checkCookies } from 'cookies-next';
 
 const Scoreboard = () => {
   useCheckQuizUsernameCookie();
@@ -29,25 +29,33 @@ const Scoreboard = () => {
       <p>
         Dla dzieci{' '}
         <strong>
-          {childrenQuizScore.score}/{childrenQuizScore.maxScore}
+          {checkCookies('quiz-children')
+            ? `${childrenQuizScore.score}/${childrenQuizScore.maxScore}`
+            : 'Nie rozpoczęto'}
         </strong>
       </p>
       <p>
         Dla kobiet{' '}
         <strong>
-          {womanQuizScore.score}/{womanQuizScore.maxScore}
+          {checkCookies('quiz-woman')
+            ? `${womanQuizScore.score}/${womanQuizScore.maxScore}`
+            : 'Nie rozpoczęto'}
         </strong>
       </p>
       <p>
         Dla fanów F1{' '}
         <strong>
-          {f1QuizScore.score}/{f1QuizScore.maxScore}
+          {checkCookies('quiz-f1')
+            ? `${f1QuizScore.score}/${f1QuizScore.maxScore}`
+            : 'Nie rozpoczęto'}
         </strong>
       </p>
       <p>
         Dla młodzieży{' '}
         <strong>
-          {youthQuizScore.score}/{youthQuizScore.maxScore}
+          {checkCookies('quiz-youth')
+            ? `${youthQuizScore.score}/${youthQuizScore.maxScore}`
+            : 'Nie rozpoczęto'}
         </strong>
       </p>
       {isAllScoresAreMax() && <p>Odbierz swoją nagrodę! 🎁</p>}

@@ -14,11 +14,8 @@ export const FLIPPING_CARD_WEEDING2CV = {
     ' Zapraszam do skorzystania z samochodu Citroen 2CV z kierowcą do ślubu lub innych okoliczności w województwie Świętokrzyskim i nie tylko!',
     'Kontakt: 505 747 488',
     'Mail: emil.wlodarski@wp.pl',
-    'Samochód wystąpił w reklamie z Robertem Makłowiczem',
-    'https://www.facebook.com/bp.polska/videos/236235347921489/?extid=CL-UNK-UNK-UNK-AN_GK0T-GK1C',
     'Przy zamówieniu podaj hasło ARS OLD CAR. Zapraszam!',
   ],
-  urlTitle: '(Zobacz film)',
 };
 
 export const FLIPPING_CARD_COMPANY_EVENTS = {
@@ -54,9 +51,9 @@ export const FLIPPING_CARD_SCULPTURE = {
 
 export const FLIPPING_CARD_PAINTING = {
   image: paintingImage,
-  title: 'Malarstwo olejne',
+  title: 'Akwarela',
   text: [
-    'Bardzo popularny artysta w Świętokrzyskim.',
+    'Sławomir Kosecki to bardzo popularny artysta w Świętokrzyskim.',
     'Charakterystyczny styl malarstwa artysty można podziwiać również w ARS OLD CAR.',
     'http://www.tak-art.pl/kosecki-slawomir/',
   ],

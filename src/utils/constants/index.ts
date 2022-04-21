@@ -29,6 +29,7 @@ export const PRICING_SECTION_TEXT = [
     details: [
       '25 zł – bilet indywidualny',
       '20 zł – bilet grupowy powyżej 10 osób (bezpłatny wstęp dla opiekuna grupy)',
+      '25 zł - trasa widokowa wozem strażackim (rezerwacja w kasie muzeum)',
       'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
       'Bezpłatny wstęp dla dzieci w wieku od 4 do 6 lat',
       'Wstęp dla osób w wieku od 4 do 99 lat.',
@@ -43,6 +44,9 @@ export const PRICING_SECTION_TEXT = [
       '22.04.2022 - Dzień otwarty, bezpłatny wstęp dla mieszkańców gminy Chęciny',
       '23.04.2022 – Otwarcie sezonu 2022, wstęp dla posiadaczy zaproszeń',
       '24.04.2022 – Dzień otwarty, bezpłatny wstęp dla miłośników motoryzacji',
+      'Muzeum czynne: od 22.04 do 2.10.2022',
+      'Piątek – Niedziela godz. 9:30-17:00',
+      'Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
     ],
   },
   {
