@@ -5,15 +5,34 @@ import { FiMail as MailIcon } from '@react-icons/all-files/fi/FiMail';
 export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px repeat(2, 1fr);
+  grid-template-rows: 80px repeat(3, 1fr);
   justify-items: center;
   align-items: center;
-  padding: 25px 0;
+  padding: 50px 0;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     padding: 30px;
+  }
+`;
+
+export const FlippingCardsSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  grid-row: 3/4;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  padding: 0 20px;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    flex-direction: row;
+    align-items: flex-start;
+    grid-row: 2/3;
+    grid-column: 1/3;
   }
 `;
 

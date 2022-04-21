@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { APP_AUTHOR } from 'utils/constants';
 import Logo from 'components/Layout/Logo';
 import { FaFacebookF as FacebookIcon } from '@react-icons/all-files/fa/FaFacebookF';
 import { AiOutlineInstagram as InstagramIcon } from '@react-icons/all-files/ai/AiOutlineInstagram';
@@ -21,7 +20,7 @@ const StyledFooter = styled.footer`
   color: ${({ theme }) => theme.colors.white};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
   }
 `;
@@ -30,14 +29,6 @@ const LawSection = styled.section`
   display: flex;
   gap: 25px;
   padding: 10px;
-`;
-
-const AuthorSection = styled.section`
-  display: none;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    display: block;
-  }
 `;
 
 const OpeningHoursSection = styled.section`
@@ -95,8 +86,6 @@ const Footer = () => (
       </div>
       <Link href='/rezerwacje'>Rezerwacje</Link>
     </CopyrightAndSocialSection>
-
-    <AuthorSection>Realizacja: {APP_AUTHOR}</AuthorSection>
   </StyledFooter>
 );
 

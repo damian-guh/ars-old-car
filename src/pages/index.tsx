@@ -1,8 +1,15 @@
 import Layout from 'components/Layout';
 import { Map } from 'components/Layout/Map';
 import Hero from 'components/Hero';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import {
+  FLIPPING_CARD_COMPANY_EVENTS,
+  FLIPPING_CARD_EXCLUSIVE_CAR_PICS,
+} from 'utils/constants/flippingCardsContent';
+import FlippingCard from 'components/FlippingCard';
 import heroMuseumImage from '../../public/hero1.png';
 import heroForest2CVImage from '../../public/2cv-forest.png';
+import { FlippingCardsSection } from '../components/FlippingCard/FlippingCard.style';
 
 const heroMuseumTitle = 'Witaj w Naszym Muzeum';
 const heroMuseumDesc =
@@ -18,6 +25,11 @@ const Home = () => (
       desc={heroMuseumDesc}
     />
     <Hero image={heroForest2CVImage} desc={heroForestDesc} />
+    <FlippingCardsSection>
+      <FlippingCard content={FLIPPING_CARD_COMPANY_EVENTS} />{' '}
+      <FirefighterTruckAttraction />
+      <FlippingCard content={FLIPPING_CARD_EXCLUSIVE_CAR_PICS} />
+    </FlippingCardsSection>
     <Map />
   </Layout>
 );

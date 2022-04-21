@@ -9,8 +9,13 @@ import {
   ImagesWrapper,
   ImageWrapper,
   StyledImage,
+  FlippingCardSection,
+  ArticlesWrapper,
 } from 'components/Article';
 import ImageModal from 'components/ImageModal';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import FlippingCard from 'components/FlippingCard';
+import { FLIPPING_CARD_WEEDING2CV } from 'utils/constants/flippingCardsContent';
 
 type Props = {
   allArticles?: [
@@ -139,41 +144,47 @@ const NewsPage: NextPage = ({
     return (
       <Layout>
         <Wrapper>
-          {allArticles &&
-            allArticles.map(({ id, title, content, images }) => (
-              <Article key={id}>
-                <ArticleTitle>{title}</ArticleTitle>
-                <div>
-                  {content.value.document.children.map(({ children }) =>
-                    children.map(({ value, type, url }) => {
-                      if (type === 'link') {
-                        return (
-                          <a key={id} href={url}>
-                            {url}
-                          </a>
-                        );
-                      }
-                      return <div key={id}>{value}</div>;
-                    })
-                  )}
-                </div>
-                <ImagesWrapper>
-                  {images.map(({ url, id: imageId }) => (
-                    <ImageWrapper key={imageId}>
-                      <StyledImage
-                        src={url}
-                        layout='fill'
-                        quality={95}
-                        id={imageId}
-                        objectFit='cover'
-                        objectPosition='center'
-                        onClick={(event) => handleModal(event)}
-                      />
-                    </ImageWrapper>
-                  ))}
-                </ImagesWrapper>
-              </Article>
-            ))}
+          <ArticlesWrapper>
+            {allArticles &&
+              allArticles.map(({ id, title, content, images }) => (
+                <Article key={id}>
+                  <ArticleTitle>{title}</ArticleTitle>
+                  <div>
+                    {content.value.document.children.map(({ children }) =>
+                      children.map(({ value, type, url }) => {
+                        if (type === 'link') {
+                          return (
+                            <a key={id} href={url}>
+                              {url}
+                            </a>
+                          );
+                        }
+                        return <div key={id}>{value}</div>;
+                      })
+                    )}
+                  </div>
+                  <ImagesWrapper>
+                    {images.map(({ url, id: imageId }) => (
+                      <ImageWrapper key={imageId}>
+                        <StyledImage
+                          src={url}
+                          layout='fill'
+                          quality={95}
+                          id={imageId}
+                          objectFit='cover'
+                          objectPosition='center'
+                          onClick={(event) => handleModal(event)}
+                        />
+                      </ImageWrapper>
+                    ))}
+                  </ImagesWrapper>
+                </Article>
+              ))}
+          </ArticlesWrapper>
+          <FlippingCardSection>
+            <FlippingCard content={FLIPPING_CARD_WEEDING2CV} />
+            <FirefighterTruckAttraction />
+          </FlippingCardSection>
         </Wrapper>
         <ImageModal
           isModalOpen={isModalOpen}

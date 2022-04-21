@@ -6,8 +6,12 @@ import {
   MuseumDataSection,
   StyledPhoneIcon,
   StyledMailIcon,
+  FlippingCardsSection,
 } from 'components/Contact/Contact.style';
 import ContactForm from 'components/Contact/ContactForm';
+import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
+import FlippingCard from 'components/FlippingCard';
+import { FLIPPING_CARD_CANOES } from 'utils/constants/flippingCardsContent';
 import { Map } from 'components/Layout/Map';
 import { MAIL, PHONE } from 'utils/constants';
 
@@ -65,6 +69,10 @@ const Contact = () => (
         <CopyDataButton value={PHONE} />
       </MuseumDataSection>
       <ContactForm />
+      <FlippingCardsSection>
+        <FlippingCard content={FLIPPING_CARD_CANOES} />
+        <FirefighterTruckAttraction />
+      </FlippingCardsSection>
       <Map />
     </Wrapper>
   </>

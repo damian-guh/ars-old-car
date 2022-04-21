@@ -4,6 +4,18 @@ import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const Wrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 45px;
+  width: 100%;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-template-columns: 3fr 1fr;
+  }
+`;
+
+export const ImagesWrapper = styled.div`
+  display: grid;
   grid-template-columns: 300px;
   align-items: center;
   justify-content: center;
@@ -23,6 +35,20 @@ export const ImageWrapper = styled.div`
   span {
     border-radius: 10px;
   }
+`;
+
+export const FlippingCardSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  height: calc(100vh - ${HEADER_HEIGHT});
+  top: calc(${HEADER_HEIGHT} + 10px);
+  right: 0;
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  width: 100%;
+  padding: 10px;
 `;
 
 export const StyledImage = styled(Image)`
