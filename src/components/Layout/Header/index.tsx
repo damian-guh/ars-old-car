@@ -25,7 +25,7 @@ const CountdownRenderer = ({
 
   return (
     <CountdownSpan>
-      Do otwarcia muzeum 22 kwietnia zostało: {addZeroWhenLower(days)}:
+      Do majówki z ARS OLD CAR zostało: {addZeroWhenLower(days)}:
       {addZeroWhenLower(hours)}:{addZeroWhenLower(minutes)}:
       {addZeroWhenLower(seconds)}
     </CountdownSpan>
@@ -54,7 +54,7 @@ const Header = () => {
         />
       )}
       <Countdown
-        date={dayjs('2022-04-22').toISOString()}
+        date={dayjs('2022-04-30').toISOString()}
         renderer={CountdownRenderer}
       />
     </Wrapper>

@@ -32,51 +32,57 @@ const Menu = ({ ...props }: Props) => {
     return (
       <StyledNav {...props}>
         <NavList>
-          {NAV_ITEMS.map(({ title, subtitles }) => (
+          {NAV_ITEMS.map(({ title, subtitles, customUrl }) => (
             <NavListItem key={title}>
-              <DesktopLink
-                role='link'
-                tabIndex={0}
-                onClick={(event) => {
-                  if (!subtitles) {
-                    carAnimation(
-                      props.logoRef,
-                      event,
-                      `/${adjustNavItemName(title)}`,
-                      router
-                    );
-                  }
-                }}
-              >
-                {!subtitles ? (
-                  title
-                ) : (
-                  <>
-                    <TitleForSubtitle>{title}</TitleForSubtitle>
-                    <SubNavItemSection>
-                      <div>
-                        {subtitles.map((subtitle) => (
-                          <span
-                            role='link'
-                            tabIndex={-1}
-                            key={subtitle}
-                            onClick={(event) =>
-                              carAnimation(
-                                props.logoRef,
-                                event,
-                                `/${adjustNavItemName(subtitle)}`,
-                                router
-                              )
-                            }
-                          >
-                            {subtitle}
-                          </span>
-                        ))}
-                      </div>
-                    </SubNavItemSection>
-                  </>
-                )}
-              </DesktopLink>
+              {customUrl ? (
+                <a href={customUrl} target='_blank' rel='noreferrer'>
+                  {title}
+                </a>
+              ) : (
+                <DesktopLink
+                  role='link'
+                  tabIndex={0}
+                  onClick={(event) => {
+                    if (!subtitles) {
+                      carAnimation(
+                        props.logoRef,
+                        event,
+                        `/${adjustNavItemName(title)}`,
+                        router
+                      );
+                    }
+                  }}
+                >
+                  {!subtitles ? (
+                    title
+                  ) : (
+                    <>
+                      <TitleForSubtitle>{title}</TitleForSubtitle>
+                      <SubNavItemSection>
+                        <div>
+                          {subtitles.map((subtitle) => (
+                            <span
+                              role='link'
+                              tabIndex={-1}
+                              key={subtitle}
+                              onClick={(event) =>
+                                carAnimation(
+                                  props.logoRef,
+                                  event,
+                                  `/${adjustNavItemName(subtitle)}`,
+                                  router
+                                )
+                              }
+                            >
+                              {subtitle}
+                            </span>
+                          ))}
+                        </div>
+                      </SubNavItemSection>
+                    </>
+                  )}
+                </DesktopLink>
+              )}
             </NavListItem>
           ))}
         </NavList>
@@ -87,19 +93,30 @@ const Menu = ({ ...props }: Props) => {
   return (
     <StyledNav {...props}>
       <NavList>
-        {NAV_ITEMS.map(({ title, subtitles }) => (
+        {NAV_ITEMS.map(({ title, subtitles, customUrl }) => (
           <NavListItem key={title}>
-            {!subtitles ? (
-              <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
+            {customUrl ? (
+              <a href={customUrl} rel='noreferrer' target='_blank'>
+                {title}
+              </a>
             ) : (
-              <MobileSubNavItemSection>
-                <TitleForSubtitle>{title}</TitleForSubtitle>
-                {subtitles.map((subtitle) => (
-                  <Link key={subtitle} href={`/${adjustNavItemName(subtitle)}`}>
-                    {subtitle}
-                  </Link>
-                ))}
-              </MobileSubNavItemSection>
+              <>
+                {!subtitles ? (
+                  <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
+                ) : (
+                  <MobileSubNavItemSection>
+                    <TitleForSubtitle>{title}</TitleForSubtitle>
+                    {subtitles.map((subtitle) => (
+                      <Link
+                        key={subtitle}
+                        href={`/${adjustNavItemName(subtitle)}`}
+                      >
+                        {subtitle}
+                      </Link>
+                    ))}
+                  </MobileSubNavItemSection>
+                )}
+              </>
             )}
           </NavListItem>
         ))}
