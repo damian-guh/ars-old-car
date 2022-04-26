@@ -10,6 +10,10 @@ export const NAV_ITEMS = [
   { title: 'Kup bilet', subtitles: ['Cennik', 'Rezerwacje'] },
   { title: 'W okolicy' },
   { title: 'Kontakt' },
+  {
+    title: 'Sklepik',
+    customUrl: 'https://giftmasz.pl/kategoria/muzeum-ars-old-car/',
+  },
 ];
 
 export const MAIL = 'kontakt@arsoldcar.pl';
