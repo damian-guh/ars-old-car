@@ -50,6 +50,7 @@ export const PRICING_SECTION_TEXT = [
       '24.04.2022 – Dzień otwarty, bezpłatny wstęp dla miłośników motoryzacji',
       'Muzeum czynne: od 22.04 do 2.10.2022',
       'Piątek – Niedziela godz. 9:30-17:00',
+      '(Wejście na wystawę 2CV World o godzinie: 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00)',
       'Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
     ],
   },

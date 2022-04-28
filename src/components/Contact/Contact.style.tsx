@@ -42,6 +42,7 @@ export const MuseumDataSection = styled.section`
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   justify-items: center;
+  gap: 10px;
   width: 275px;
   height: 80px;
   font-size: ${({ theme }) => theme.fontSizes.lg};
@@ -58,6 +59,11 @@ export const MuseumDataSection = styled.section`
       cursor: pointer;
     }
   }
+`;
+
+export const AddressText = styled.p`
+  grid-column: 1/3;
+  text-align: center;
 `;
 
 const iconsStyles = css`
