@@ -7,6 +7,7 @@ import {
   StyledPhoneIcon,
   StyledMailIcon,
   FlippingCardsSection,
+  AddressText,
 } from 'components/Contact/Contact.style';
 import ContactForm from 'components/Contact/ContactForm';
 import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
@@ -67,6 +68,7 @@ const Contact = () => (
         <CopyDataButton value={MAIL} />
         <StyledPhoneIcon />
         <CopyDataButton value={PHONE} />
+        <AddressText>ul. Słoneczna 2A, 26-060 Wolica</AddressText>
       </MuseumDataSection>
       <ContactForm />
       <FlippingCardsSection>
