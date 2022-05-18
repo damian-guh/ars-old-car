@@ -25,11 +25,11 @@ const QuizChildrenPage: NextPage = () => {
   const isInRange = useIsInMuseumRange();
   if (isInRange === null)
     return (
-      <QuizPageLocationError errorText='Włącz lokalizacje i zezwól na udostępnienie' />
+      <QuizPageLocationError errorText='Włącz lokalizacje w ustawieniach i zezwól na jej udostępnienie' />
     );
   if (!isInRange)
     return (
-      <QuizPageLocationError errorText='Prawdopodobnie nie jesteś w pobliżu muzeum, spróbuj ponownie' />
+      <QuizPageLocationError errorText='Prawdopodobnie nie jesteś w pobliżu muzeum, spróbuj ponownie włączyć lokalizacje' />
     );
   return (
     <Layout>

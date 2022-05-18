@@ -58,6 +58,11 @@ const Scoreboard = () => {
             : 'Nie rozpoczęto'}
         </strong>
       </p>
+      {(!checkCookies('quiz-children') ||
+        !checkCookies('quiz-woman') ||
+        !checkCookies('quiz-f1') ||
+        !checkCookies('quiz-youth')) &&
+        'Nie ukończono wszystkich kategorii, wróć do strony startowej i wybierz kolejną kategorię'}
       {isAllScoresAreMax() && <p>Odbierz swoją nagrodę! 🎁</p>}
     </Wrapper>
   );
