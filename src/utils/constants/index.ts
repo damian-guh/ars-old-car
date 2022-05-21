@@ -42,12 +42,6 @@ export const PRICING_SECTION_TEXT = [
   {
     title: 'Godziny otwarcia i wydarzenia',
     details: [
-      'Majówka z ARS OLD CAR',
-      'Zapraszamy w dniach 29.04-3.05 w godz. 9:30-17:00.',
-      'Zaczynamy tydzień przed majówką w dniach 22-24.04',
-      '22.04.2022 - Dzień otwarty, bezpłatny wstęp dla mieszkańców gminy Chęciny',
-      '23.04.2022 – Otwarcie sezonu 2022, wstęp dla posiadaczy zaproszeń',
-      '24.04.2022 – Dzień otwarty, bezpłatny wstęp dla miłośników motoryzacji',
       'Muzeum czynne: od 22.04 do 2.10.2022',
       'Piątek – Niedziela godz. 9:30-17:00',
       '(Wejście na wystawę 2CV World o godzinie: 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00)',
