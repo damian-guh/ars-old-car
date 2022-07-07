@@ -69,7 +69,8 @@ export const HeroDesc = styled.p`
   padding: 20px 10px;
   max-width: 900px;
   text-align: justify;
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-weight: bold;
 `;
 
 export const HeroImageWrapper = styled.div`
