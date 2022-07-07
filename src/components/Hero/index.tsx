@@ -6,32 +6,46 @@ import {
   Overlay,
   HeroTitle,
   HeroDesc,
-  HeroTextWrapper,
+  HeroTextAndButtonsWrapper,
+  HeroActionButton,
+  HeroActionButtonsWrapper,
 } from 'components/Hero/Hero.style';
 
 type Props = {
-  image: StaticImageData;
+  images: StaticImageData[];
   title?: string;
-  desc: string;
+  desc?: string;
 };
 
-const Hero = ({ image, title, desc }: Props) => (
+const Hero = ({ images, title, desc }: Props) => (
   <HeroWrapper>
-    <HeroImageWrapper>
-      <Overlay />
-      <Image
-        src={image}
-        placeholder='blur'
-        layout='fill'
-        objectFit='cover'
-        quality={90}
-        alt={title}
-      />
-      <HeroTextWrapper>
-        <HeroTitle>{title}</HeroTitle>
-        <HeroDesc>{desc}</HeroDesc>
-      </HeroTextWrapper>
-    </HeroImageWrapper>
+    <HeroTextAndButtonsWrapper>
+      <HeroActionButtonsWrapper>
+        <HeroActionButton
+          href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'
+          target='_blank'
+        >
+          Nawiguj
+        </HeroActionButton>
+        <HeroActionButton href='tel:515 355 533'>Zadzwoń</HeroActionButton>
+        <HeroActionButton href='/rezerwacje'>Kup bilet</HeroActionButton>
+      </HeroActionButtonsWrapper>
+      <HeroTitle>{title}</HeroTitle>
+      <HeroDesc>{desc}</HeroDesc>
+    </HeroTextAndButtonsWrapper>
+    {images.map((image) => (
+      <HeroImageWrapper key={image.src}>
+        <Overlay />
+        <Image
+          src={image}
+          placeholder='blur'
+          layout='fill'
+          objectFit='cover'
+          quality={90}
+          alt={title}
+        />
+      </HeroImageWrapper>
+    ))}
   </HeroWrapper>
 );
 

@@ -7,24 +7,29 @@ import {
   FLIPPING_CARD_EXCLUSIVE_CAR_PICS,
 } from 'utils/constants/flippingCardsContent';
 import FlippingCard from 'components/FlippingCard';
-import heroMuseumImage from '../../public/hero1.png';
-import heroForest2CVImage from '../../public/2cv-forest.png';
 import { FlippingCardsSection } from '../components/FlippingCard/FlippingCard.style';
+import hero1Image from '../../public/hero1.jpg';
+import hero2Image from '../../public/hero2.jpg';
+import hero3Image from '../../public/hero3.jpg';
+import hero4Image from '../../public/hero4.jpg';
+import hero5Image from '../../public/hero5.jpg';
+import hero6Image from '../../public/hero6.jpg';
 
-const heroMuseumTitle = 'Witaj w Naszym Muzeum';
+const heroMuseumTitle = 'ARS OLD CAR - motoryzacja na wesoło';
 const heroMuseumDesc =
-  'To nieoczywiste, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów';
-const heroForestDesc =
-  'Wystawa 2CV WORLD poświęcona jednemu z najbardziej charakterystycznych klasyków w dziejach motoryzacji zwanym "Brzydkim Kaczątkiem", "Kaczką" czy też "Parasolem na czterech kołach". Z tej okazji można zobaczyć największą kolekcję gadżetów związanych z tym samochodem, w tym zaskakującą kolekcję "kaczek".';
+  'Duża dawka humoru i uśmiechu, a wszystko to przez kultowy samochód Citroen 2CV znany z filmu „Żandarm z Saint Tropez”. Tylko 7 min. Od Chęcin !';
+const images = [
+  hero6Image,
+  hero5Image,
+  hero4Image,
+  hero3Image,
+  hero2Image,
+  hero1Image,
+];
 
 const Home = () => (
   <Layout>
-    <Hero
-      image={heroMuseumImage}
-      title={heroMuseumTitle}
-      desc={heroMuseumDesc}
-    />
-    <Hero image={heroForest2CVImage} desc={heroForestDesc} />
+    <Hero images={images} title={heroMuseumTitle} desc={heroMuseumDesc} />
     <FlippingCardsSection>
       <FlippingCard content={FLIPPING_CARD_COMPANY_EVENTS} />{' '}
       <FirefighterTruckAttraction />
