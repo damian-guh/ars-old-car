@@ -48,7 +48,7 @@ export const HeroActionButton = styled.a`
 export const HeroTextAndButtonsWrapper = styled.section`
   position: absolute;
   left: 50%;
-  top: calc(${HEADER_HEIGHT} + 5%);
+  top: calc(${HEADER_HEIGHT} + 10%);
   transform: translate(-50%, -50%);
   width: 100%;
   display: flex;
@@ -56,6 +56,10 @@ export const HeroTextAndButtonsWrapper = styled.section`
   gap: 20px;
   align-items: center;
   z-index: 3;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    top: calc(${HEADER_HEIGHT} + 5%);
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -66,7 +70,7 @@ export const HeroTitle = styled.h1`
 
 export const HeroDesc = styled.p`
   font-style: italic;
-  padding: 20px 10px;
+  padding: 20px 15px;
   max-width: 900px;
   text-align: justify;
   font-size: ${({ theme }) => theme.fontSizes.xl};
