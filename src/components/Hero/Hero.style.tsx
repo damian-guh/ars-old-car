@@ -16,7 +16,7 @@ export const Overlay = styled.div`
   inset: 0;
   z-index: 2;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0);
 `;
 
 export const HeroActionButtonsWrapper = styled.div`
