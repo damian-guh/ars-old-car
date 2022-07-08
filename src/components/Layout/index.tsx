@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import Theme from 'components/Theme';
 import Header from 'components/Layout/Header';
 import Footer, { FOOTER_HEIGHT } from 'components/Layout/Footer';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 const Wrapper = styled.div<{ isMenuOpen: boolean }>`
   position: relative;
   min-height: 100vh;
   overflow-y: ${({ isMenuOpen }) => (isMenuOpen ? 'hidden' : 'inherit')};
-  height: ${({ isMenuOpen }) => (isMenuOpen ? '100vh' : 'inherit')};
+  height: ${({ isMenuOpen }) =>
+    isMenuOpen ? `calc(870px + ${HEADER_HEIGHT})` : 'inherit'};
 
   @media (orientation: landscape) {
     overflow-y: ${({ isMenuOpen }) => (isMenuOpen ? 'inherit' : 'hidden')};

@@ -29,7 +29,7 @@ export const NavList = styled.ul`
   flex-direction: column;
   height: 100%;
   align-items: center;
-  gap: 50px;
+  gap: 10px;
 
   :first-child {
     margin-top: 30px;
@@ -39,6 +39,10 @@ export const NavList = styled.ul`
     flex-direction: row;
     justify-content: center;
 
+    a {
+      display: none;
+    }
+
     :first-child {
       margin-top: 0;
     }
@@ -47,9 +51,31 @@ export const NavList = styled.ul`
 
 export const NavListItem = styled.li`
   font-size: ${({ theme }) => theme.fontSizes.lg};
+  padding: 10px;
+  margin: 0 0 20px 0;
+
+  a {
+    border-bottom: 1px solid white;
+  }
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    margin: 0;
+
+    a {
+      border: none;
+    }
+  }
 `;
 
-export const TitleForSubtitle = styled.span``;
+export const TitleForSubtitle = styled.span`
+  margin: 10px;
+  font-weight: bold;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    font-weight: normal;
+    margin: 0;
+  }
+`;
 
 export const SubNavItemSection = styled.div`
   position: relative;
@@ -83,11 +109,9 @@ export const MobileSubNavItemSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 200px;
 
   a {
-    width: 200px;
-    text-align: justify;
+    font-size: ${({ theme }) => theme.fontSizes.sm};
   }
 `;
 
