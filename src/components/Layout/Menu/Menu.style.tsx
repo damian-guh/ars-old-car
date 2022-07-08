@@ -39,6 +39,10 @@ export const NavList = styled.ul`
     flex-direction: row;
     justify-content: center;
 
+    a {
+      display: none;
+    }
+
     :first-child {
       margin-top: 0;
     }
