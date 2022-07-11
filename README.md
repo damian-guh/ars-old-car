@@ -4,9 +4,10 @@ https://arsoldcar.pl/
 ## Technologies
 - Next.js (React)
 - TypeScript
-- Styled-components
-- Gsap
+- styled-components
+- gsap
 - Firebase
+- DatoCMS
 
 ## Features
 - Booking system
