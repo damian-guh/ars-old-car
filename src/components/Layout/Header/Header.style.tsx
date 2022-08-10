@@ -41,3 +41,13 @@ export const LogoWrapper = styled.div`
     grid-column: 1/2;
   }
 `;
+
+export const QuickNewsSection = styled.section`
+  width: 100vw;
+  grid-column: 1/3;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  color: ${({ theme }) => theme.colors.red};
+  padding: 5px;
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  text-align: center;
+`;
