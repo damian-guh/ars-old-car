@@ -33,10 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>
-        Uwaga! W dniu 14.08.2022 muzeum nieczynne. Zapraszamy na MotoPiknik w
-        Tokarni
-      </QuickNewsSection>
+      <QuickNewsSection />
     </Wrapper>
   );
 };
