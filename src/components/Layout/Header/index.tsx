@@ -33,7 +33,9 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>W piątek (16.09.2022) muzeum nieczynne. Zapraszamy w sobotę</QuickNewsSection>
+      <QuickNewsSection>
+        W piątek (16.09.2022) muzeum nieczynne. Zapraszamy w sobotę
+      </QuickNewsSection>
     </Wrapper>
   );
 };
