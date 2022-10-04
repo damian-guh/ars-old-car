@@ -33,7 +33,9 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection />
+      <QuickNewsSection>
+        Do 28.10.2022 muzeum czynne dla grup szkolnych i przedszkolnych
+      </QuickNewsSection>
     </Wrapper>
   );
 };

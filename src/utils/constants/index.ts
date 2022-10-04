@@ -34,14 +34,14 @@ export const PRICING_SECTION_TEXT = [
       '25 zł – bilet indywidualny, w cenie biletu trasa widokowa wozem strażackim',
       '20 zł – bilet grupowy powyżej 10 osób, w cenie biletu trasa widokowa wozem strażackim',
       'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
-      'Bezpłatny wstęp dla dzieci w wieku od 4 do 6 lat',
+      'Bezpłatny wstęp dla dzieci w wieku od 4 do 5 lat',
       'Wstęp dla osób w wieku od 4 do 99 lat.',
     ],
   },
   {
     title: 'Godziny otwarcia i wydarzenia',
     details: [
-      'Muzeum czynne: od 22.04 do 2.10.2022',
+      'Muzeum czynne: od 15.04 do 01.10.2023',
       'Piątek – Niedziela godz. 9:30-17:00',
       '(Wejście na wystawę 2CV World o godzinie: 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00)',
       'Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
