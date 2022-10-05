@@ -34,7 +34,7 @@ const Header = () => {
         />
       )}
       <QuickNewsSection>
-        Do 28.10.2022 muzeum czynne dla grup szkolnych i przedszkolnych
+        Do 28.10.2022 muzeum czynne dla grup szkolnych i przedszkolnyc
       </QuickNewsSection>
     </Wrapper>
   );
