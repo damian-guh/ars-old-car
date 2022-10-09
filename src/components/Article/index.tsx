@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 45px;
-  width: 100%;
+  padding-top: 40px;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 3fr 1fr;
@@ -20,8 +20,6 @@ export const ArticlesWrapper = styled.div`
   align-items: center;
   justify-items: center;
   gap: 45px;
-  padding: 30px;
-  width: 100%;
 `;
 
 export const Article = styled.article`
