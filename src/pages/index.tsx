@@ -1,6 +1,6 @@
 import Layout from 'components/Layout';
 import { Map } from 'components/Layout/Map';
-import Hero from 'components/Hero';
+import dynamic from 'next/dynamic';
 import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
 import {
   FLIPPING_CARD_COMPANY_EVENTS,
@@ -26,6 +26,8 @@ const images = [
   hero2Image,
   hero1Image,
 ];
+
+const Hero = dynamic(() => import('components/Hero'));
 
 const Home = () => (
   <Layout>
