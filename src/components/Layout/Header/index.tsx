@@ -1,16 +1,16 @@
-import { useContext, useRef } from 'react';
-import Link from 'next/link';
-import { BurgerContext } from 'components/Layout';
+import { useContext, useRef } from "react";
+import Link from "next/link";
+import { BurgerContext } from "components/Layout";
 import {
   Wrapper,
   LogoWrapper,
   QuickNewsSection,
-} from 'components/Layout/Header/Header.style';
-import Logo from 'components/Layout/Logo';
-import Menu from 'components/Layout/Menu';
-import Burger from 'components/Layout/Menu/Burger';
-import useDesktopMediaQuery from 'hooks/useDesktopMediaQuery';
-import useMounted from 'hooks/useMounted';
+} from "components/Layout/Header/Header.style";
+import Logo from "components/Layout/Logo";
+import Menu from "components/Layout/Menu";
+import Burger from "components/Layout/Menu/Burger";
+import useDesktopMediaQuery from "hooks/useDesktopMediaQuery";
+import useMounted from "hooks/useMounted";
 
 const Header = () => {
   const [isMenuOpen, toggleMenu] = useContext(BurgerContext);
@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Link href='/'>
+      <Link href="/">
         <LogoWrapper ref={logoRef}>
           <Logo />
         </LogoWrapper>
@@ -33,9 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>
-        Do 28.10.2022 muzeum czynne dla grup szkolnych i przedszkolnych
-      </QuickNewsSection>
+      <QuickNewsSection></QuickNewsSection>
     </Wrapper>
   );
 };
