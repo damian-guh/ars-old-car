@@ -106,17 +106,21 @@ const OfferForSchoolsPage = () => {
           - posiłek (kiełbaska z grilla, pieczone ziemniaki , pieczywo, sosy,
           herbata)
         </p>
+        <p>- możliwość zamówienia cateringu</p>
         <p>
-          Czas trwania wycieczki około 3-4 godzin. Koszt zwiedzania z posiłkiem
-          to 35 zł od osoby (opiekunowie nie płacą), bez posiłku 20 zł. Każdy
+          Czas trwania wycieczki około 3 godzin. Koszt zwiedzania z posiłkiem to
+          35 zł od osoby (opiekunowie nie płacą), bez posiłku 20 zł. Każdy
           uczestnik wycieczki dostanie pamiątkową naklejkę samochodu 2CV.
         </p>
         <p>Na miejscu do nabycia tematyczne pamiątki !</p>
-        <p>
-          Podjazd autokarem bezpośrednio pod wejście. Miejsce parkingowe dla
-          autokaru.
-        </p>
-        <p>Tylko 7 minut od Chęcin.</p>
+        <p>Parking dla autokaru , dojazd bezpośrednio pod wejście do muzeum.</p>
+        <b>Dodatkowa atrakcja - świat wirtualny VR ( nowość w 2023 !!! )</b>
+        <b>Tylko 7 minut od Chęcin.</b>
+        <b>Muzeum otwarte w 2023 r. w okresie 15 kwiecień - 20 październik</b>
+        <b>
+          W przypadku wycieczek kilkudniowych służymy pomocą w organizacji trasy
+          pobytu, doboru atrakcji turystycznych, noclegów oraz cateringu.
+        </b>
         <p>ZAPRASZAMY‼️❤</p>
         <a href='mailto:kontakt@arsoldcar.pl'>
           📧 e-mail: kontakt@arsoldcar.pl

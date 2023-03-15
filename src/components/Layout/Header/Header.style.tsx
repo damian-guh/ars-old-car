@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { BURGER_DIMENSIONS } from 'components/Layout/Menu/Burger/Burger.style';
 
-export const HEADER_HEIGHT = '95px';
+export const HEADER_HEIGHT = '100px';
 
 export const Wrapper = styled.header`
-  position: sticky;
+  position: fixed;
   background-color: ${({ theme }) => theme.colors.headerGray};
   inset: 0;
   display: grid;
@@ -26,8 +26,9 @@ export const Wrapper = styled.header`
     z-index: 30;
   }
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-template-columns: 1fr 5fr;
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
+    grid-template-columns: 1fr 7fr;
+    position: sticky;
   }
 `;
 
@@ -37,7 +38,7 @@ export const LogoWrapper = styled.div`
   position: relative;
   grid-column: 2/3;
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
     grid-column: 1/2;
   }
 `;

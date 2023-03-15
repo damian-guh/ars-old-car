@@ -4,6 +4,7 @@ export const APP_DESC =
   'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
 
 export const NAV_ITEMS = [
+  // { title: 'Świat VR', desc: 'nowość 2023', important: true },
   { title: 'Aktualności' },
   { title: 'Galeria' },
   { title: 'Konkursy', subtitles: ['#LUBIE2CV', 'QR'] },
@@ -11,9 +12,10 @@ export const NAV_ITEMS = [
   { title: 'W okolicy' },
   { title: 'Kontakt' },
   {
-    title: 'Sklepik',
+    title: 'E-Sklepik',
     customUrl: 'https://giftmasz.pl/kategoria/muzeum-ars-old-car/',
   },
+  { title: 'Oferta dla grup' },
 ];
 
 export const MAIL = 'kontakt@arsoldcar.pl';
@@ -34,8 +36,7 @@ export const PRICING_SECTION_TEXT = [
       '25 zł – bilet indywidualny, w cenie biletu trasa widokowa wozem strażackim',
       '20 zł – bilet grupowy powyżej 10 osób, w cenie biletu trasa widokowa wozem strażackim',
       'Bezpłatny wstęp dla kierowców pojazdów zabytkowych odwiedzających ARS OLD CAR',
-      'Bezpłatny wstęp dla dzieci w wieku od 4 do 5 lat',
-      'Wstęp dla osób w wieku od 4 do 99 lat.',
+      'Bezpłatny wstęp dla dzieci w wieku do 3 lat',
     ],
   },
   {

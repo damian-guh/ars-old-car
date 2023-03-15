@@ -9,6 +9,7 @@ const Wrapper = styled.div<{ isMenuOpen: boolean }>`
   position: relative;
   min-height: 100vh;
   overflow-y: ${({ isMenuOpen }) => (isMenuOpen ? 'hidden' : 'inherit')};
+  overflow-x: hidden;
   height: ${({ isMenuOpen }) =>
     isMenuOpen ? `calc(870px + ${HEADER_HEIGHT})` : 'inherit'};
 
