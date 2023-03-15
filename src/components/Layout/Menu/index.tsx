@@ -28,110 +28,130 @@ const Menu = ({ ...props }: Props) => {
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
   const router = useRouter();
+  let navContent;
 
   if (isDesktop && isMounted) {
-    return (
+    navContent = (
       <StyledNav {...props}>
         <NavList>
-          {NAV_ITEMS.map(({ title, subtitles, customUrl }) => (
-            <NavListItem key={title}>
-              {customUrl ? (
+          {/* @ts-ignore */}
+          {NAV_ITEMS.map(({ title, subtitles, customUrl, desc, important }) => {
+            let navListItemContent;
+
+            if (customUrl) {
+              navListItemContent = (
                 <a href={customUrl} target='_blank' rel='noreferrer'>
                   {title}
                 </a>
-              ) : (
+              );
+            } else if (!subtitles) {
+              navListItemContent = (
                 <DesktopLink
                   role='link'
                   tabIndex={0}
+                  important={important}
                   onClick={(event) => {
-                    if (!subtitles) {
-                      carAnimation(
-                        props.logoRef,
-                        event,
-                        `/${adjustNavItemName(title)}`,
-                        router
-                      );
-                    }
+                    carAnimation(
+                      props.logoRef,
+                      event,
+                      `/${adjustNavItemName(title)}`,
+                      router
+                    );
                   }}
                 >
-                  {!subtitles ? (
-                    title
-                  ) : (
+                  {desc ? (
                     <>
-                      <TitleForSubtitle>{title}</TitleForSubtitle>
-                      <SubNavItemSection>
-                        <div>
-                          {subtitles.map((subtitle) => (
-                            <span
-                              role='link'
-                              tabIndex={-1}
-                              key={subtitle}
-                              onClick={(event) =>
-                                carAnimation(
-                                  props.logoRef,
-                                  event,
-                                  `/${adjustNavItemName(subtitle)}`,
-                                  router
-                                )
-                              }
-                            >
-                              {subtitle}
-                            </span>
-                          ))}
-                        </div>
-                      </SubNavItemSection>
+                      <span>{title}</span>
+                      <span>{desc}</span>
                     </>
+                  ) : (
+                    title
                   )}
                 </DesktopLink>
-              )}
-            </NavListItem>
-          ))}
+              );
+            } else {
+              navListItemContent = (
+                <>
+                  <TitleForSubtitle>{title}</TitleForSubtitle>
+                  <SubNavItemSection>
+                    <div>
+                      {subtitles.map((subtitle) => (
+                        <span
+                          role='link'
+                          tabIndex={-1}
+                          key={subtitle}
+                          onClick={(event) =>
+                            carAnimation(
+                              props.logoRef,
+                              event,
+                              `/${adjustNavItemName(subtitle)}`,
+                              router
+                            )
+                          }
+                        >
+                          {subtitle}
+                        </span>
+                      ))}
+                    </div>
+                  </SubNavItemSection>
+                </>
+              );
+            }
+
+            return <NavListItem key={title}>{navListItemContent}</NavListItem>;
+          })}
+        </NavList>
+      </StyledNav>
+    );
+  } else {
+    navContent = (
+      <StyledNav {...props}>
+        <NavList>
+          <HeroActionButton
+            href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'
+            target='_blank'
+          >
+            Nawiguj
+          </HeroActionButton>
+          <HeroActionButton href='tel:515 355 533'>Zadzwoń</HeroActionButton>
+          <HeroActionButton href='/rezerwacje'>Kup bilet</HeroActionButton>
+          {NAV_ITEMS.map(({ title, subtitles, customUrl }) => {
+            let navListItemContent;
+
+            if (customUrl) {
+              navListItemContent = (
+                <a href={customUrl} rel='noreferrer' target='_blank'>
+                  {title}
+                </a>
+              );
+            } else if (!subtitles) {
+              navListItemContent = (
+                <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
+              );
+            } else {
+              navListItemContent = (
+                <MobileSubNavItemSection>
+                  <TitleForSubtitle>{title}</TitleForSubtitle>
+                  {subtitles.map((subtitle) => (
+                    <Link
+                      key={subtitle}
+                      href={`/${adjustNavItemName(subtitle)}`}
+                    >
+                      {subtitle}
+                    </Link>
+                  ))}
+                </MobileSubNavItemSection>
+              );
+            }
+
+            return <NavListItem key={title}>{navListItemContent}</NavListItem>;
+          })}
         </NavList>
       </StyledNav>
     );
   }
 
-  return (
-    <StyledNav {...props}>
-      <NavList>
-        <HeroActionButton
-          href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'
-          target='_blank'
-        >
-          Nawiguj
-        </HeroActionButton>
-        <HeroActionButton href='tel:515 355 533'>Zadzwoń</HeroActionButton>
-        <HeroActionButton href='/rezerwacje'>Kup bilet</HeroActionButton>
-        {NAV_ITEMS.map(({ title, subtitles, customUrl }) => (
-          <NavListItem key={title}>
-            {customUrl ? (
-              <a href={customUrl} rel='noreferrer' target='_blank'>
-                {title}
-              </a>
-            ) : (
-              <>
-                {!subtitles ? (
-                  <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
-                ) : (
-                  <MobileSubNavItemSection>
-                    <TitleForSubtitle>{title}</TitleForSubtitle>
-                    {subtitles.map((subtitle) => (
-                      <Link
-                        key={subtitle}
-                        href={`/${adjustNavItemName(subtitle)}`}
-                      >
-                        {subtitle}
-                      </Link>
-                    ))}
-                  </MobileSubNavItemSection>
-                )}
-              </>
-            )}
-          </NavListItem>
-        ))}
-      </NavList>
-    </StyledNav>
-  );
+  return navContent;
 };
 
 export default Menu;

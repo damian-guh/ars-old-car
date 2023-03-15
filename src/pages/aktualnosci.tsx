@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async () => {
       {
         query: `
         {
-          allArticles {
+          allArticles(orderBy: _firstPublishedAt_DESC) {
             id
             title
             content {
