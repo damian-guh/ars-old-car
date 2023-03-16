@@ -9,8 +9,6 @@ import OfferImage3 from '../../public/oferta-dla-szkol-3.jpg';
 import OfferImage4 from '../../public/oferta-dla-szkol-4.jpg';
 import OfferImage5 from '../../public/oferta-dla-szkol-5.jpg';
 import OfferImage6 from '../../public/oferta-dla-szkol-6.jpg';
-import OfferImage7 from '../../public/oferta-dla-szkol-7.jpg';
-import OfferImage8 from '../../public/oferta-dla-szkol-8.jpg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,8 +53,6 @@ const images = [
   { asset: [{ url: OfferImage4.src, id: 'oferta-dla-szkol-4' }] },
   { asset: [{ url: OfferImage5.src, id: 'oferta-dla-szkol-5' }] },
   { asset: [{ url: OfferImage6.src, id: 'oferta-dla-szkol-6' }] },
-  { asset: [{ url: OfferImage7.src, id: 'oferta-dla-szkol-7' }] },
-  { asset: [{ url: OfferImage8.src, id: 'oferta-dla-szkol-8' }] },
 ];
 
 const OfferForSchoolsPage = () => {
