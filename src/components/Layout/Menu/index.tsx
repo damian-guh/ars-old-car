@@ -20,10 +20,8 @@ type Props = {
   isOpen: boolean | null;
   logoRef: React.RefObject<HTMLDivElement>;
 };
-
 const adjustNavItemName = (name: string) =>
   name.replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's').toLowerCase();
-
 const Menu = ({ ...props }: Props) => {
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
@@ -71,7 +69,7 @@ const Menu = ({ ...props }: Props) => {
               );
             } else {
               navListItemContent = (
-                <>
+                <DesktopLink>
                   <TitleForSubtitle>{title}</TitleForSubtitle>
                   <SubNavItemSection>
                     <div>
@@ -94,7 +92,7 @@ const Menu = ({ ...props }: Props) => {
                       ))}
                     </div>
                   </SubNavItemSection>
-                </>
+                </DesktopLink>
               );
             }
 
