@@ -49,6 +49,15 @@ export const PRICING_SECTION_TEXT = [
     ],
   },
   {
+    title: 'Świat VR',
+    details: [
+      '15 zł - Przygoda w Saint Tropez Część 1: "Siostro zwolnij!"',
+      '10 zł - Przygoda w Saint Tropez Część 2: "Wycieczka po Saint Tropez"',
+      '20% taniej w pakiecie Część 1-2 - 20 zł',
+      '10 zł - Tajemnica Willi Hempla',
+    ],
+  },
+  {
     title: 'Dodatkowe informacje',
     details: [
       'Miejsce przyjazne dla zwierząt - Zapraszamy fanów motoryzacji wraz z czworonogami',
