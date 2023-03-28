@@ -21,7 +21,7 @@ type Props = {
   logoRef: React.RefObject<HTMLDivElement>;
 };
 const adjustNavItemName = (name: string) =>
-  name.replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's').toLowerCase();
+  name.toLowerCase().replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's');
 const Menu = ({ ...props }: Props) => {
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
