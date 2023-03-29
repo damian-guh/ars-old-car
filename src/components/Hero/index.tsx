@@ -1,5 +1,6 @@
 import StaticImageData from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   HeroWrapper,
   HeroImageWrapper,
@@ -9,6 +10,8 @@ import {
   HeroTextAndButtonsWrapper,
   HeroActionButton,
   HeroActionButtonsWrapper,
+  HeroSaleOffer,
+  HeroSaleOfferTitle,
 } from 'components/Hero/Hero.style';
 
 type Props = {
@@ -20,6 +23,17 @@ type Props = {
 const Hero = ({ images, title, desc }: Props) => (
   <HeroWrapper>
     <HeroTextAndButtonsWrapper>
+      <Link href='/bastek'>
+        <HeroSaleOffer>
+          <HeroSaleOfferTitle>Nowość 2023!</HeroSaleOfferTitle>
+          <h4>10% taniej</h4>
+          <span>Jazda żukiem strażackim</span>
+          <span>w ARS OLD CAR</span>
+          <span>Muzeum Motoryzacji</span>
+          <span>Spływ kajakiem Bastek</span>
+          <span>Ognisko z kiełbaskami po spływie</span>
+        </HeroSaleOffer>
+      </Link>
       <HeroActionButtonsWrapper>
         <HeroActionButton
           href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'
