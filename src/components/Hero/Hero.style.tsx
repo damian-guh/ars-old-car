@@ -5,9 +5,11 @@ export const HeroWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
+  margin-top: ${HEADER_HEIGHT};
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
     grid-template-columns: repeat(2, 1fr);
+    margin: 0;
   }
 `;
 
@@ -48,18 +50,14 @@ export const HeroActionButton = styled.a`
 export const HeroTextAndButtonsWrapper = styled.section`
   position: absolute;
   left: 50%;
-  top: calc(${HEADER_HEIGHT} + 10%);
-  transform: translate(-50%, -50%);
+  padding: 20px;
+  transform: translateX(-50%);
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   z-index: 3;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    top: calc(${HEADER_HEIGHT} + 5%);
-  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -80,4 +78,18 @@ export const HeroDesc = styled.p`
 export const HeroImageWrapper = styled.div`
   position: relative;
   height: calc(100vh - ${HEADER_HEIGHT});
+`;
+
+export const HeroSaleOffer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(23, 23, 22, 0.95);
+  padding: 20px;
+  gap: 5px;
+  cursor: pointer;
+`;
+
+export const HeroSaleOfferTitle = styled.h3`
+  color: red;
 `;

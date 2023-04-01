@@ -4,7 +4,7 @@ export const APP_DESC =
   'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
 
 export const NAV_ITEMS = [
-  // { title: 'Świat VR', desc: 'nowość 2023', important: true },
+  { title: 'Świat VR', desc: 'nowość 2023', important: true },
   { title: 'Aktualności' },
   { title: 'Galeria' },
   { title: 'Konkursy', subtitles: ['#LUBIE2CV', 'QR'] },
