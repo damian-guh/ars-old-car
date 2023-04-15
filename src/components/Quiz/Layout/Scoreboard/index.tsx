@@ -6,8 +6,13 @@ import { getCookie, checkCookies } from 'cookies-next';
 
 const Scoreboard = () => {
   useCheckQuizUsernameCookie();
-  const { childrenQuizScore, f1QuizScore, womanQuizScore, youthQuizScore } =
-    useQuizScore();
+  const {
+    childrenQuizScore,
+    f1QuizScore,
+    womanQuizScore,
+    youthQuizScore,
+    zukQuizScore,
+  } = useQuizScore();
   const [username, setUsername] = useState('');
 
   const isAllScoresAreMax = () =>
@@ -15,6 +20,7 @@ const Scoreboard = () => {
     f1QuizScore.score === f1QuizScore.maxScore &&
     womanQuizScore.score === womanQuizScore.maxScore &&
     youthQuizScore.score === youthQuizScore.maxScore;
+  const isZukScoreIsWin = zukQuizScore.score > 25;
 
   useEffect(() => {
     setUsername(String(getCookie('quiz-username')));
@@ -62,8 +68,20 @@ const Scoreboard = () => {
         !checkCookies('quiz-woman') ||
         !checkCookies('quiz-f1') ||
         !checkCookies('quiz-youth')) &&
+        !checkCookies('quiz-zuk') &&
         'Nie ukończono wszystkich kategorii, wróć do strony startowej i wybierz kolejną kategorię'}
-      {isAllScoresAreMax() && <p>Odbierz swoją nagrodę! 🎁</p>}
+      <p>
+        Żuk Quiz{' '}
+        <strong>
+          {checkCookies('quiz-zuk')
+            ? `${zukQuizScore.score}/${zukQuizScore.maxScore}`
+            : 'Nie rozpoczęto'}
+        </strong>
+      </p>
+
+      {isAllScoresAreMax() || isZukScoreIsWin ? (
+        <p>Odbierz swoją nagrodę! 🎁</p>
+      ) : null}
     </Wrapper>
   );
 };
