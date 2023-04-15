@@ -23,6 +23,7 @@ type Values = {
 
 type Props = {
   color?: string;
+  quizRulesContent?: string;
 };
 
 type InputProps = {
@@ -50,7 +51,13 @@ const Input = ({ ...props }: InputProps) => {
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
-const StartSection = ({ color }: Props) => {
+const quizRulesContentDefault =
+  'Szukaj kodów QR z kolorem auta w logo, odpowiadaj na pytania i otrzymaj nagrodę za wygraną.';
+
+const StartSection = ({
+  color,
+  quizRulesContent = quizRulesContentDefault,
+}: Props) => {
   const recaptchaRef = useRef<any>(null);
   const [formValues, setFormValues] = useState<Values | null>(null);
   const [isFormDisabled, setFormDisabled] = useState(false);
@@ -80,10 +87,7 @@ const StartSection = ({ color }: Props) => {
 
   return (
     <>
-      <QuizRules>
-        Szukaj kodów QR z kolorem auta w logo, odpowiadaj na pytania i otrzymaj
-        nagrodę za wygraną.
-      </QuizRules>
+      <QuizRules>{quizRulesContent}</QuizRules>
       {isFormDisabled ? null : (
         <Formik
           initialValues={{

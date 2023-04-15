@@ -5,6 +5,7 @@ import CHILDREN_QUESTIONS from 'utils/constants/quizQuestions/childrenQuestions'
 import F1_QUESTIONS from 'utils/constants/quizQuestions/f1Questions';
 import WOMAN_QUESTIONS from 'utils/constants/quizQuestions/womanQuestions';
 import YOUTH_QUESTIONS from 'utils/constants/quizQuestions/youthQuestions';
+import ZUK_QUESTIONS from 'utils/constants/quizQuestions/zukQuestions';
 
 type Question = {
   content: string;
@@ -30,6 +31,10 @@ const initialScore = {
   youthQuizScore: {
     score: 0,
     maxScore: YOUTH_QUESTIONS.length,
+  },
+  zukQuizScore: {
+    score: 0,
+    maxScore: ZUK_QUESTIONS.length,
   },
 };
 
@@ -70,10 +75,26 @@ const scoreReducer = (
           maxScore: state.youthQuizScore.maxScore,
         },
       };
+    case 'increment-zuk-score':
+      return {
+        ...state,
+        zukQuizScore: {
+          score: state.zukQuizScore.score + 1,
+          maxScore: state.zukQuizScore.maxScore,
+        },
+      };
     default:
       return state;
   }
 };
+
+const quizzes = [
+  { questions: CHILDREN_QUESTIONS, category: 'children' },
+  { questions: WOMAN_QUESTIONS, category: 'woman' },
+  { questions: YOUTH_QUESTIONS, category: 'youth' },
+  { questions: F1_QUESTIONS, category: 'f1' },
+  { questions: ZUK_QUESTIONS, category: 'zuk' },
+];
 
 const useQuizScore = () => {
   const [score, scoreDispatch] = useReducer(scoreReducer, initialScore);
@@ -90,18 +111,11 @@ const useQuizScore = () => {
   };
 
   useEffect(() => {
-    if ('quiz-children' in getCookies()) {
-      checkAnswerAndSetScore(CHILDREN_QUESTIONS, 'children');
-    }
-    if ('quiz-woman' in getCookies()) {
-      checkAnswerAndSetScore(WOMAN_QUESTIONS, 'woman');
-    }
-    if ('quiz-youth' in getCookies()) {
-      checkAnswerAndSetScore(YOUTH_QUESTIONS, 'youth');
-    }
-    if ('quiz-f1' in getCookies()) {
-      checkAnswerAndSetScore(F1_QUESTIONS, 'f1');
-    }
+    quizzes.forEach((quiz) => {
+      if (`quiz-${quiz.category}` in getCookies()) {
+        checkAnswerAndSetScore(quiz.questions, quiz.category);
+      }
+    });
   }, []);
 
   useEffect(() => {
