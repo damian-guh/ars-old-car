@@ -34,6 +34,7 @@ const handleAnswer = (
   setAnswerExist(checkCookies(cookieAnswer));
   if (isAllAnswersExist(ZUK_QUESTIONS.length, cookieKey))
     router.push('/quiz/koniec');
+  router.push(`/quiz/zuk/${Number(router.query.id) + 1}`);
 };
 
 const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
@@ -43,9 +44,6 @@ const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
   if (isAnswerExist)
     return (
       <>
-        <QuizInfoSpan>
-          Udzielono odpowiedzi na to pytanie, szukaj kolejnych kodów QR
-        </QuizInfoSpan>
         <QuizInfoSpan>
           Twoja odpowiedź to: {getCookie(`quiz-answer-zuk-${router.query.id}`)}
         </QuizInfoSpan>

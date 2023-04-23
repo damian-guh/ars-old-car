@@ -34,7 +34,10 @@ const QuizZukCarPage: NextPage = () => {
     );
   return (
     <Layout>
-      <StartSection color='red' />
+      <StartSection
+        color='red'
+        quizRulesContent='Po wprowadzeniu danych i kliknięciu start zaznacz prawidłową odpowiedź pasującą do oryginalnego tytułu filmu'
+      />
     </Layout>
   );
 };
