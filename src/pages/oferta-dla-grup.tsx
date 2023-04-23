@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -83,6 +83,14 @@ const images = [
   { asset: [{ url: OfferImage5.src, id: 'oferta-dla-szkol-5' }] },
   { asset: [{ url: OfferImage6.src, id: 'oferta-dla-szkol-6' }] },
 ];
+
+const handleVideoClick = (event: MouseEvent<HTMLVideoElement>) => {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    (event.target as HTMLVideoElement).requestFullscreen();
+  }
+};
 
 const OfferForSchoolsPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -176,7 +184,11 @@ const OfferForSchoolsPage = () => {
         </TextSectionWrapper>
         <div>
           <ImagesWrapper>
-            <video src='/2cv-movie-advert.mp4' controls>
+            <video
+              onClick={(event) => handleVideoClick(event)}
+              src='/2cv-movie-advert.mp4'
+              controls
+            >
               Twoja przeglądarka nie wspiera filmów
             </video>
             {images.map(({ asset }) => (

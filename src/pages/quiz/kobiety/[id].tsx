@@ -43,7 +43,8 @@ const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
   if (isAnswerExist)
     return (
       <QuizInfoSpan>
-        Udzielono odpowiedzi na to pytanie, szukaj kolejnych kodów QR
+        Udzielono odpowiedzi na to pytanie, szukaj kolejnych kodów QR, a
+        następnie zeskanuj je i odpowiadaj dalej
       </QuizInfoSpan>
     );
 
