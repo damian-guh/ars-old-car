@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { FiPhone as PhoneIcon } from '@react-icons/all-files/fi/FiPhone';
 import { FiMail as MailIcon } from '@react-icons/all-files/fi/FiMail';
+import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const Wrapper = styled.section`
   display: grid;
@@ -8,7 +9,7 @@ export const Wrapper = styled.section`
   grid-template-rows: 80px repeat(3, 1fr);
   justify-items: center;
   align-items: center;
-  padding: 50px 0;
+  padding: calc(${HEADER_HEIGHT} + 20px) 0 50px 0;
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 1fr 2fr;
