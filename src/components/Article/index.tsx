@@ -7,10 +7,11 @@ export const Wrapper = styled.section`
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 45px;
-  padding-top: 40px;
+  padding-top: ${HEADER_HEIGHT};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 3fr 1fr;
+    padding-top: 50px;
   }
 `;
 

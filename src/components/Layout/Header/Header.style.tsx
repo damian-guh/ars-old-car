@@ -45,10 +45,10 @@ export const LogoWrapper = styled.div`
 
 export const QuickNewsSection = styled.section`
   width: 100vw;
+  height: 50px;
   grid-column: 1/3;
   font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.red};
-  padding: 5px;
   background-color: ${({ theme }) => theme.colors.headerGray};
   text-align: center;
 `;
