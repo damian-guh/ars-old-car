@@ -25,7 +25,10 @@ const QuizPage: NextPage = () => (
         <p>Zasady</p>
         <p>1. Wybierz kategorię poniżej, wpisz swoje imię</p>
         <p>2. Szukaj kodów z kolorem kategorii, którą wybrałeś</p>
-        <p>3. Udziel odpowiedzi i szukaj kolejnego kodu</p>
+        <p>
+          3. Udziel odpowiedzi i szukaj kolejnego kodu, zeskanuj go i odpowiadaj
+          dalej
+        </p>
         <p>
           4. Po udzieleniu wszystkich odpowiedzi zostaniesz przekierowany do
           tabeli

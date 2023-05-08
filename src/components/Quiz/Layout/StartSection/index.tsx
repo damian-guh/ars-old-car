@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { Formik, useField } from 'formik';
 import { getAuth, signInAnonymously } from 'firebase/auth';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -23,6 +24,7 @@ type Values = {
 
 type Props = {
   color?: string;
+  quizRulesContent?: string;
 };
 
 type InputProps = {
@@ -50,10 +52,17 @@ const Input = ({ ...props }: InputProps) => {
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
-const StartSection = ({ color }: Props) => {
+const quizRulesContentDefault =
+  'Szukaj kodów QR z kolorem auta w logo, odpowiadaj na pytania i otrzymaj nagrodę za wygraną.';
+
+const StartSection = ({
+  color,
+  quizRulesContent = quizRulesContentDefault,
+}: Props) => {
   const recaptchaRef = useRef<any>(null);
   const [formValues, setFormValues] = useState<Values | null>(null);
   const [isFormDisabled, setFormDisabled] = useState(false);
+  const router = useRouter();
 
   const onReCAPTCHAChange = async (captchaCode: string) => {
     if (!captchaCode) {
@@ -75,15 +84,13 @@ const StartSection = ({ color }: Props) => {
   useEffect(() => {
     if (checkCookies('quiz-username')) {
       setFormDisabled(true);
+      if (router.pathname.includes('zuk')) router.push('/quiz/zuk/1');
     }
-  }, []);
+  }, [checkCookies('quiz-username')]);
 
   return (
     <>
-      <QuizRules>
-        Szukaj kodów QR z kolorem auta w logo, odpowiadaj na pytania i otrzymaj
-        nagrodę za wygraną.
-      </QuizRules>
+      <QuizRules>{quizRulesContent}</QuizRules>
       {isFormDisabled ? null : (
         <Formik
           initialValues={{

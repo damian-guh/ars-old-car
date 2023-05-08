@@ -8,9 +8,11 @@ export const Wrapper = styled.div`
   justify-items: center;
   gap: 45px;
   width: 100%;
+  padding-top: ${HEADER_HEIGHT};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     grid-template-columns: 3fr 1fr;
+    padding-top: 50px;
   }
 `;
 

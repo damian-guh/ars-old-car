@@ -77,7 +77,8 @@ export const ImageWrapper = styled.div<Props>`
 export const NearbyTitleSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  margin: 40px 0;
+  margin-bottom: 40px;
+  padding-top: ${HEADER_HEIGHT};
   align-items: center;
   background-color: ${({ theme }) => theme.colors.darkGray};
 
@@ -86,6 +87,7 @@ export const NearbyTitleSectionWrapper = styled.section`
     top: calc(${HEADER_HEIGHT} + 20px);
     z-index: 1;
     margin: 0;
+    padding-top: 20px;
   }
 `;
 

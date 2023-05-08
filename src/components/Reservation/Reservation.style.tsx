@@ -34,8 +34,12 @@ export const FormSectionWrapper = styled.section`
   width: 100%;
   min-height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
   justify-content: center;
-  padding: 50px 5px;
+  padding: ${HEADER_HEIGHT} 5px 50px 5px;
   background-color: ${({ theme }) => theme.colors.headerGray};
+
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
+    padding-top: 50px;
+  }
 `;
 
 export const StyledHeading = styled.h1`

@@ -33,7 +33,9 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection />
+      <QuickNewsSection>
+        Muzeum czynne w majówkę od 29.04 do 07.05
+      </QuickNewsSection>
     </Wrapper>
   );
 };
