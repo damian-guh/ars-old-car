@@ -24,7 +24,7 @@ const Wrapper = styled.div<{ isMenuOpen: boolean }>`
 `;
 
 const ContentWrapper = styled.div`
-  padding: 0 0 ${FOOTER_HEIGHT} 0;
+  padding: 50px 0 ${FOOTER_HEIGHT} 0;
 `;
 
 type Props = {
