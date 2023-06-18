@@ -1,11 +1,7 @@
 import { useContext, useRef } from 'react';
 import Link from 'next/link';
 import { BurgerContext } from 'components/Layout';
-import {
-  Wrapper,
-  LogoWrapper,
-  QuickNewsSection,
-} from 'components/Layout/Header/Header.style';
+import { Wrapper, LogoWrapper } from 'components/Layout/Header/Header.style';
 import Logo from 'components/Layout/Logo';
 import Menu from 'components/Layout/Menu';
 import Burger from 'components/Layout/Menu/Burger';
@@ -33,7 +29,6 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>Muzeum nieczynne 10.06.2023</QuickNewsSection>
     </Wrapper>
   );
 };
