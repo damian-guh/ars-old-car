@@ -60,13 +60,13 @@ const Footer = () => (
     </LawSection>
     <OpeningHoursSection>
       <p>Muzeum czynne: od 15.04 do 01.10.2023</p>
-      <p>Piątek – Niedziela godz. 9:30-17:00</p>
+      <p>Sobota – Niedziela godz. 9:30-17:00</p>
       <p>
         (Wejście na wystawę 2CV World o godzinie: 10:00, 11:00, 12:00, 13:00,
         14:00, 15:00, 16:00)
       </p>
       <p>
-        Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych -
+        Poniedziałek - Piątek – czynne dla rezerwacji grup zorganizowanych -
         minimum 10 osób
       </p>
     </OpeningHoursSection>
