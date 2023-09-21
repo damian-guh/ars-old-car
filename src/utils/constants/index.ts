@@ -43,9 +43,9 @@ export const PRICING_SECTION_TEXT = [
     title: 'Godziny otwarcia i wydarzenia',
     details: [
       'Muzeum czynne: od 15.04 do 01.10.2023',
-      'Piątek – Niedziela godz. 9:30-17:00',
+      'Sobota – Niedziela godz. 9:30-17:00',
       '(Wejście na wystawę 2CV World o godzinie: 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00)',
-      'Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
+      'Poniedziałek - Piątek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
     ],
   },
   {
