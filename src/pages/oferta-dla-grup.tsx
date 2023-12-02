@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import ImageModal from 'components/ImageModal';
+import { PHONE, MAIL } from 'utils/constants';
 import OfferImage1 from '../../public/oferta-dla-szkol-1.jpg';
 import OfferImage2 from '../../public/oferta-dla-szkol-2.jpg';
 import OfferImage3 from '../../public/oferta-dla-szkol-3.jpg';
@@ -74,6 +75,9 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const phoneHref = `tel:${PHONE}`;
+const mailHref = `mailto:${MAIL}`;
+
 const images = [
   { asset: [{ url: OfferImage7.src, id: 'oferta-dla-szkol-7' }] },
   { asset: [{ url: OfferImage1.src, id: 'oferta-dla-szkol-1' }] },
@@ -107,6 +111,60 @@ const OfferForSchoolsPage = () => {
     <Layout>
       <Wrapper>
         <TextSectionWrapper>
+          <TextWrapper>
+            <h2>Z biletów grupowych mogą korzystać grupy powyżej 10 osób</h2>
+          </TextWrapper>
+          <TextWrapper>
+            <h2>Rezerwacji możesz dokonać na dwa sposoby:</h2>
+            <p>
+              - telefonicznie: <a href={phoneHref}>{PHONE}</a>
+            </p>
+            <p>
+              - mailowo: <a href={mailHref}>{MAIL}</a>
+            </p>
+          </TextWrapper>
+          <TextWrapper>
+            <h2>Ceny biletów grupowych:</h2>
+            <p>Grupowy – normalny – 42 zł</p>
+            <p>Grupowy – ulgowy 7-26 * ( Pakiet 3 )– 38 zł</p>
+            <p>Grupowy – ulgowy 4-6**( Pakiet 2 )– 27 zł</p>
+            <p>Dzieci do 3 roku życia – bezpłatnie</p>
+            <p>
+              *Bilety ulgowe przysługują: dzieciom, młodzieży i studentom (od 7
+              do 26 roku życia), rencistom, emerytom i osobom niepełnosprawnym.
+              -Pakiet 3
+            </p>
+            <p>
+              **Bilety ulgowe przysługują: dzieciom (od 4 do 6 roku życia)-
+              Pakiet 2
+            </p>
+            <p>
+              Pakiet 3 składa się z: Wystawa 2CV z przewodnikiem, jazda autem
+              strażackim do ruin Willi Hempla oraz na punkt widokowy, Świta VR-
+              Tajemnice Willi Hempla
+            </p>
+            <p>
+              Pakiet 2 składa się z: Wystawa 2CV z przewodnikiem, jazda autem
+              strażackim do ruin Willi Hempla oraz na punkt widokowy
+            </p>
+          </TextWrapper>
+          <TextWrapper>
+            <h2>Ważne informacje</h2>
+            <p>ARS OLD CAR – Muzeum Motoryzacji czynne jest:</p>
+            <p>
+              Od poniedziałku do piątku w godzinach 9.00 – 17.00. – rezerwacje
+              grupowe powyżej 10 osób, Godziny wejścia na wystawę 2CV - 9.30,
+              11.00, 12.30, 14.00, 15.30 (jednorazowe wejście na wystawę 30
+              osób)
+            </p>
+            <p>
+              od soboty do niedzieli, w godzinach 10.45 – 17.00. Godziny wejścia
+              na wystawę 2CV - 11.00, 12.30, 14.00, 15.30 ( jednorazowe wejście
+              na wystawę 30 osób )
+            </p>
+            <p>Pobyt w muzeum trwa około dwie godziny</p>
+            <p>UWAGA ILOŚĆ BILETÓW NA KAŻDĄ GODZINĘ JEST OGRANICZONA!</p>
+          </TextWrapper>
           <TextWrapper>
             <h2>Oferta dla grup turystycznych</h2>
             <p>
