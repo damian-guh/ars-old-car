@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Layout from 'components/Layout';
@@ -82,7 +81,6 @@ const VRPage: NextPage = () => (
           Tropez&quot;, co sprawia, że jest to wspaniała okazja na spędzenie
           czasu z rodziną i przyjaciółmi. Czekamy na Was w ARS OLD CAR.
         </p>
-        <Link href='/cennik'>Sprawdź bilet</Link>
         <h1>Tajemnica Willi Hempla</h1>
         <p>
           Witajcie miłośnicy tajemniczych historii! Czy kiedykolwiek
@@ -105,7 +103,6 @@ const VRPage: NextPage = () => (
           na Was w ARS OLD CAR - Muzeum Motoryzacji, abyście mogli doświadczyć
           tajemniczej historii &quot;Tajemnicy Willi Hempla&quot;!
         </p>
-        <Link href='/cennik'>Sprawdź bilet</Link>
       </TextAndImagesWrapper>
       <TextAndImagesWrapper>
         <ImageWrapper>

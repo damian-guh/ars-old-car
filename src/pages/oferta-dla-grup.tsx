@@ -172,7 +172,7 @@ const OfferForSchoolsPage = () => {
               motoryzacją.
             </p>
             <p>Nowości w ofercie:</p>
-            <Link href='/swiat-vr'>Świat VR nowość 2023</Link>
+            <Link href='/swiat-vr'>Świat VR</Link>
             <Link href='/bastek'>
               Całodniowa atrakcja dla aktywnych – zwiedzanie ARS OLD CAR, spływ
               kajakiem po Nidzie, ognisko z kiełbaskami
@@ -206,6 +206,7 @@ const OfferForSchoolsPage = () => {
             <p>- konkursy motoryzacyjne QR dla dzieci</p>
             <p>- prezentacje multimedialne &quot;wokół motoryzacji&quot;</p>
             <p>- gry i zabawy na &quot;świeżym powietrzu&quot;</p>
+            <p>- Świat VR</p>
             <p>- czas wolny</p>
             <p>- ognisko</p>
             <p>
@@ -213,20 +214,14 @@ const OfferForSchoolsPage = () => {
               sosy, herbata)
             </p>
             <p>- możliwość zamówienia cateringu</p>
-            <p>
-              Czas trwania wycieczki około 3 godzin. Koszt zwiedzania z
-              posiłkiem to 35 zł od osoby (opiekunowie nie płacą), bez posiłku
-              20 zł. Każdy uczestnik wycieczki dostanie pamiątkową naklejkę
-              samochodu 2CV.
-            </p>
             <p>Na miejscu do nabycia tematyczne pamiątki !</p>
             <p>
               Parking dla autokaru, dojazd bezpośrednio pod wejście do muzeum.
             </p>
-            <b>Dodatkowa atrakcja - świat wirtualny VR ( nowość w 2023 !!! )</b>
+            <b>Dodatkowa atrakcja - świat wirtualny VR</b>
             <b>Tylko 7 minut od Chęcin.</b>
             <b>
-              Muzeum otwarte w 2023 r. w okresie 15 kwiecień - 20 październik
+              Muzeum otwarte w 2024 r. w okresie 19 kwiecień - 6 październik
             </b>
             <b>
               W przypadku wycieczek kilkudniowych służymy pomocą w organizacji
