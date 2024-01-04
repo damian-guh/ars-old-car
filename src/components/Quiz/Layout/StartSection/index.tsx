@@ -74,8 +74,12 @@ const StartSection = ({
         captcha: captchaCode,
       });
       await addDoc(collection(db, 'emails'), { email: formValues?.email });
-    } catch (err) {
-      throw Error(err);
+    } catch (err: any) {
+      if (err instanceof Error) {
+        throw err;
+      } else {
+        throw new Error(String(err));
+      }
     } finally {
       recaptchaRef.current.reset();
     }
