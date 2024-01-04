@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 export const Wrapper = styled.section`

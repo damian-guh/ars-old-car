@@ -1,5 +1,4 @@
-import StaticImageData from 'next';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/legacy/image';
 import Link from 'next/link';
 import {
   HeroWrapper,
@@ -15,7 +14,7 @@ import {
 } from 'components/Hero/Hero.style';
 
 type Props = {
-  images: StaticImageData[];
+  images: ImageProps[];
   title?: string;
   desc?: string;
 };
@@ -48,10 +47,10 @@ const Hero = ({ images, title, desc }: Props) => (
       <HeroDesc>{desc}</HeroDesc>
     </HeroTextAndButtonsWrapper>
     {images.map((image) => (
-      <HeroImageWrapper key={image.src}>
+      <HeroImageWrapper key={image.src as string}>
         <Overlay />
         <Image
-          src={image}
+          {...image}
           placeholder='blur'
           layout='fill'
           objectFit='cover'

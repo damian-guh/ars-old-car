@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
 import { PRICING_SECTION_TEXT } from 'utils/constants';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import klotyldaImage from '../../public/klotylda.png';
 import zukImage from '../../public/zuk-strazacki.jpg';
 
