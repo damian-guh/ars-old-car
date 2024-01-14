@@ -24,7 +24,7 @@ const Hero = ({ images, title, desc }: Props) => (
     <HeroTextAndButtonsWrapper>
       <Link href='/bastek'>
         <HeroSaleOffer>
-          <HeroSaleOfferTitle>Nowość 2023!</HeroSaleOfferTitle>
+          <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>
           <h4>10% taniej</h4>
           <span>Jazda żukiem strażackim</span>
           <span>w ARS OLD CAR</span>
