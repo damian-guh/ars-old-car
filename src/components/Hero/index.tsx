@@ -1,5 +1,6 @@
 import Image, { ImageProps } from 'next/legacy/image';
 import Link from 'next/link';
+import Carousel from 'components/Carousel';
 import {
   HeroWrapper,
   HeroImageWrapper,
@@ -11,7 +12,10 @@ import {
   HeroActionButtonsWrapper,
   HeroSaleOffer,
   HeroSaleOfferTitle,
+  ReviewTitle,
+  ReviewWrapper,
 } from 'components/Hero/Hero.style';
+import USERS_REVIEWS from 'utils/constants/usersReviews';
 
 type Props = {
   images: ImageProps[];
@@ -45,6 +49,18 @@ const Hero = ({ images, title, desc }: Props) => (
       </HeroActionButtonsWrapper>
       <HeroTitle>{title}</HeroTitle>
       <HeroDesc>{desc}</HeroDesc>
+      <ReviewTitle>Opinie o nas</ReviewTitle>
+      <Carousel>
+        {USERS_REVIEWS.map(({ name, review, id }) => ({
+          id,
+          content: (
+            <ReviewWrapper key={id}>
+              <h3>{name}</h3>
+              <p>{review}</p>
+            </ReviewWrapper>
+          ),
+        }))}
+      </Carousel>
     </HeroTextAndButtonsWrapper>
     {images.map((image) => (
       <HeroImageWrapper key={image.src as string}>

@@ -158,7 +158,7 @@ const ReservationPage: NextPage = () => {
   const [formData, setFormData] = useState(formInitialValues);
   const [verificationId, setVerificationId] = useState('');
   const dateFromFirebase = Timestamp.now().toDate();
-  const minDate = dayjs(dateFromFirebase).add(2, 'day').toDate();
+  const minDate = dayjs(dateFromFirebase).add(16, 'hours').toDate();
   const maxDate = dayjs(dateFromFirebase).add(150, 'day').toDate();
 
   const getReservationAndCustomOpeningDates = async () => {
@@ -271,10 +271,6 @@ const ReservationPage: NextPage = () => {
       setFormErrorMessage('Wybrano zarezerwowany już termin!');
       return false;
     }
-    if (date.getMinutes() !== 0) {
-      setFormErrorMessage('Godzina rezerwacja musi być równa np. 12:00');
-      return false;
-    }
     if (
       date.getHours() < OPENING_MUSEUM_HOUR ||
       date.getHours() > CLOSING_MUSEUM_HOUR
@@ -295,7 +291,7 @@ const ReservationPage: NextPage = () => {
     }
     if (date <= minDate) {
       setFormErrorMessage(
-        'Termin rezerwacji może być wybrany najpóźniej 48h przed czasem'
+        'Termin rezerwacji może być wybrany najpóźniej 16h przed czasem'
       );
       return false;
     }
