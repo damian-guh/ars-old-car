@@ -57,7 +57,7 @@ const KayakSpecialOfferPage = () => (
       </ImageWrapper>
       <TextWrapper>
         <h1>
-          Czy marzysz o niesamowitym połączeniu przygody i zabawy? W 2023 masz
+          Czy marzysz o niesamowitym połączeniu przygody i zabawy? W 2024 masz
           taką możliwość!
         </h1>
         <p>
@@ -89,7 +89,7 @@ const KayakSpecialOfferPage = () => (
           Spływie kajakowym BASTEK i przeżyj niesamowite przygody!
         </p>
         <p>
-          Bilet łączony 10% taniej – tylko 85 zł od osoby za cały dzień
+          Bilet łączony 10% taniej – tylko 109 zł od osoby za cały dzień
           atrakcji. Oferta dotyczy grup powyżej 10 osób.
         </p>
         <p>Zarezerwuj wcześniej:</p>

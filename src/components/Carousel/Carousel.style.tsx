@@ -5,9 +5,8 @@ import { FaRegArrowAltCircleLeft } from '@react-icons/all-files/fa/FaRegArrowAlt
 export const CarouselContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  background-color: rgba(23, 23, 22, 0.95);
+  background-color: rgb(23, 23, 22);
   text-align: center;
-  padding: 30px 0;
 
   .embla {
     position: relative;
@@ -45,11 +44,11 @@ export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 10px;
 
   svg {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
 `;
 
