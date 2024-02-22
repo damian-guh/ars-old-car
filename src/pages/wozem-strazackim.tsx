@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styled from 'styled-components';
 import Layout from 'components/Layout';
 import leafletImage from '../../public/ulotka.png';

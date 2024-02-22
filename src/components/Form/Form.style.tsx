@@ -22,6 +22,10 @@ export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .react-datepicker__time-list-item--disabled {
+    display: none;
+  }
 `;
 
 export const StyledInput = styled.input`

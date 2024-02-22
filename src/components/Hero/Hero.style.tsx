@@ -7,6 +7,17 @@ export const HeroWrapper = styled.section`
   position: relative;
   margin-top: ${HEADER_HEIGHT};
 
+  .carousel {
+    grid-column: 1 / -1;
+    z-index: 10;
+    min-width: 0;
+
+    p {
+      text-align: center;
+      background-color: ${({ theme }) => theme.colors.headerGray};
+    }
+  }
+
   @media screen and ${({ theme }) => theme.screenSizes.xl} {
     grid-template-columns: repeat(2, 1fr);
     margin: 0;
@@ -37,7 +48,7 @@ export const HeroActionButton = styled.a`
   background-color: ${({ theme }) => theme.colors.red};
   color: ${({ theme }) => theme.colors.white};
   width: 130px;
-  height: 50px;
+  height: 55px;
   padding: 20px;
   text-align: center;
   line-height: 100%;
@@ -50,9 +61,9 @@ export const HeroActionButton = styled.a`
 export const HeroTextAndButtonsWrapper = styled.section`
   position: absolute;
   left: 50%;
-  padding: 20px;
   transform: translateX(-50%);
   width: 100%;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -92,4 +103,21 @@ export const HeroSaleOffer = styled.div`
 
 export const HeroSaleOfferTitle = styled.h3`
   color: red;
+`;
+
+export const ReviewTitle = styled.h2`
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  background-color: ${({ theme }) => theme.colors.headerGray};
+  text-align: center;
+  padding: 10px 0;
+`;
+
+export const ReviewWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 5px;
+  max-width: 900px;
+  margin: 0 auto;
 `;

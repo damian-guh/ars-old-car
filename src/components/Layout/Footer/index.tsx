@@ -76,6 +76,7 @@ const Footer = () => (
           href='https://www.facebook.com/ARS-OLD-CAR-Muzeum-Motoryzacji-137529865169438'
           target='_blank'
           rel='noreferrer'
+          aria-label='facebook-arsoldcar'
         >
           <FacebookIcon />
         </a>
@@ -83,6 +84,7 @@ const Footer = () => (
           href='https://www.instagram.com/ars_old_car/'
           target='_blank'
           rel='noreferrer'
+          aria-label='instagram-arsoldcar'
         >
           <InstagramIcon />
         </a>

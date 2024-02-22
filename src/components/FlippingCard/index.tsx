@@ -1,6 +1,5 @@
-import StaticImageData from 'next';
 import { useState } from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/legacy/image';
 import {
   FlippingCardBack,
   FlippingCardFront,
@@ -11,7 +10,7 @@ const FlippingCard = ({
   content: { image, title, urlTitle, text },
 }: {
   content: {
-    image: StaticImageData;
+    image: ImageProps;
     title: string;
     text: string[];
     urlTitle?: string;
@@ -25,7 +24,7 @@ const FlippingCard = ({
     >
       <FlippingCardFront>
         {isFrontSide && (
-          <Image src={image} alt={`${title}-image`} placeholder='blur' />
+          <Image {...image} alt={`${title}-image`} placeholder='blur' />
         )}
         <h3>{title}</h3>
       </FlippingCardFront>
