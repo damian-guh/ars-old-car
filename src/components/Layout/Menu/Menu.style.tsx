@@ -34,7 +34,7 @@ export const NavList = styled.ul`
   align-items: center;
   gap: 10px;
 
-  :first-child {
+  &:first-child {
     margin-top: 30px;
   }
 
@@ -44,8 +44,41 @@ export const NavList = styled.ul`
     height: 100%;
     padding: 0;
 
-    :first-child {
+    &:first-child {
       margin-top: 0;
+    }
+  }
+`;
+
+export const SubNavItemSection = styled.div`
+  position: absolute;
+  width: 100%;
+  display: none;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  font-size: ${({ theme }) => theme.fontSizes.initial};
+  padding: 0 45px;
+  gap: 5px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: ${({ theme }) => theme.colors.headerGray};
+  }
+
+  button {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    background-color: transparent;
+    border: none;
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fontFamilies.default};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.red};
     }
   }
 `;
@@ -55,6 +88,15 @@ export const NavListItem = styled.li`
   padding: 10px;
   margin: 0 0 20px 0;
   text-align: center;
+
+  span:hover {
+    color: ${({ theme }) => theme.colors.red};
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: ${({ theme }) => theme.colors.red};
+  }
 
   a {
     border-bottom: 1px solid white;
@@ -79,41 +121,30 @@ export const TitleForSubtitle = styled.span`
   }
 `;
 
-export const SubNavItemSection = styled.div`
-  position: relative;
-  width: 100%;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.initial};
-
-  div {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background-color: ${({ theme }) => theme.colors.headerGray};
-  }
-
-  span {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-
-    :hover {
-      color: ${({ theme }) => theme.colors.red};
-    }
-  }
-`;
-
 export const MobileSubNavItemSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 
+  & > * {
+    padding: 10px;
+  }
+
   a {
     font-size: ${({ theme }) => theme.fontSizes.sm};
+  }
+
+  button {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    background-color: transparent;
+    border: none;
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fontFamilies.default};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.red};
+    }
   }
 `;
 
@@ -121,15 +152,16 @@ export const DesktopLink = styled.span<Omit<Props, 'isOpen'>>`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  position: relative;
   transition-duration: 0.2s;
   color: ${({ theme, important }) =>
     important ? theme.colors.red : theme.colors.white};
 
-  :hover {
+  &:hover {
     color: ${({ theme }) => theme.colors.red};
   }
 
-  :hover ${SubNavItemSection} {
+  &:hover ${SubNavItemSection} {
     display: flex;
     color: ${({ theme }) => theme.colors.white};
   }
