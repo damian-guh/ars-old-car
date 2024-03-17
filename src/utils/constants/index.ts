@@ -41,6 +41,11 @@ export const NAV_ITEMS = [
               'https://francuskie.pl/ruszylo-nowe-muzeum-motoryzacji-skupione-na-citroenie-2cv/',
             subtitles: [],
           },
+          {
+            title: 'Em',
+            customUrl: '/em.pdf',
+            subtitles: [],
+          },
         ],
       },
     ],
