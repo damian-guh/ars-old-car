@@ -9,7 +9,7 @@ export const HeroWrapper = styled.section`
 
   .carousel {
     grid-column: 1 / -1;
-    z-index: 10;
+    z-index: 5;
     min-width: 0;
 
     p {

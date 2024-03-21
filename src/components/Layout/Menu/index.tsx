@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NAV_ITEMS } from 'utils/constants';
@@ -20,20 +20,94 @@ type Props = {
   isOpen: boolean | null;
   logoRef: React.RefObject<HTMLDivElement>;
 };
+
+type Subtitle = {
+  title: string;
+  subtitles: Subtitle[];
+  customUrl: string | null;
+};
+
 const adjustNavItemName = (name: string) =>
   name.toLowerCase().replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's');
 const Menu = ({ ...props }: Props) => {
+  const [isOpenedSubNav, setIsOpenedSubNav] = useState<string | null>(null);
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
   const router = useRouter();
   let navContent;
 
+  const renderSubtitles = (subtitles: Subtitle[]) =>
+    subtitles.map((subtitle) => {
+      if (subtitle.customUrl) {
+        return (
+          <a
+            href={subtitle.customUrl}
+            target='_blank'
+            rel='noreferrer'
+            key={subtitle.title}
+          >
+            {subtitle.title}
+          </a>
+        );
+      }
+      if (subtitle.subtitles.length > 0 && isDesktop && isMounted) {
+        return (
+          <button
+            type='button'
+            key={subtitle.title}
+            onClick={() =>
+              isOpenedSubNav === subtitle.title
+                ? setIsOpenedSubNav(null)
+                : setIsOpenedSubNav(subtitle.title)
+            }
+          >
+            <span>{subtitle.title}</span>
+            {isOpenedSubNav === subtitle.title && (
+              <SubNavItemSection>
+                {renderSubtitles(subtitle.subtitles)}
+              </SubNavItemSection>
+            )}
+          </button>
+        );
+      }
+      if (subtitle.subtitles.length > 0 && !isDesktop && isMounted) {
+        return (
+          <div key={subtitle.title}>
+            <span>{subtitle.title}</span>
+            <MobileSubNavItemSection>
+              {renderSubtitles(subtitle.subtitles)}
+            </MobileSubNavItemSection>
+          </div>
+        );
+      }
+      return (
+        <div key={subtitle.title}>
+          <button
+            type='button'
+            onClick={(event) => {
+              if (isDesktop) {
+                carAnimation(
+                  props.logoRef,
+                  event,
+                  `/${adjustNavItemName(subtitle.title)}`,
+                  router
+                );
+              } else {
+                router.push(`/${adjustNavItemName(subtitle.title)}`);
+              }
+            }}
+          >
+            {subtitle.title}
+          </button>
+        </div>
+      );
+    });
+
   if (isDesktop && isMounted) {
     navContent = (
       <StyledNav {...props}>
         <NavList>
-          {/* @ts-ignore */}
-          {NAV_ITEMS.map(({ title, subtitles, customUrl, desc, important }) => {
+          {NAV_ITEMS.map(({ title, subtitles, customUrl }) => {
             let navListItemContent;
 
             if (customUrl) {
@@ -42,57 +116,31 @@ const Menu = ({ ...props }: Props) => {
                   {title}
                 </a>
               );
-            } else if (!subtitles) {
+            } else if (subtitles.length > 0) {
               navListItemContent = (
-                <DesktopLink
+                <DesktopLink>
+                  <TitleForSubtitle>{title}</TitleForSubtitle>
+                  <SubNavItemSection>
+                    <div>{renderSubtitles(subtitles)}</div>
+                  </SubNavItemSection>
+                </DesktopLink>
+              );
+            } else {
+              navListItemContent = (
+                <span
                   role='link'
-                  tabIndex={0}
-                  important={important}
-                  onClick={(event) => {
+                  tabIndex={-1}
+                  onClick={(event) =>
                     carAnimation(
                       props.logoRef,
                       event,
                       `/${adjustNavItemName(title)}`,
                       router
-                    );
-                  }}
+                    )
+                  }
                 >
-                  {desc ? (
-                    <>
-                      <span>{title}</span>
-                      <span>{desc}</span>
-                    </>
-                  ) : (
-                    title
-                  )}
-                </DesktopLink>
-              );
-            } else {
-              navListItemContent = (
-                <DesktopLink>
-                  <TitleForSubtitle>{title}</TitleForSubtitle>
-                  <SubNavItemSection>
-                    <div>
-                      {subtitles.map((subtitle) => (
-                        <span
-                          role='link'
-                          tabIndex={-1}
-                          key={subtitle}
-                          onClick={(event) =>
-                            carAnimation(
-                              props.logoRef,
-                              event,
-                              `/${adjustNavItemName(subtitle)}`,
-                              router
-                            )
-                          }
-                        >
-                          {subtitle}
-                        </span>
-                      ))}
-                    </div>
-                  </SubNavItemSection>
-                </DesktopLink>
+                  {title}
+                </span>
               );
             }
 
@@ -122,23 +170,16 @@ const Menu = ({ ...props }: Props) => {
                   {title}
                 </a>
               );
-            } else if (!subtitles) {
-              navListItemContent = (
-                <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
-              );
-            } else {
+            } else if (subtitles.length > 0) {
               navListItemContent = (
                 <MobileSubNavItemSection>
                   <TitleForSubtitle>{title}</TitleForSubtitle>
-                  {subtitles.map((subtitle) => (
-                    <Link
-                      key={subtitle}
-                      href={`/${adjustNavItemName(subtitle)}`}
-                    >
-                      {subtitle}
-                    </Link>
-                  ))}
+                  {renderSubtitles(subtitles)}
                 </MobileSubNavItemSection>
+              );
+            } else {
+              navListItemContent = (
+                <Link href={`/${adjustNavItemName(title)}`}>{title}</Link>
               );
             }
 

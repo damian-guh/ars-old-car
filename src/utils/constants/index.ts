@@ -4,16 +4,98 @@ export const APP_DESC =
   'Nieoczywiste muzeum, rodzinne miejsce miłośników motoryzacji, w niebanalny sposób ukazujące świat odchodzącej historii pojazdów, które możemy oglądać praktycznie już tylko w takich miejscach';
 
 export const NAV_ITEMS = [
-  { title: 'Aktualności' },
-  { title: 'Świat VR' },
-  { title: 'Rezerwuj bilet', subtitles: ['Cennik', 'Rezerwacje'] },
-  { title: 'Oferta dla grup' },
-  { title: 'W okolicy' },
+  {
+    title: 'O nas',
+    customUrl: null,
+    subtitles: [
+      {
+        title: 'Kim jesteśmy',
+        customUrl: null,
+        subtitles: [],
+      },
+      {
+        title: 'Media o nas',
+        customUrl: null,
+        subtitles: [
+          {
+            title: 'Francuskie 3',
+            customUrl:
+              'https://francuskie.pl/citroen-2cv-oczami-siostry-klotyldy-i-pitna-benzyna-nowa-atrakcja-w-muzeum-motoryzacji-pod-kielcami/',
+            subtitles: [],
+          },
+          {
+            title: 'Chęciny',
+            customUrl:
+              'https://www.checiny.pl/asp/pl_start.asp?typ=13&menu=169&dzialy=169&akcja=artykul&artykul=17834',
+            subtitles: [],
+          },
+          {
+            title: 'Francuskie 2',
+            customUrl:
+              'https://francuskie.pl/z-milosci-do-marki-citroen-zalozyl-wlasne-muzeum/',
+            subtitles: [],
+          },
+          {
+            title: 'Francuskie 1',
+            customUrl:
+              'https://francuskie.pl/ruszylo-nowe-muzeum-motoryzacji-skupione-na-citroenie-2cv/',
+            subtitles: [],
+          },
+          {
+            title: 'Em',
+            customUrl: '/em.pdf',
+            subtitles: [],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Aktualności',
+    customUrl: null,
+    subtitles: [],
+  },
+  {
+    title: 'Świat VR',
+    customUrl: null,
+    subtitles: [],
+  },
+  {
+    title: 'Rezerwuj bilet',
+    customUrl: null,
+    subtitles: [
+      {
+        title: 'Cennik',
+        customUrl: null,
+        subtitles: [],
+      },
+      {
+        title: 'Rezerwacje',
+        customUrl: null,
+        subtitles: [],
+      },
+    ],
+  },
+  {
+    title: 'Oferta dla grup',
+    customUrl: null,
+    subtitles: [],
+  },
+  {
+    title: 'W okolicy',
+    customUrl: null,
+    subtitles: [],
+  },
   {
     title: 'E-Sklepik',
     customUrl: 'https://giftmasz.pl/kategoria/muzeum-ars-old-car/',
+    subtitles: [],
   },
-  { title: 'Kontakt' },
+  {
+    title: 'Kontakt',
+    customUrl: null,
+    subtitles: [],
+  },
 ];
 
 export const MAIL = 'kontakt@arsoldcar.pl';
