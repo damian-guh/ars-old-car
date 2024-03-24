@@ -53,14 +53,6 @@ const Nearby = () => {
         <Wrapper>
           {NEARBY_DATA.map(({ title, distance, image, link }, index) => (
             <ItemWrapper key={title}>
-              <InfoSectionWrapper index={index}>
-                <NearbyTitle>
-                  {title} - tylko {distance} od ARS OLD CAR
-                </NearbyTitle>
-                <MoreInfoLink href={link} target='_blank' rel='noreferrer'>
-                  Więcej informacji
-                </MoreInfoLink>
-              </InfoSectionWrapper>
               <ImageWrapper index={index}>
                 <StyledImage
                   src={image}
@@ -73,6 +65,14 @@ const Nearby = () => {
                   alt={title}
                 />
               </ImageWrapper>
+              <InfoSectionWrapper index={index}>
+                <NearbyTitle>
+                  {title} - tylko {distance} od ARS OLD CAR
+                </NearbyTitle>
+                <MoreInfoLink href={link} target='_blank' rel='noreferrer'>
+                  Więcej informacji
+                </MoreInfoLink>
+              </InfoSectionWrapper>
             </ItemWrapper>
           ))}
         </Wrapper>
