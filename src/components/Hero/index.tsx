@@ -12,10 +12,14 @@ import {
   HeroActionButton,
   HeroActionButtonsWrapper,
   HeroSaleOffer,
+  HeroPostsWrapper,
   HeroSaleOfferTitle,
   ReviewTitle,
   ReviewWrapper,
 } from 'components/Hero/Hero.style';
+import FlippingCard from 'components/FlippingCard';
+import useDesktopMediaQuery from 'hooks/useDesktopMediaQuery';
+import useMounted from 'hooks/useMounted';
 import USERS_REVIEWS from 'utils/constants/usersReviews';
 
 type Props = {
@@ -62,7 +66,22 @@ const ImageOrCarousel = ({
   );
 };
 
+const calendarFlippingCardProps = {
+  title: 'Kalendarium ARS OLD CAR 2024',
+  text: [
+    '19.04.2024 – Otwarcie sezonu ARS OLD CAR',
+    '25.05.2024- Zlot zabytkowych samochodów Citroen, Kazimierz Dolny nad Wisłą ',
+    '30.05 - 1.06.2024 – Rajd Koguta, OŁAWA-MRĄGOWO',
+    '21.07.2024 - Obchody 65-rocznicy tragicznej śmierci załogi rajdu Adriatyk, CHĘCINY',
+    '11.08.2024 – MOTOPIKNIK, Muzeum Wsi Kieleckiej w Tokarni',
+    '14 - 18.08.2024 - 17 Światowy Zlot Citroena, TORUŃ',
+  ],
+};
+
 const Hero = ({ images, title, desc }: Props) => {
+  const isDesktop = useDesktopMediaQuery();
+  const isMounted = useMounted();
+
   const carousel = (
     <>
       <Carousel>
@@ -100,17 +119,29 @@ const Hero = ({ images, title, desc }: Props) => {
         />
       ))}
       <HeroTextAndButtonsWrapper>
-        <Link href='/bastek'>
-          <HeroSaleOffer>
-            <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>
-            <h4>10% taniej</h4>
-            <span>Jazda żukiem strażackim</span>
-            <span>w ARS OLD CAR</span>
-            <span>Muzeum Motoryzacji</span>
-            <span>Spływ kajakiem Bastek</span>
-            <span>Ognisko z kiełbaskami po spływie</span>
-          </HeroSaleOffer>
-        </Link>
+        <HeroPostsWrapper>
+          {isDesktop && isMounted ? (
+            <FlippingCard content={calendarFlippingCardProps} />
+          ) : null}
+
+          <Link href='/bastek'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>
+              <h4>10% taniej</h4>
+              <span>Jazda żukiem strażackim</span>
+              <span>w ARS OLD CAR</span>
+              <span>Muzeum Motoryzacji</span>
+              <span>Spływ kajakiem Bastek</span>
+              <span>Ognisko z kiełbaskami po spływie</span>
+            </HeroSaleOffer>
+          </Link>
+          <a href='https://endlessstudio.pl' target='_blank' rel='noreferrer'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>Jesteśmy producentem</HeroSaleOfferTitle>
+              <HeroSaleOfferTitle>ATRAKCJI VR</HeroSaleOfferTitle>
+            </HeroSaleOffer>
+          </a>
+        </HeroPostsWrapper>
         <HeroActionButtonsWrapper>
           <HeroActionButton
             href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'

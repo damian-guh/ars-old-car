@@ -10,7 +10,7 @@ const FlippingCard = ({
   content: { image, title, urlTitle, text },
 }: {
   content: {
-    image: ImageProps;
+    image?: ImageProps;
     title: string;
     text: string[];
     urlTitle?: string;
@@ -21,14 +21,15 @@ const FlippingCard = ({
     <FlippingCardWrapper
       onClick={() => setCardSide((prevState) => !prevState)}
       isFrontSide={isFrontSide}
+      isHasImage={!!image}
     >
-      <FlippingCardFront>
-        {isFrontSide && (
+      <FlippingCardFront isHasImage={!!image}>
+        {isFrontSide && image ? (
           <Image {...image} alt={`${title}-image`} placeholder='blur' />
-        )}
+        ) : null}
         <h3>{title}</h3>
       </FlippingCardFront>
-      <FlippingCardBack>
+      <FlippingCardBack isHasImage={!!image}>
         {text.map((paragraph) => {
           if (paragraph.includes('http'))
             return (

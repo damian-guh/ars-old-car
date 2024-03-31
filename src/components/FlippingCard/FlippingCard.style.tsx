@@ -15,7 +15,10 @@ export const FlippingCardsSection = styled.section`
   }
 `;
 
-export const FlippingCardWrapper = styled.div<{ isFrontSide: boolean }>`
+export const FlippingCardWrapper = styled.div<{
+  isFrontSide: boolean;
+  isHasImage?: boolean;
+}>`
   width: 300px;
   height: 300px;
   transition: transform 1s;
@@ -34,15 +37,23 @@ const FlippingCardFace = styled.div`
   backface-visibility: hidden;
 `;
 
-export const FlippingCardFront = styled(FlippingCardFace)`
+export const FlippingCardFront = styled(FlippingCardFace)<{
+  isHasImage?: boolean;
+}>`
   background-color: ${({ theme }) => theme.colors.headerGray};
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: ${({ theme, isHasImage }) =>
+    isHasImage || isHasImage === undefined
+      ? theme.colors.white
+      : theme.colors.red};
 `;
 
-export const FlippingCardBack = styled(FlippingCardFace)`
+export const FlippingCardBack = styled(FlippingCardFace)<{
+  isHasImage?: boolean;
+}>`
   background-color: ${({ theme }) => theme.colors.headerGray};
   transform: rotateY(180deg);
   display: flex;
@@ -50,4 +61,8 @@ export const FlippingCardBack = styled(FlippingCardFace)`
   justify-content: center;
   gap: 10px;
   padding: 10px;
+  font-size: ${({ theme, isHasImage }) =>
+    isHasImage || isHasImage === undefined
+      ? theme.fontSizes.initial
+      : theme.fontSizes.xs};
 `;
