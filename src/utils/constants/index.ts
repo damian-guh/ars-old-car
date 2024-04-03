@@ -87,11 +87,6 @@ export const NAV_ITEMS = [
     subtitles: [],
   },
   {
-    title: 'E-Sklepik',
-    customUrl: 'https://giftmasz.pl/kategoria/muzeum-ars-old-car/',
-    subtitles: [],
-  },
-  {
     title: 'Kontakt',
     customUrl: null,
     subtitles: [],

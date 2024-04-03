@@ -12,6 +12,7 @@ import {
   HeroActionButton,
   HeroActionButtonsWrapper,
   HeroSaleOffer,
+  HeroPostsWrapper,
   HeroSaleOfferTitle,
   ReviewTitle,
   ReviewWrapper,
@@ -100,17 +101,31 @@ const Hero = ({ images, title, desc }: Props) => {
         />
       ))}
       <HeroTextAndButtonsWrapper>
-        <Link href='/bastek'>
-          <HeroSaleOffer>
-            <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>
-            <h4>10% taniej</h4>
-            <span>Jazda żukiem strażackim</span>
-            <span>w ARS OLD CAR</span>
-            <span>Muzeum Motoryzacji</span>
-            <span>Spływ kajakiem Bastek</span>
-            <span>Ognisko z kiełbaskami po spływie</span>
-          </HeroSaleOffer>
-        </Link>
+        <HeroPostsWrapper>
+          <Link href='/kalendarium'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>KALENDARIUM</HeroSaleOfferTitle>
+              <HeroSaleOfferTitle>ARS OLD CAR 2024</HeroSaleOfferTitle>
+            </HeroSaleOffer>
+          </Link>
+          <Link href='/bastek'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>
+              <h4>10% taniej</h4>
+              <span>Jazda żukiem strażackim</span>
+              <span>w ARS OLD CAR</span>
+              <span>Muzeum Motoryzacji</span>
+              <span>Spływ kajakiem Bastek</span>
+              <span>Ognisko z kiełbaskami po spływie</span>
+            </HeroSaleOffer>
+          </Link>
+          <a href='https://endlessstudio.pl' target='_blank' rel='noreferrer'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>Jesteśmy producentem</HeroSaleOfferTitle>
+              <HeroSaleOfferTitle>ATRAKCJI VR</HeroSaleOfferTitle>
+            </HeroSaleOffer>
+          </a>
+        </HeroPostsWrapper>
         <HeroActionButtonsWrapper>
           <HeroActionButton
             href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'

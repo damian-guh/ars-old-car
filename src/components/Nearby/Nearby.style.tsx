@@ -9,21 +9,21 @@ type Props = {
 export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
+  align-items: center;
   justify-items: center;
   padding: 10px;
-  margin: 25px 0;
-  gap: 50px;
+  margin: 20px 0;
+  gap: 50px 20px;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const InfoSectionWrapper = styled.section<Props>`
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-column: ${({ index }) => (index % 2 === 0 ? '1' : '2')};
-    grid-row: 1;
-  }
 `;
 
 export const MoreInfoLink = styled.a`
@@ -40,19 +40,21 @@ export const MoreInfoLink = styled.a`
 `;
 
 export const ItemWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   width: 300px;
-  gap: 20px;
 
   span {
     border-radius: 10px;
   }
 
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-template-columns: repeat(2, 1fr);
-    width: 850px;
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
+    width: 350px;
+  }
+
+  @media screen and ${({ theme }) => theme.screenSizes.xxl} {
+    width: 450px;
   }
 `;
 
@@ -60,18 +62,15 @@ export const StyledImage = styled(Image)`
   cursor: pointer;
   transition-duration: 0.2s;
 
-  :hover {
+  &:hover {
     transform: scale(1.2);
   }
 `;
 
 export const ImageWrapper = styled.div<Props>`
   position: relative;
+  width: 100%;
   height: 200px;
-
-  @media screen and ${({ theme }) => theme.screenSizes.lg} {
-    grid-column: ${({ index }) => (index % 2 === 0 ? '2' : '1')};
-  }
 `;
 
 export const NearbyTitleSectionWrapper = styled.section`

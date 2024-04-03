@@ -53,7 +53,7 @@ export const HeroActionButton = styled.a`
   text-align: center;
   line-height: 100%;
 
-  :hover {
+  &:hover {
     color: ${({ theme }) => theme.colors.white};
   }
 `;
@@ -91,10 +91,26 @@ export const HeroImageWrapper = styled.div`
   height: calc(100vh - ${HEADER_HEIGHT});
 `;
 
+export const HeroPostsWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 25px 0;
+
+  @media screen and ${({ theme }) => theme.screenSizes.lg} {
+    flex-direction: row;
+    gap: 0 100px;
+  }
+
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
+    gap: 0 250px;
+  }
+`;
+
 export const HeroSaleOffer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: rgba(23, 23, 22, 0.95);
   padding: 20px;
   gap: 5px;
