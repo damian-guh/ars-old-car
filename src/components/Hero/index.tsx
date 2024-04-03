@@ -17,9 +17,6 @@ import {
   ReviewTitle,
   ReviewWrapper,
 } from 'components/Hero/Hero.style';
-import FlippingCard from 'components/FlippingCard';
-import useDesktopMediaQuery from 'hooks/useDesktopMediaQuery';
-import useMounted from 'hooks/useMounted';
 import USERS_REVIEWS from 'utils/constants/usersReviews';
 
 type Props = {
@@ -66,22 +63,7 @@ const ImageOrCarousel = ({
   );
 };
 
-const calendarFlippingCardProps = {
-  title: 'Kalendarium ARS OLD CAR 2024',
-  text: [
-    '19.04.2024 – Otwarcie sezonu ARS OLD CAR',
-    '25.05.2024- Zlot zabytkowych samochodów Citroen, Kazimierz Dolny nad Wisłą ',
-    '30.05 - 1.06.2024 – Rajd Koguta, OŁAWA-MRĄGOWO',
-    '21.07.2024 - Obchody 65-rocznicy tragicznej śmierci załogi rajdu Adriatyk, CHĘCINY',
-    '11.08.2024 – MOTOPIKNIK, Muzeum Wsi Kieleckiej w Tokarni',
-    '14 - 18.08.2024 - 17 Światowy Zlot Citroena, TORUŃ',
-  ],
-};
-
 const Hero = ({ images, title, desc }: Props) => {
-  const isDesktop = useDesktopMediaQuery();
-  const isMounted = useMounted();
-
   const carousel = (
     <>
       <Carousel>
@@ -120,10 +102,12 @@ const Hero = ({ images, title, desc }: Props) => {
       ))}
       <HeroTextAndButtonsWrapper>
         <HeroPostsWrapper>
-          {isDesktop && isMounted ? (
-            <FlippingCard content={calendarFlippingCardProps} />
-          ) : null}
-
+          <Link href='/kalendarium'>
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>KALENDARIUM</HeroSaleOfferTitle>
+              <HeroSaleOfferTitle>ARS OLD CAR 2024</HeroSaleOfferTitle>
+            </HeroSaleOffer>
+          </Link>
           <Link href='/bastek'>
             <HeroSaleOffer>
               <HeroSaleOfferTitle>Nowość 2024!</HeroSaleOfferTitle>

@@ -89,8 +89,8 @@ const KayakSpecialOfferPage = () => (
           Spływie kajakowym BASTEK i przeżyj niesamowite przygody!
         </p>
         <p>
-          Bilet łączony 10% taniej – tylko 109 zł od osoby za cały dzień
-          atrakcji. Oferta dotyczy grup powyżej 10 osób.
+          Bilet łączony 10% taniej za cały dzień atrakcji. Oferta dotyczy grup
+          powyżej 10 osób.
         </p>
         <p>Zarezerwuj wcześniej:</p>
         <div>

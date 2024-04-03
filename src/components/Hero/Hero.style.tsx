@@ -98,7 +98,11 @@ export const HeroPostsWrapper = styled.section`
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     flex-direction: row;
-    gap: 0 200px;
+    gap: 0 100px;
+  }
+
+  @media screen and ${({ theme }) => theme.screenSizes.xl} {
+    gap: 0 250px;
   }
 `;
 
@@ -111,8 +115,6 @@ export const HeroSaleOffer = styled.div`
   padding: 20px;
   gap: 5px;
   cursor: pointer;
-  min-width: 300px;
-  min-height: 225px;
 `;
 
 export const HeroSaleOfferTitle = styled.h3`
