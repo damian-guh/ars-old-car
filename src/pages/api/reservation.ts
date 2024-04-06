@@ -2,9 +2,14 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAuth } from 'firebase-admin/auth';
 import nodemailer from 'nodemailer';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 import app from '../../../firebase/admin';
 
 const auth = getAuth(app);
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Europe/Warsaw');
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
