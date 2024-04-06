@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 import dayjs from 'dayjs';
 import app from '../../../firebase/admin';
 
+process.env.TZ = 'Europe/Warsaw';
 const auth = getAuth(app);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

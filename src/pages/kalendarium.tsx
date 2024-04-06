@@ -21,7 +21,6 @@ const Wrapper = styled.section`
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   max-width: 1100px;
   gap: 15px;
   padding: 50px 20px;
@@ -59,6 +58,10 @@ const CalendarEventPage = () => (
       </ImageWrapper>
       <TextWrapper>
         <h1>Kalendarium ARS OLD CAR 2024</h1>
+        <p>
+          14.04.2024 - Otwarcie sezonu KIELECKIE KLASYKI AUTO&MOTO w RCNT
+          Podzamcze
+        </p>
         <p>19.04.2024 – Otwarcie sezonu ARS OLD CAR</p>
         <p>
           25.05.2024- Zlot zabytkowych samochodów Citroen, Kazimierz Dolny nad

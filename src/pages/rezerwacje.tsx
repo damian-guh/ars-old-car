@@ -214,7 +214,7 @@ const ReservationPage: NextPage = () => {
     setBlockedDaysInCalendar(() => {
       const blockedDays = allReservations.filter(
         ({ bookedPeopleAmount }) =>
-          bookedPeopleAmount + formData.adultAmount > 16
+          bookedPeopleAmount + formData.adultAmount > 30
       );
       return blockedDays.map(({ date }) => date);
     });
@@ -444,8 +444,8 @@ const ReservationPage: NextPage = () => {
                 .email('Nieprawidłowy email')
                 .required('Wymagane'),
               adultAmount: Yup.number()
-                .min(1, 'Minimalna liczba osób dorosłych to 1')
-                .max(16, 'Maksymalna liczba osób dorosłych to 16')
+                .min(1, 'Minimalna liczba osób to 1')
+                .max(30, 'Maksymalna liczba osób to 30')
                 .required('Wymagane'),
               childrenAmount: Yup.number()
                 .min(0, 'Liczba dzieci nie może być mniejsza od 0')
@@ -464,7 +464,7 @@ const ReservationPage: NextPage = () => {
               <label htmlFor='email'>e-mail</label>
               <Input type='text' name='email' />
               <label htmlFor='adultAmount'>Liczba osób</label>
-              <Input type='number' name='adultAmount' min='1' max='16' />
+              <Input type='number' name='adultAmount' min='1' max='30' />
               <div id='recaptcha-container' />
               <Button id='reservation-submit' type='submit'>
                 Dalej
