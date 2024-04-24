@@ -33,7 +33,9 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>OTWARCIE SEZONU 2024 - 19.04.2024</QuickNewsSection>
+      <QuickNewsSection>
+        W dniach 26.04 - 05.05 muzeum czynne codziennie w godz. 10:45 - 17:00
+      </QuickNewsSection>
     </Wrapper>
   );
 };

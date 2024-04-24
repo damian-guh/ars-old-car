@@ -44,11 +44,23 @@ export const LogoWrapper = styled.div`
 `;
 
 export const QuickNewsSection = styled.section`
+  @keyframes colorPulse {
+    0% {
+      color: ${({ theme }) => theme.colors.red};
+    }
+    70% {
+      color: ${({ theme }) => theme.colors.white};
+    }
+    100% {
+      color: ${({ theme }) => theme.colors.red};
+    }
+  }
+
   width: 100vw;
   height: 50px;
   grid-column: 1/3;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.red};
+  animation: colorPulse 2s infinite;
   background-color: ${({ theme }) => theme.colors.headerGray};
   text-align: center;
 `;
