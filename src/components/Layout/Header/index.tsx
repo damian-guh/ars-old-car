@@ -33,9 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>
-        W dniach 26.04 - 05.05 muzeum czynne codziennie w godz. 10:45 - 17:00
-      </QuickNewsSection>
+      <QuickNewsSection>W dniach 24-26.05 muzeum nieczynne.</QuickNewsSection>
     </Wrapper>
   );
 };
