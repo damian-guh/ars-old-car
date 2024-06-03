@@ -33,7 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>W dniach 24-26.05 muzeum nieczynne.</QuickNewsSection>
+      <QuickNewsSection>21.07.2024 - Motopiknik Chęciny</QuickNewsSection>
     </Wrapper>
   );
 };
