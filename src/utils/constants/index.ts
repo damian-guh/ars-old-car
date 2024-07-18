@@ -7,6 +7,7 @@ export const NAV_ITEMS = [
   {
     title: '22.07.1959',
     customUrl: 'https://arsoldcar.pl/wypadek-pod-checinami',
+    subtitles: [],
   },
   {
     title: 'O nas',
