@@ -5,6 +5,10 @@ export const APP_DESC =
 
 export const NAV_ITEMS = [
   {
+    title: '22.07.1959',
+    customUrl: 'https://arsoldcar.pl/wypadek-pod-checinami',
+  },
+  {
     title: 'O nas',
     customUrl: null,
     subtitles: [
