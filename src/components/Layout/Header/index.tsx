@@ -33,7 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>21.07.2024 - Motopiknik Chęciny</QuickNewsSection>
+      <QuickNewsSection>11.08.2024 - Motopiknik Tokarnia</QuickNewsSection>
     </Wrapper>
   );
 };
