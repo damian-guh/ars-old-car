@@ -73,7 +73,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .toUpperCase()
       .slice(0, 6)}</p><p>Termin: ${dayjs(date).format(
       'DD/MM/YYYY HH:mm'
-    )}</p><p>Imię i nazwisko: ${name} ${lastname}</p><p>Email: <a href='mailto:${email}'>${email}</a></p><p>Telefon: <a href='tel:${phoneNumber}'>${phoneNumber}</a></p>`,
+    )}</p><p>Imię i nazwisko: ${name} ${lastname}</p><p>Email: <a href='mailto:${email}'>${email}</a></p><p>Telefon: <a href='tel:${phoneNumber}'>${phoneNumber}</a></p><p>Liczba osób: ${adultAmount}</p>`,
   };
 
   return new Promise((resolve, reject) => {
