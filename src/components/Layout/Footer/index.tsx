@@ -59,7 +59,7 @@ const Footer = () => (
       </a>
     </LawSection>
     <OpeningHoursSection>
-      <p>Muzeum czynne: od 19.04 do 06.10.2024</p>
+      <p>Muzeum czynne: od 29.04 do 30.10.2025</p>
       <p>Piątek - Sobota – Niedziela godz. 10:45-17:00</p>
       <p>
         (Wejście na wystawę 2CV World o godzinie: 11:00, 12:30, 14:00, 15:30)

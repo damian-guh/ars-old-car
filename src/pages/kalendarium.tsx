@@ -57,23 +57,32 @@ const CalendarEventPage = () => (
         <Overlay />
       </ImageWrapper>
       <TextWrapper>
-        <h1>Kalendarium ARS OLD CAR 2024</h1>
+        <h1>Kalendarium ARS OLD CAR 2025</h1>
+        <p>24.04. – 4 EDYCJA Żuk i Kaczka zgrana paczka w ARS OLD CAR</p>
+        <p>26-27.04. – Targi Slow Travel – TARGI KIELCE</p>
+        <p>29.04. – Otwarcie sezonu ARS OLD CAR</p>
+        <p>27.05-8.06 – Budzenie Sienkiewki Kielce</p>
+        <p>31.05-1.06 – Lego Fest – Targi Kielce</p>
         <p>
-          14.04.2024 - Otwarcie sezonu KIELECKIE KLASYKI AUTO&MOTO w RCNT
-          Podzamcze
+          31.05-1.06 – Pod Szewronami. Zlot Citroenów Kazimierz Dolny nad Wisłą.
         </p>
-        <p>19.04.2024 – Otwarcie sezonu ARS OLD CAR</p>
+        <p>8.06. – VIII Ogólnopolski Auto-Moto Weteran Radomsko</p>
         <p>
-          25.05.2024- Zlot zabytkowych samochodów Citroen, Kazimierz Dolny nad
-          Wisłą
+          15.06. – Miechowski Zlot Klasyków i ich miłośników w PRL-u – Miechów
         </p>
-        <p>30.05 - 1.06.2024 – Rajd Koguta, OŁAWA-MRĄGOWO</p>
+        <p>12-13.07 – Dub It Tuning Festiwal – Targi Kielce</p>
+        <p>17.05 – Śladami Hempla Rajd Nordic Walking – ARS OLD CAR</p>
         <p>
-          21.07.2024 - Obchody 65-rocznicy tragicznej śmierci załogi rajdu
-          Adriatyk, CHĘCINY
+          17-20.07. – XVII Ogólnopolski zlot Citroenów Zabytkowych – Rzeszów -
+          Łańcut
         </p>
-        <p>11.08.2024 – MOTOPIKNIK, Muzeum Wsi Kieleckiej w Tokarni</p>
-        <p>14 - 18.08.2024 - 17 Światowy Zlot Citroena, TORUŃ</p>
+        <p>25-27.07 – Zlot Gwiaździsty śladami Langera i Nahorskiego Chęciny</p>
+        <p>
+          26.07. – Obchody 66-rocznicy wypadku pod Chęcinami, Konferencja –
+          Ostatni wyścig. Wspomnienie wydarzeń z 22.07.1959.
+        </p>
+        <p>29.07-3.08. – 25 Światowy Zlot Citroena 2CV w Słowenii</p>
+        <p>10.08 – Motopiknik – Skansen w Tokarni</p>
       </TextWrapper>
     </Wrapper>
   </Layout>

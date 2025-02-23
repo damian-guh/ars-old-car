@@ -33,7 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>21.07.2024 - Motopiknik Chęciny</QuickNewsSection>
+      <QuickNewsSection>29.04.2025 - Zaczynamy!</QuickNewsSection>
     </Wrapper>
   );
 };
