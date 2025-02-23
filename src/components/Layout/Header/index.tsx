@@ -33,7 +33,7 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>11.08.2024 - Motopiknik Tokarnia</QuickNewsSection>
+      <QuickNewsSection>29.04.2025 - Zaczynamy!</QuickNewsSection>
     </Wrapper>
   );
 };

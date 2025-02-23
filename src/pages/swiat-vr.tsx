@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Layout from 'components/Layout';
 import klotyldaImage from '../../public/klotylda.png';
 import willaHemplaImage from '../../public/willa-hempla.png';
+import jaskiniapiekloImage from '../../public/jaskiniavr.png';
+import balonVrImage from '../../public/balonvr.png';
 
 const Wrapper = styled.section`
   display: grid;
@@ -57,6 +59,76 @@ const VRPage: NextPage = () => (
   <Layout>
     <Wrapper>
       <TextAndImagesWrapper>
+        <h1>Tajemnica Willi Hempla</h1>
+        <p>
+          Witajcie miłośnicy tajemniczych historii! Czy kiedykolwiek
+          zastanawialiście się, co kryje się za zamkniętymi drzwiami opuszczonej
+          willi? Teraz macie okazję to odkryć dzięki wirtualnemu doświadczeniu
+          VR &quot;Tajemnica Willi Hempla&quot;, dostępnemu w ARS OLD CAR -
+          Muzeum Motoryzacji !
+        </p>
+        <p>
+          Wirtualne zwiedzanie wiernie odwzorowanej ponad 100-letniej willi
+          pozwoli Wam poczuć się, jakbyście byli tam osobiście. Znajdziecie się
+          w samym sercu tajemniczej historii właściciela willi - Joachima
+          Hempla. Będziecie mieć szansę odkryć jego fascynujący życiorys i
+          poznać sekrety, które skrywała ta tajemnicza willa. Co czeka na Was za
+          zamkniętymi drzwiami? To już tylko kwestia czasu, zanim to odkryjecie!
+        </p>
+        <p>
+          Doświadczenie dostępne dla każdego. Przygotujcie się na niezapomnianą
+          podróż, która z pewnością dostarczy Wam wielu emocji i wrażeń. Czekamy
+          na Was w ARS OLD CAR - Muzeum Motoryzacji, abyście mogli doświadczyć
+          tajemniczej historii &quot;Tajemnicy Willi Hempla&quot;!
+        </p>
+        <h1>Podniebna Odyseja - Lot Balonem nad Chęcinami </h1>
+        <p>
+          Przygotuj się na niezapomnianą przygodę i wzbij się w powietrze ponad
+          malowniczymi Chęcinami! Nasz lot balonem to wyjątkowe doświadczenie, w
+          którym dzięki nowoczesnej technologii podróż nabiera zupełnie nowego
+          wymiaru. Piękne widoki, w których dominują zielone wzgórza,
+          majestatyczne ruiny zamku oraz urokliwe zakątki regionu, z pewnością
+          Cię oczarują.
+        </p>
+        <p>
+          To niezwykła okazja, aby spojrzeć na świat z zupełnie nowej
+          perspektywy. Dzięki zastosowaniu technologii VR doświadczenie staje
+          się jeszcze bardziej intensywne i autentyczne. Subtelne efekty
+          wizualne przeniosą Cię w niepowtarzalny klimat regionu, sprawiając, że
+          każda chwila pozostanie w pamięci.
+        </p>
+        <p>
+          Lot balonem nad Chęcinami to także doskonała szansa, by oderwać się od
+          zgiełku codziennego życia i zrelaksować, przeżywając coś naprawdę
+          wyjątkowego. To emocje, które łączą przyjemność z fascynującym
+          odkrywaniem nieznanych obszarów. Nasza oferta to nie tylko niezwykłe
+          doświadczenie, ale również możliwość zyskania nowych inspiracji, które
+          będą Ci towarzyszyć przez długi czas. Pozwól sobie na odrobinę
+          niezwykłości!
+        </p>
+        <h1>Odkryj mroczne tajemnice Jaskini Piekło</h1>
+        <p>
+          Jaskinia Piekło pod Skibami to miejsce owiane tajemnicą i legendami,
+          które od wieków intryguje zarówno mieszkańców, jak i turystów. Według
+          ludowych podań, z jej czeluści miały wylatywać diabły, by czynić zło
+          na świecie.
+        </p>
+        <p>
+          To właśnie te opowieści zainspirowały twórców interaktywnego filmu
+          &quot;Tajemnice Jaskini Piekło&quot;, w którym gracz wciela się w rolę
+          odważnego doktora, mającego na celu rozwikłanie zagadki zniknięcia
+          małej dziewczynki z pobliskiej wioski.
+        </p>
+        <p>
+          Twoje decyzje zadecydują o powodzeniu misji ratunkowej lub zagubieniu
+          się w labiryncie jaskini na zawsze. Każdy krok w głąb
+          &quot;Piekła&quot; odkrywa przed Tobą nowe sekrety, a atmosfera grozy
+          i napięcia towarzyszy Ci na każdym etapie podróży. Czy zdołasz stawić
+          czoła pradawnym siłom zła i ocalić niewinne życie? Los dziewczynki
+          spoczywa w Twoich rękach, a każda decyzja niesie ze sobą konsekwencje.
+          Przygotuj się na emocjonującą przygodę, która wystawi na próbę Twoją
+          odwagę i determinację.
+        </p>
         <h1>Przygoda w Saint Tropez</h1>
         <p>
           Witajcie podróżnicy! Czy kiedykolwiek marzyliście o tym, żeby zanurzyć
@@ -81,40 +153,8 @@ const VRPage: NextPage = () => (
           Tropez&quot;, co sprawia, że jest to wspaniała okazja na spędzenie
           czasu z rodziną i przyjaciółmi. Czekamy na Was w ARS OLD CAR.
         </p>
-        <h1>Tajemnica Willi Hempla</h1>
-        <p>
-          Witajcie miłośnicy tajemniczych historii! Czy kiedykolwiek
-          zastanawialiście się, co kryje się za zamkniętymi drzwiami opuszczonej
-          willi? Teraz macie okazję to odkryć dzięki wirtualnemu doświadczeniu
-          VR &quot;Tajemnica Willi Hempla&quot;, dostępnemu w ARS OLD CAR -
-          Muzeum Motoryzacji !
-        </p>
-        <p>
-          Wirtualne zwiedzanie wiernie odwzorowanej ponad 100-letniej willi
-          pozwoli Wam poczuć się, jakbyście byli tam osobiście. Znajdziecie się
-          w samym sercu tajemniczej historii właściciela willi - Joachima
-          Hempla. Będziecie mieć szansę odkryć jego fascynujący życiorys i
-          poznać sekrety, które skrywała ta tajemnicza willa. Co czeka na Was za
-          zamkniętymi drzwiami? To już tylko kwestia czasu, zanim to odkryjecie!
-        </p>
-        <p>
-          Doświadczenie dostępne dla każdego. Przygotujcie się na niezapomnianą
-          podróż, która z pewnością dostarczy Wam wielu emocji i wrażeń. Czekamy
-          na Was w ARS OLD CAR - Muzeum Motoryzacji, abyście mogli doświadczyć
-          tajemniczej historii &quot;Tajemnicy Willi Hempla&quot;!
-        </p>
       </TextAndImagesWrapper>
       <TextAndImagesWrapper>
-        <ImageWrapper>
-          <StyledImage
-            src={klotyldaImage}
-            layout='fill'
-            quality={95}
-            placeholder='blur'
-            objectFit='cover'
-            alt='klotylda vr'
-          />
-        </ImageWrapper>
         <ImageWrapper>
           <StyledImage
             src={willaHemplaImage}
@@ -123,6 +163,36 @@ const VRPage: NextPage = () => (
             placeholder='blur'
             objectFit='cover'
             alt='willa hempla'
+          />
+        </ImageWrapper>
+        <ImageWrapper>
+          <StyledImage
+            src={balonVrImage}
+            layout='fill'
+            quality={95}
+            placeholder='blur'
+            objectFit='cover'
+            alt='balon vr'
+          />
+        </ImageWrapper>
+        <ImageWrapper>
+          <StyledImage
+            src={jaskiniapiekloImage}
+            layout='fill'
+            quality={95}
+            placeholder='blur'
+            objectFit='cover'
+            alt='jaskinia piekło'
+          />
+        </ImageWrapper>
+        <ImageWrapper>
+          <StyledImage
+            src={klotyldaImage}
+            layout='fill'
+            quality={95}
+            placeholder='blur'
+            objectFit='cover'
+            alt='klotylda vr'
           />
         </ImageWrapper>
       </TextAndImagesWrapper>
