@@ -221,7 +221,7 @@ const OfferForSchoolsPage = () => {
             <b>Dodatkowa atrakcja - świat wirtualny VR</b>
             <b>Tylko 7 minut od Chęcin.</b>
             <b>
-              Muzeum otwarte w 2024 r. w okresie 19 kwiecień - 6 październik
+              Muzeum otwarte w 2025 r. w okresie 29 kwiecień - 30 październik
             </b>
             <b>
               W przypadku wycieczek kilkudniowych służymy pomocą w organizacji
