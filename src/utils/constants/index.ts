@@ -129,7 +129,7 @@ export const PRICING_SECTION_TEXT = [
   {
     title: 'Godziny otwarcia i wydarzenia',
     details: [
-      'Muzeum czynne: od 19.04 do 06.10.2024',
+      'Muzeum czynne: od 29.04 do 30.10.2025',
       'Piątek - Sobota – Niedziela godz. 10:45-17:00',
       '(Wejście na wystawę Świat 2CV o godzinie: 11:00, 12:30, 14:00, 15:30)',
       'Czas pobytu w muzeum 90-120 minut',
