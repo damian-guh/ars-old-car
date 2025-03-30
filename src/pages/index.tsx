@@ -1,13 +1,7 @@
 import Layout from 'components/Layout';
 import { Map } from 'components/Layout/Map';
 import dynamic from 'next/dynamic';
-import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
-import {
-  FLIPPING_CARD_COMPANY_EVENTS,
-  FLIPPING_CARD_EXCLUSIVE_CAR_PICS,
-} from 'utils/constants/flippingCardsContent';
-import FlippingCard from 'components/FlippingCard';
-import { FlippingCardsSection } from '../components/FlippingCard/FlippingCard.style';
+import Partners from 'components/Partners';
 import hero1Image from '../../public/hero1.jpg';
 import hero2Image from '../../public/hero2.jpg';
 import hero3Image from '../../public/hero3.jpg';
@@ -32,11 +26,7 @@ const Hero = dynamic(() => import('components/Hero'));
 const Home = () => (
   <Layout>
     <Hero images={images} title={heroMuseumTitle} desc={heroMuseumDesc} />
-    <FlippingCardsSection>
-      <FlippingCard content={FLIPPING_CARD_COMPANY_EVENTS} />{' '}
-      <FirefighterTruckAttraction />
-      <FlippingCard content={FLIPPING_CARD_EXCLUSIVE_CAR_PICS} />
-    </FlippingCardsSection>
+    <Partners />
     <Map />
   </Layout>
 );

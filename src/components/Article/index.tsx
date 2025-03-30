@@ -55,14 +55,10 @@ export const FlippingCardSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: sticky;
-  height: calc(100vh - ${HEADER_HEIGHT});
   top: calc(${HEADER_HEIGHT} + 10px);
   right: 0;
   background-color: ${({ theme }) => theme.colors.headerGray};
   width: 100%;
-  padding: 10px;
 `;
 
 export const ImageWrapper = styled.div`

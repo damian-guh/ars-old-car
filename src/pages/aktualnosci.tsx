@@ -15,7 +15,11 @@ import {
 import ImageModal from 'components/ImageModal';
 import FirefighterTruckAttraction from 'components/FirefighterTruckAttraction';
 import FlippingCard from 'components/FlippingCard';
-import { FLIPPING_CARD_WEEDING2CV } from 'utils/constants/flippingCardsContent';
+import {
+  FLIPPING_CARD_COMPANY_EVENTS,
+  FLIPPING_CARD_EXCLUSIVE_CAR_PICS,
+  FLIPPING_CARD_WEEDING2CV,
+} from 'utils/constants/flippingCardsContent';
 
 type Props = {
   allArticles?: [
@@ -182,8 +186,10 @@ const NewsPage: NextPage = ({
               ))}
           </ArticlesWrapper>
           <FlippingCardSection>
-            <FlippingCard content={FLIPPING_CARD_WEEDING2CV} />
+            <FlippingCard content={FLIPPING_CARD_COMPANY_EVENTS} />
             <FirefighterTruckAttraction />
+            <FlippingCard content={FLIPPING_CARD_EXCLUSIVE_CAR_PICS} />
+            <FlippingCard content={FLIPPING_CARD_WEEDING2CV} />
           </FlippingCardSection>
         </Wrapper>
         <ImageModal
