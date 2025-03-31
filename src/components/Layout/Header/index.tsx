@@ -33,7 +33,10 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>29.04.2025 - Zaczynamy!</QuickNewsSection>
+      <QuickNewsSection>
+        <p>29.04.2025 - Zaczynamy!</p>
+        <h4>MAJÓWKA - otwarte 29.04 - 04.05 GODZ. 10:45-17:00</h4>
+      </QuickNewsSection>
     </Wrapper>
   );
 };

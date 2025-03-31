@@ -68,6 +68,7 @@ const Footer = () => (
         Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych -
         minimum 10 osób
       </p>
+      <h4>MAJÓWKA - otwarte 29.04 - 04.05 GODZ. 10:45-17:00</h4>
     </OpeningHoursSection>
     <CopyrightAndSocialSection>
       <Logo />
