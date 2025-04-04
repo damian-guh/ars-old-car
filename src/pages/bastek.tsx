@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/legacy/image';
 import Layout from 'components/Layout';
-import kayakImage from '../../public/kajak-full.png';
+import kayakImage from '../../public/crystal-kayaks.jpg';
 
 const Wrapper = styled.section`
   display: flex;
@@ -57,59 +57,59 @@ const KayakSpecialOfferPage = () => (
       </ImageWrapper>
       <TextWrapper>
         <h1>
-          Czy marzysz o niesamowitym połączeniu przygody i zabawy? W 2024 masz
-          taką możliwość!
+          Połącz historię z wodną przygodą – muzeum i spływ kajakowy w jednej
+          wyprawie!
         </h1>
         <p>
-          Muzeum Motoryzacji ARS OLD CAR i Spływ kajakiem BASTEK w Wolicy koło
-          Chęcin zapraszają Cię na niezapomnianą wyprawę, podczas której
-          odkryjesz tajemnice historii motoryzacji oraz przeżyjesz emocjonujący
-          spływ kajakowy po rzece Nida. I to nie wszystko - przy jednoczesnym
-          zakupie biletu na obie atrakcje, otrzymasz 10% zniżki!
+          Chcesz przeżyć dzień pełen emocji, łącząc fascynującą historię
+          motoryzacji z relaksem na wodzie? Muzeum Motoryzacji ARS OLD CAR oraz
+          Crystal Kayaks Kielce zapraszają na wyjątkową wyprawę! Zwiedzisz
+          niezwykłą kolekcję zabytkowych aut, a potem wyruszysz na spływ
+          kajakowy na trasie Żelazny Most Chełstów Wojda – Przystań Odpłyń w
+          Ostrowie. To doskonała okazja, by spędzić czas z rodziną, przyjaciółmi
+          lub grupą zorganizowaną i skorzystać z 10% zniżki na bilet łączony!
+        </p>
+        <p>Co na Ciebie czeka?</p>
+        <p>
+          Najpierw wizyta w ARS OLD CAR, gdzie odkryjesz perełki motoryzacji,
+          takie jak Citroën 2CV, futurystyczny AMI 6 czy gangsterski BL 11. Na
+          miejscu czeka również największa w Polsce kolekcja samochodów
+          szydełkowanych! Oprócz tego poczujesz adrenalinę podczas off-roadowej
+          przejażdżki Żukiem, przeżyjesz tajemniczą podróż po Willi Hempla oraz
+          wzniesiesz się nad Chęcinami w wirtualnym locie balonem w technologii
+          VR.
         </p>
         <p>
-          W Muzeum Motoryzacji ARS OLD CAR czekają na Ciebie prawdziwe perełki,
-          takie jak Żuk Strażacki, Citroen 2CV czy największa w Polsce kolekcja
-          wełnianych samochodów. Możesz również skorzystać z przejażdżki Żukiem
-          oraz wirtualnej podróży po Saint Tropez z Żandarmem w technologii VR.
-          A wszystko to w malowniczej okolicy, w otoczeniu zieleni i spokoju.
+          Po zwiedzeniu muzeum czas na relaks i kontakt z naturą! Spływ kajakowy
+          po Czarnej Nidzie to doskonała okazja, by oderwać się od codzienności
+          i podziwiać malownicze krajobrazy. Na zakończenie dnia czeka na Ciebie
+          ognisko z kiełbaskami na terenie Przystani Odpłyń w Ostrowie.
         </p>
+        <p>Plan dnia:</p>
+        <p>⏰ 9:30–12:00 – Zwiedzanie Muzeum Motoryzacji ARS OLD CAR</p>
+        <p>⏰ 12:00–12:30 – Przejazd do Przystani Odpłyń</p>{' '}
         <p>
-          Po zwiedzeniu muzeum, udaj się na spływ kajakowy po rzece Nida, ze
-          Spływem kajakiem Bastek. To wspaniała okazja, aby w pełni cieszyć się
-          pięknem natury i odkryć uroki okolicy z perspektywy wody. Na
-          zakończenie dnia czeka na Ciebie ognisko z kiełbaskami, które
-          uzupełnią niesamowite wrażenia z całego dnia.
+          ⏰ 12:30 – Spływ kajakowy na trasie Żelazny Most Chełstów Wojda –
+          Przystań Odpłyń Ostrów
         </p>
-        <p>
-          To niepowtarzalna okazja, aby spędzić czas z rodziną i przyjaciółmi na
-          łonie natury oraz połączyć wspaniałą zabawę z poznawaniem historii
-          motoryzacji, a przy tym zaoszczędzić 10% na bilecie. Nie czekaj!
-          Zarezerwuj już dziś swój pobyt w Muzeum Motoryzacji ARS OLD CAR i na
-          Spływie kajakowym BASTEK i przeżyj niesamowite przygody!
-        </p>
-        <p>
-          Bilet łączony 10% taniej za cały dzień atrakcji. Oferta dotyczy grup
-          powyżej 10 osób.
-        </p>
+        <p>🔥 Po spływie – Ognisko z kiełbaskami</p>
         <p>Zarezerwuj wcześniej:</p>
         <div>
-          <strong>Spływ kajakiem BASTEK</strong>{' '}
-          <a href='tel:690 880 240'>tel. 690 880 240</a>,{' '}
-          <a href='mailto:biuro@nidy.pl'>mail: biuro@nidy.pl</a>
+          <strong>Crystal Kayaks Kielce</strong>{' '}
+          <a href='tel:789 117 617'>tel. 789 117 617</a>,{' '}
+          <a href='mailto:crystalkayakskielce@wp.pl'>
+            mail: crystalkayakskielce@wp.pl
+          </a>
         </div>
         <div>
           <strong>ARS OLD CAR – Muzeum motoryzacji</strong>{' '}
           <a href='tel:515 355 533'>tel. 515 355 533</a>,{' '}
           <a href='mailto:kontakt@arsoldcar.pl'>mail: kontakt@arsoldcar.pl</a>
         </div>
-        <h2>Plan pobytu:</h2>
-        <p>9.30–12.00 - ARS OLD CAR – Muzeum motoryzacji</p>
-        <p>12.00-12.30 – przejazd do Spływ kajakiem Bastek</p>
         <p>
-          12.30 – rozpoczęcie spływu na trasie Nida – Wolica. Po zakończeniu
-          spływu ognisko z kiełbaskami na terenie przystani Spływ kajakiem
-          Bastek
+          Oferta skierowana do grup powyżej 10 osób. Nie zwlekaj – połącz
+          motoryzacyjną historię z wodną przygodą i przeżyj niezapomniany dzień
+          pełen atrakcji!
         </p>
       </TextWrapper>
     </Wrapper>
