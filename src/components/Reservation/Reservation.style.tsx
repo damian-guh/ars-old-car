@@ -37,6 +37,10 @@ export const FormSectionWrapper = styled.section`
   padding: ${HEADER_HEIGHT} 5px 50px 5px;
   background-color: ${({ theme }) => theme.colors.headerGray};
 
+  a:hover {
+    color: ${({ theme }) => theme.colors.red};
+  }
+
   @media screen and ${({ theme }) => theme.screenSizes.xl} {
     padding-top: 50px;
   }
