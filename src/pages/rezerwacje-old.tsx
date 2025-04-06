@@ -1,4 +1,4 @@
-// import type { NextPage } from 'next';
+import type { NextPage } from 'next';
 // import { useEffect, useState, forwardRef } from 'react';
 // import { Formik, useField, useFormikContext } from 'formik';
 // import styled from 'styled-components';
@@ -14,20 +14,20 @@
 // import pl from 'date-fns/locale/pl';
 // import dayjs from 'dayjs';
 // import 'react-datepicker/dist/react-datepicker.css';
-// import Layout from 'components/Layout';
+import Layout from 'components/Layout';
 // import {
 //   InputError,
 //   StyledForm as Form,
 //   StyledInput,
 //   StyledButton as Button,
 // } from 'components/Form/Form.style';
-// import {
-//   FormSectionWrapper,
-//   StyledHeading,
-//   StyledInfoP,
-//   Wrapper,
-//   FlippingCardSection,
-// } from 'components/Reservation/Reservation.style';
+import {
+  //   FormSectionWrapper,
+  //   StyledHeading,
+  //   StyledInfoP,
+  Wrapper,
+  //   FlippingCardSection,
+} from 'components/Reservation/Reservation.style';
 // import * as Yup from 'yup';
 // import { OPENING_MUSEUM_HOUR, CLOSING_MUSEUM_HOUR } from 'utils/constants';
 // import convertDate from 'helpers/convertDate';
@@ -508,3 +508,13 @@
 //   );
 // };
 // export default ReservationPage;
+
+const ReservationPageOld: NextPage = () => (
+  <Layout>
+    <Wrapper>
+      Ta strona została zmieniona. Proszę przejść do zakładki rezerwacje.
+    </Wrapper>
+  </Layout>
+);
+
+export default ReservationPageOld;
