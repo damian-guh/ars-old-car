@@ -102,7 +102,7 @@ export const HeroPostsWrapper = styled.section`
   }
 
   @media screen and ${({ theme }) => theme.screenSizes.xl} {
-    gap: 0 250px;
+    gap: 0 150px;
   }
 `;
 

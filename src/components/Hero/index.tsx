@@ -118,6 +118,17 @@ const Hero = ({ images, title, desc }: Props) => {
               <span>Ognisko z kiełbaskami po spływie</span>
             </HeroSaleOffer>
           </Link>
+          <a
+            href='https://drive.google.com/file/d/1R3gDwGAJnDpV-138A8Zex5mgdZHDBvFw/view?usp=sharing'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <HeroSaleOffer>
+              <HeroSaleOfferTitle>
+                🎵Posłuchaj naszej piosenki!
+              </HeroSaleOfferTitle>
+            </HeroSaleOffer>
+          </a>
           <a href='https://endlessstudio.pl' target='_blank' rel='noreferrer'>
             <HeroSaleOffer>
               <HeroSaleOfferTitle>Jesteśmy producentem</HeroSaleOfferTitle>
