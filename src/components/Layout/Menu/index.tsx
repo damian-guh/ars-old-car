@@ -28,7 +28,15 @@ type Subtitle = {
 };
 
 const adjustNavItemName = (name: string) =>
-  name.toLowerCase().replace(/\s+/g, '-').replace(/^#/, '').replace(/ś/, 's');
+  name
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/^#/, '')
+    .replace(/ś/g, 's')
+    .replace(/ł/g, 'l')
+    .replace(/ą/g, 'a')
+    .replace(/ę/g, 'e');
+
 const Menu = ({ ...props }: Props) => {
   const [isOpenedSubNav, setIsOpenedSubNav] = useState<string | null>(null);
   const isDesktop = useDesktopMediaQuery();
