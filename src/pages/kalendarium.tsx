@@ -61,10 +61,24 @@ const CalendarEventPage = () => (
         <p>24.04. – 4 EDYCJA Żuk i Kaczka zgrana paczka w ARS OLD CAR</p>
         <p>26-27.04. – Targi Slow Travel – TARGI KIELCE</p>
         <p>29.04. – Otwarcie sezonu ARS OLD CAR</p>
+        <p>1.05 - 5 EDYCJA Żuk i Kaczka zgrana paczka - godz. 12:00</p>
+        <p>
+          2.05 - Zostań TOP Obeliksem i zobacz wyjątkowy pojazd Galów – Rikszę
+          2CV! – godz. 12:00
+        </p>
+        <p>3.05 – Śladami Hempla: Spacer po Wolicy #1 - godz. 9:00</p>
+        <p>4.05 - 6 EDYCJA Żuk i Kaczka zgrana paczka - godz. 12:00</p>
+        <p>11.05 – Śladami Hempla: Spacer po Wolicy #2 - godz. 9:00</p>
+        <p>11.05 - 7 EDYCJA Żuk i Kaczka zgrana paczka - godz. 12:00</p>
+        <p>17.05 – Śladami Hempla: Spacer po Wolicy #3 - godz. 9:00</p>
+        <p>17.05 - 8 EDYCJA Żuk i Kaczka zgrana paczka - godz. 12:00</p>
+        <p>24.05 – Śladami Hempla: Spacer po Wolicy #4 - godz. 9:00</p>
+        <p>24.05 - 9 EDYCJA Żuk i Kaczka zgrana paczka - godz. 12:00</p>
         <p>27.05-8.06 – Budzenie Sienkiewki Kielce</p>
         <p>31.05-1.06 – Lego Fest – Targi Kielce</p>
         <p>
-          31.05-1.06 – Pod Szewronami. Zlot Citroenów Kazimierz Dolny nad Wisłą.
+          31.05-1.06 – III Spotkanie pod Szewronami w Kazimierzu Dolnym nad
+          Wisłą organizowany przez Citroen Oldtimer Club Polska
         </p>
         <p>8.06. – VIII Ogólnopolski Auto-Moto Weteran Radomsko</p>
         <p>
@@ -73,8 +87,8 @@ const CalendarEventPage = () => (
         <p>12-13.07 – Dub It Tuning Festiwal – Targi Kielce</p>
         <p>17.05 – Śladami Hempla Rajd Nordic Walking – ARS OLD CAR</p>
         <p>
-          17-20.07. – XVII Ogólnopolski zlot Citroenów Zabytkowych – Rzeszów -
-          Łańcut
+          17-20.07.2025 – XVII Ogólnopolski Zlot Zabytkowych Citroenów w
+          Rzeszowie i Łańcucie organizowany przez Citroen Oldtimer Club Polska
         </p>
         <p>25-27.07 – Zlot Gwiaździsty śladami Langera i Nahorskiego Chęciny</p>
         <p>
