@@ -34,8 +34,8 @@ const Header = () => {
         />
       )}
       <QuickNewsSection>
-        <p>29.04.2025 - Zaczynamy!</p>
-        <h4>MAJÓWKA - otwarte 29.04 - 04.05 GODZ. 10:45-17:00</h4>
+        <p>19.06.2025 - zapraszamy 12:00 - 17:00</p>
+        <h4>20-22.06.2025 - zapraszamy 10:45 - 17:00</h4>
       </QuickNewsSection>
     </Wrapper>
   );
