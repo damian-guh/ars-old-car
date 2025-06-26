@@ -19,17 +19,15 @@ const ReservationPage: NextPage = () => (
   <Layout>
     <Wrapper>
       <FormSectionWrapper>
-        <StyledHeading>Zarezerwuj termin już teraz!</StyledHeading>
+        <StyledHeading>Zarezerwuj termin już dzisiaj!</StyledHeading>
         <StyledInfoP>
-          Rezerwacja możliwa jest telefonicznie lub mailowo.
-        </StyledInfoP>
-        <StyledInfoP>
-          Podaj liczbę osób, interesujący Cię termin najpóźniej 1 dzień przed
-          nim oraz ewentualne szczegóły.
+          Rezerwacja mailowa (minimum 1 dzień wcześniej). Podaj liczbę osób,
+          interesujący Cię termin oraz ewentualne szczegóły.
         </StyledInfoP>
         <StyledInfoP>
           E-mail: <a href={mailHref}>{MAIL}</a>
         </StyledInfoP>
+        <StyledInfoP>Rezerwacja telefoniczna</StyledInfoP>
         <StyledInfoP>
           Telefon: <a href={phoneHref}>{PHONE}</a>
         </StyledInfoP>

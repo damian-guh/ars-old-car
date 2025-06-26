@@ -34,8 +34,8 @@ const Header = () => {
         />
       )}
       <QuickNewsSection>
-        <p>19.06.2025 - zapraszamy 12:00 - 17:00</p>
-        <h4>20-22.06.2025 - zapraszamy 10:45 - 17:00</h4>
+        <p>Zapraszamy Pt., Sb., Nd.- 10:45 - 17:00</p>
+        <p>Pn. - Czw. 10:45 - 17:00 - obowiązuje wcześniejsza rezerwacja</p>
       </QuickNewsSection>
     </Wrapper>
   );
