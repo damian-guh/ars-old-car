@@ -21,15 +21,14 @@ const ReservationPage: NextPage = () => (
       <FormSectionWrapper>
         <StyledHeading>Zarezerwuj termin już dzisiaj!</StyledHeading>
         <StyledInfoP>
+          Rezerwacja telefoniczna:
+          <a href={phoneHref}> {PHONE} lub </a>
+          <a href='tel:508084688'>508 084 688</a>
+        </StyledInfoP>
+        <StyledInfoP>
           Rezerwacja mailowa (minimum 1 dzień wcześniej). Podaj liczbę osób,
-          interesujący Cię termin oraz ewentualne szczegóły.
-        </StyledInfoP>
-        <StyledInfoP>
-          E-mail: <a href={mailHref}>{MAIL}</a>
-        </StyledInfoP>
-        <StyledInfoP>Rezerwacja telefoniczna</StyledInfoP>
-        <StyledInfoP>
-          Telefon: <a href={phoneHref}>{PHONE}</a>
+          interesujący Cię termin oraz ewentualne szczegóły:
+          <a href={mailHref}> {MAIL}</a>
         </StyledInfoP>
       </FormSectionWrapper>
       <FlippingCardSection>
