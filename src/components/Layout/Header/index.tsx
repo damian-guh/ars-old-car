@@ -34,7 +34,9 @@ const Header = () => {
         />
       )}
       <QuickNewsSection>
-        <p>18.07 - 20.07 Muzeum Nieczynne</p>
+        <p>Zapraszamy Pt., Sb., Nd.- 10:45 - 17:00</p>
+        <p>Pn. - Czw. 10:45 - 17:00 - obowiązuje wcześniejsza rezerwacja</p>
+        <p>UWAGA: 26.07.2025- MUZEUM CZYNNE W GODZ. 9:30-13:00</p>
       </QuickNewsSection>
     </Wrapper>
   );
