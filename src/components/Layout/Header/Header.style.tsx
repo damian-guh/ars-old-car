@@ -57,7 +57,7 @@ export const QuickNewsSection = styled.section`
   }
 
   width: 100vw;
-  height: 75px;
+  height: 90px;
   grid-column: 1/3;
   font-size: ${({ theme }) => theme.fontSizes.md};
   animation: colorPulse 2s infinite;
