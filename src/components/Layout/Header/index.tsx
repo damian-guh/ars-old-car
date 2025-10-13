@@ -36,7 +36,7 @@ const Header = () => {
       <QuickNewsSection>
         <p>Zapraszamy Pt., Sb., Nd.- 10:45 - 17:00</p>
         <p>Pn. - Czw. 10:45 - 17:00 - obowiązuje wcześniejsza rezerwacja</p>
-        <p>15.08 - 17.08 - MUZEUM CZYNNE. Zapraszamy</p>
+        <p>19 października - muzeum nieczynne</p>
       </QuickNewsSection>
     </Wrapper>
   );
