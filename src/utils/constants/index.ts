@@ -124,12 +124,12 @@ export const PRICING_SECTION_TEXT = [
   {
     title: 'Bilety',
     details: [
-      'Normalny – 45 zł',
-      'Ulgowy 7-26* – 40 zł',
-      'Ulgowy 4-6**– 30 zł',
+      'Normalny – 48 zł',
+      'Ulgowy 7-26* – 43 zł',
+      'Ulgowy 4-6**– 33 zł',
       'Dzieci do 3 roku życia – bezpłatnie ',
-      'Rodzinny (Karta Dużej Rodziny) każdy z członków rodziny 38 zł',
-      'Rodzinny zwykły (2+2) – 160 zł',
+      'Rodzinny (Karta Dużej Rodziny) każdy z członków rodziny 40 zł',
+      'Rodzinny zwykły (2+2) – 170 zł',
       '\n*Bilety ulgowe przysługują: dzieciom, młodzieży i studentom (od 7 do 26 roku życia), rencistom, emerytom i osobom niepełnosprawnym. -Pakiet 3',
       '**Bilety ulgowe przysługują: dzieciom (od 4 do 6 roku życia)- Pakiet 2',
       'Pakiet 3 składa się z: wystawa Świat 2CV z przewodnikiem, jazda autem strażackim do ruin Willi Hempla oraz  na punkt widokowy, Świat VR - Tajemnice Willi Hempla',
@@ -140,7 +140,7 @@ export const PRICING_SECTION_TEXT = [
   {
     title: 'Godziny otwarcia i wydarzenia',
     details: [
-      'Muzeum czynne: od 29.04 do 30.10.2025',
+      'Muzeum czynne: od 25.04 do 15.11.2026',
       'Piątek - Sobota – Niedziela godz. 10:45-17:00',
       '(Wejście na wystawę Świat 2CV o godzinie: 11:00, 12:30, 14:00, 15:30)',
       'Czas pobytu w muzeum 90-120 minut',

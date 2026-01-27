@@ -59,7 +59,7 @@ const Footer = () => (
       </a>
     </LawSection>
     <OpeningHoursSection>
-      <p>Muzeum czynne: od 29.04 do 30.10.2025</p>
+      <p>Muzeum czynne: od 25.04 do 15.11.2026</p>
       <p>Piątek - Sobota – Niedziela godz. 10:45-17:00</p>
       <p>
         (Wejście na wystawę 2CV World o godzinie: 11:00, 12:30, 14:00, 15:30)
@@ -68,7 +68,7 @@ const Footer = () => (
         Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych -
         minimum 10 osób
       </p>
-      <h4>MAJÓWKA - otwarte 29.04 - 04.05 GODZ. 10:45-17:00</h4>
+      <h4>MAJÓWKA - otwarte 29.04 - 07.05 GODZ. 10:45-17:00</h4>
     </OpeningHoursSection>
     <CopyrightAndSocialSection>
       <Logo />

@@ -125,9 +125,9 @@ const OfferForSchoolsPage = () => {
           </TextWrapper>
           <TextWrapper>
             <h2>Ceny biletów grupowych:</h2>
-            <p>Grupowy – normalny – 42 zł</p>
-            <p>Grupowy – ulgowy 7-26 * ( Pakiet 3 )– 38 zł</p>
-            <p>Grupowy – ulgowy 4-6**( Pakiet 2 )– 27 zł</p>
+            <p>Grupowy – normalny – 45 zł</p>
+            <p>Grupowy – ulgowy 7-26 * ( Pakiet 3 )– 40 zł</p>
+            <p>Grupowy – ulgowy 4-6**( Pakiet 2 )– 30 zł</p>
             <p>Dzieci do 3 roku życia – bezpłatnie</p>
             <p>
               *Bilety ulgowe przysługują: dzieciom, młodzieży i studentom (od 7
@@ -221,7 +221,7 @@ const OfferForSchoolsPage = () => {
             <b>Dodatkowa atrakcja - świat wirtualny VR</b>
             <b>Tylko 7 minut od Chęcin.</b>
             <b>
-              Muzeum otwarte w 2025 r. w okresie 29 kwiecień - 30 październik
+              Muzeum otwarte w 2026 r. w okresie 25 kwiecień - 15 listopad
             </b>
             <b>
               W przypadku wycieczek kilkudniowych służymy pomocą w organizacji
