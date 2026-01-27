@@ -220,9 +220,7 @@ const OfferForSchoolsPage = () => {
             </p>
             <b>Dodatkowa atrakcja - świat wirtualny VR</b>
             <b>Tylko 7 minut od Chęcin.</b>
-            <b>
-              Muzeum otwarte w 2026 r. w okresie 25 kwiecień - 15 listopad
-            </b>
+            <b>Muzeum otwarte w 2026 r. w okresie 25 kwiecień - 15 listopad</b>
             <b>
               W przypadku wycieczek kilkudniowych służymy pomocą w organizacji
               trasy pobytu, doboru atrakcji turystycznych, noclegów oraz

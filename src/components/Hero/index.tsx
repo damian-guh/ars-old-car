@@ -108,16 +108,6 @@ const Hero = ({ images, title, desc }: Props) => {
               <HeroSaleOfferTitle>ARS OLD CAR 2025</HeroSaleOfferTitle>
             </HeroSaleOffer>
           </Link>
-          <Link href='/bastek'>
-            <HeroSaleOffer>
-              <HeroSaleOfferTitle>Nowość 2025!</HeroSaleOfferTitle>
-              <h4>10% taniej</h4>
-              <span>Dwie atrakcje w jeden dzień</span>
-              <span>1. Muzeum motoryzacji</span>
-              <span>2. Spływ Kajakiem Nidą</span>
-              <span>Ognisko z kiełbaskami po spływie</span>
-            </HeroSaleOffer>
-          </Link>
           <a
             href='https://drive.google.com/file/d/1R3gDwGAJnDpV-138A8Zex5mgdZHDBvFw/view?usp=sharing'
             target='_blank'
