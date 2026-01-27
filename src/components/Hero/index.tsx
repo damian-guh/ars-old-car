@@ -105,7 +105,7 @@ const Hero = ({ images, title, desc }: Props) => {
           <Link href='/kalendarium'>
             <HeroSaleOffer>
               <HeroSaleOfferTitle>KALENDARIUM</HeroSaleOfferTitle>
-              <HeroSaleOfferTitle>ARS OLD CAR 2025</HeroSaleOfferTitle>
+              <HeroSaleOfferTitle>ARS OLD CAR 2026</HeroSaleOfferTitle>
             </HeroSaleOffer>
           </Link>
           <a
