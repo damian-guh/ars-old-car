@@ -48,6 +48,11 @@ export const NAV_ITEMS = [
           },
         ],
       },
+      {
+        title: 'Struktura rozwoju',
+        customUrl: '/strategiarozwoju.pdf',
+        subtitles: [],
+      }
     ],
   },
   {
