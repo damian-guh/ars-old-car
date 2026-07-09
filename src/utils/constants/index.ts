@@ -146,10 +146,9 @@ export const PRICING_SECTION_TEXT = [
     title: 'Godziny otwarcia i wydarzenia',
     details: [
       'Muzeum czynne: od 25.04 do 15.11.2026',
-      'Piątek - Sobota – Niedziela godz. 10:45-17:00',
+      'Poniedziałek – Niedziela godz. 10:45-17:00',
       '(Wejście na wystawę Świat 2CV o godzinie: 11:00, 12:30, 14:00, 15:30)',
       'Czas pobytu w muzeum 90-120 minut',
-      'Poniedziałek - Czwartek – czynne dla rezerwacji grup zorganizowanych - minimum 10 osób',
       'UWAGA ILOŚĆ BILETÓW NA KAŻDĄ GODZINĘ JEST OGRANICZONA!',
     ],
   },
