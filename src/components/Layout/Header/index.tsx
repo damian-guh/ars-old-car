@@ -1,10 +1,7 @@
 import { useContext, useRef } from 'react';
 import Link from 'next/link';
 import { BurgerContext } from 'components/Layout';
-import {
-  Wrapper,
-  LogoWrapper,
-} from 'components/Layout/Header/Header.style';
+import { Wrapper, LogoWrapper } from 'components/Layout/Header/Header.style';
 import Logo from 'components/Layout/Logo';
 import Menu from 'components/Layout/Menu';
 import Burger from 'components/Layout/Menu/Burger';
