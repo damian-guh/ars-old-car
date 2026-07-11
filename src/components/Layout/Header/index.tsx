@@ -33,9 +33,6 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>
-        <p></p>
-      </QuickNewsSection>
     </Wrapper>
   );
 };
