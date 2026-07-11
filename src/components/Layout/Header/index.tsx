@@ -34,8 +34,7 @@ const Header = () => {
         />
       )}
       <QuickNewsSection>
-        <p>Od 30.10.2025 - muzeum nieczynne</p>
-        <p>Zapraszamy od 26.04.2026</p>
+        <p></p>
       </QuickNewsSection>
     </Wrapper>
   );
