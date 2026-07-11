@@ -4,7 +4,6 @@ import { BurgerContext } from 'components/Layout';
 import {
   Wrapper,
   LogoWrapper,
-  QuickNewsSection,
 } from 'components/Layout/Header/Header.style';
 import Logo from 'components/Layout/Logo';
 import Menu from 'components/Layout/Menu';
