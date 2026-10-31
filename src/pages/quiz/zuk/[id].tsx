@@ -58,7 +58,7 @@ const QuizAnswerButtons = ({ answers }: ButtonsProps) => {
           value={answer}
           disabled={isAnswerExist}
           key={answer}
-          onClick={(event) => handleAnswer(event, setAnswerExist, router)}
+          onClick={(event: any) => handleAnswer(event, setAnswerExist, router)}
         >
           {answer}
         </QuizAnswerButton>

@@ -5,8 +5,8 @@ type Props = {
   onClick: () => void;
 };
 
-const Burger = ({ ...props }: Props) => (
-  <StyledBurger {...props}>
+const Burger = ({ isOpen, onClick }: Props) => (
+  <StyledBurger $isOpen={isOpen} onClick={onClick}>
     <span />
     <span />
     <span />

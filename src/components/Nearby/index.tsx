@@ -51,12 +51,12 @@ const Nearby = () => {
           </NearbyDesc>
         </NearbyTitleSectionWrapper>
         <Wrapper>
-          {NEARBY_DATA.map(({ title, distance, image, link }, index) => (
+          {NEARBY_DATA.map(({ title, distance, image, link }) => (
             <ItemWrapper key={title}>
-              <ImageWrapper index={index}>
+              <ImageWrapper>
                 <StyledImage
                   src={image}
-                  onClick={(event) => handleModal(event)}
+                  onClick={handleModal}
                   layout='fill'
                   quality={95}
                   placeholder='blur'
@@ -65,7 +65,7 @@ const Nearby = () => {
                   alt={title}
                 />
               </ImageWrapper>
-              <InfoSectionWrapper index={index}>
+              <InfoSectionWrapper>
                 <NearbyTitle>
                   {title} - tylko {distance} od ARS OLD CAR
                 </NearbyTitle>

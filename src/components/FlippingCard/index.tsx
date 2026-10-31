@@ -20,16 +20,16 @@ const FlippingCard = ({
   return (
     <FlippingCardWrapper
       onClick={() => setCardSide((prevState) => !prevState)}
-      isFrontSide={isFrontSide}
-      isHasImage={!!image}
+      $isFrontSide={isFrontSide}
+      $isHasImage={!!image}
     >
-      <FlippingCardFront isHasImage={!!image}>
+      <FlippingCardFront $isHasImage={!!image}>
         {isFrontSide && image ? (
-          <Image {...image} alt={`${title}-image`} placeholder='blur' />
+          <Image src={image as any} alt={`${title}-image`} placeholder='blur' />
         ) : null}
         <h3>{title}</h3>
       </FlippingCardFront>
-      <FlippingCardBack isHasImage={!!image}>
+      <FlippingCardBack $isHasImage={!!image}>
         {text.map((paragraph) => {
           if (paragraph.includes('http'))
             return (

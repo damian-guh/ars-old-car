@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
 type Props = {
-  isOpen: boolean | null;
-  important?: boolean;
+  $isOpen: boolean | null;
+  $important?: boolean;
 };
 
 export const StyledNav = styled.nav<Props>`
@@ -13,7 +13,7 @@ export const StyledNav = styled.nav<Props>`
   height: calc(100% - ${HEADER_HEIGHT});
   width: 100vw;
   transition: all 0.3s linear;
-  transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100vw')});
+  transform: translateX(${({ $isOpen }) => ($isOpen ? '0' : '-100vw')});
   background-color: ${({ theme }) => theme.colors.headerGray};
   overflow-y: auto;
 
@@ -148,14 +148,14 @@ export const MobileSubNavItemSection = styled.div`
   }
 `;
 
-export const DesktopLink = styled.span<Omit<Props, 'isOpen'>>`
+export const DesktopLink = styled.span<Omit<Props, '$isOpen'>>`
   display: flex;
   flex-direction: column;
   cursor: pointer;
   position: relative;
   transition-duration: 0.2s;
-  color: ${({ theme, important }) =>
-    important ? theme.colors.red : theme.colors.white};
+  color: ${({ theme, $important }) =>
+    $important ? theme.colors.red : theme.colors.white};
 
   &:hover {
     color: ${({ theme }) => theme.colors.red};

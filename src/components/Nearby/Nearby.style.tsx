@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import Image from 'next/legacy/image';
 import { HEADER_HEIGHT } from 'components/Layout/Header/Header.style';
 
-type Props = {
-  index: number;
-};
-
 export const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
@@ -20,7 +16,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const InfoSectionWrapper = styled.section<Props>`
+export const InfoSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -67,7 +63,7 @@ export const StyledImage = styled(Image)`
   }
 `;
 
-export const ImageWrapper = styled.div<Props>`
+export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 200px;

@@ -56,7 +56,7 @@ export const NAV_ITEMS = [
     ],
   },
   {
-    title: 'Aktualności',
+    title: 'Pamiątki',
     customUrl: null,
     subtitles: [],
   },

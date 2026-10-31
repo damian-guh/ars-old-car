@@ -9,7 +9,9 @@ type Data = {
   };
 };
 
-mail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
+if (process.env.SENDGRID_API_KEY) {
+  mail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, method } = req;

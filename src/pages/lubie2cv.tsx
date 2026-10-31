@@ -112,7 +112,7 @@ const Lubie2cvPage = ({
                       alt='Gallery image'
                       objectFit='cover'
                       id={id}
-                      onClick={(event) => handleModal(event)}
+                      onClick={handleModal}
                     />
                   </ImageWrapper>
                 ))

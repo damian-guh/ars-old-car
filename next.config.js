@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  output: 'standalone',
+  distDir: process.env.NODE_ENV === 'development' ? '.next-dev' : '.next',
   compiler: {
     styledComponents: true,
   },
@@ -10,6 +12,7 @@ module.exports = {
       'localhost',
       'arsoldcar.pl',
       'dev.arsoldcar.pl',
+      'images.unsplash.com',
     ],
   },
   webpack(config) {
