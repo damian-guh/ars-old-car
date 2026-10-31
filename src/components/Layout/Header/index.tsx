@@ -1,11 +1,7 @@
 import { useContext, useRef } from 'react';
 import Link from 'next/link';
 import { BurgerContext } from 'components/Layout';
-import {
-  Wrapper,
-  LogoWrapper,
-  QuickNewsSection,
-} from 'components/Layout/Header/Header.style';
+import { Wrapper, LogoWrapper } from 'components/Layout/Header/Header.style';
 import Logo from 'components/Layout/Logo';
 import Menu from 'components/Layout/Menu';
 import Burger from 'components/Layout/Menu/Burger';
@@ -33,11 +29,6 @@ const Header = () => {
           onClick={() => toggleMenu && toggleMenu((prevState) => !prevState)}
         />
       )}
-      <QuickNewsSection>
-        <p>Zapraszamy Pt., Sb., Nd.- 10:45 - 17:00</p>
-        <p>Pn. - Czw. 10:45 - 17:00 - obowiązuje wcześniejsza rezerwacja</p>
-        <p>19 października - muzeum nieczynne</p>
-      </QuickNewsSection>
     </Wrapper>
   );
 };

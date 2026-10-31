@@ -8,7 +8,7 @@ import rotLogo from '../../../public/rot-logo.png';
 import danutaLogo from '../../../public/logo-danuta-przewodnik.png';
 import logoBastek from '../../../public/logo-bastek.png';
 import pttkLogo from '../../../public/logo-PTTK.png';
-import kayaksLogo from '../../../public/logo-kayaks.png';
+import magiczneChecinyLogo from '../../../public/magicznecheciny.png';
 import grodLogo from '../../../public/logo-grod.png';
 
 const partners = [
@@ -25,9 +25,9 @@ const partners = [
   },
   { name: 'PTTK', logo: pttkLogo, url: 'https://www.pttkkielce.pl/' },
   {
-    name: 'KAYAKS',
-    logo: kayaksLogo,
-    url: 'https://www.crystalkayakskielce.com/strona-g%C5%82%C3%B3wna',
+    name: 'Magiczne Chęciny',
+    logo: magiczneChecinyLogo,
+    url: 'https://arsoldcar.pl/',
   },
   {
     name: 'Gród Pędzików',

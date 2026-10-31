@@ -42,12 +42,12 @@ const ImageFullWrapper = styled.div`
   top: 0;
 `;
 
-const ImageFull = styled.img<{ isFirst: boolean }>`
+const ImageFull = styled.img<{ $isFirst: boolean }>`
   max-width: 90%;
   max-height: 300px;
   border-radius: 10px;
   margin: 10px;
-  order: ${({ isFirst }) => (isFirst ? '-1' : null)};
+  order: ${({ $isFirst }) => ($isFirst ? '-1' : null)};
 
   @media screen and ${({ theme }) => theme.screenSizes.lg} {
     max-height: 700px;
@@ -82,7 +82,7 @@ const ImageModal = ({
                 src={url}
                 id={id}
                 key={id}
-                isFirst={id === clickedImage.id}
+                $isFirst={id === clickedImage.id}
                 alt='Gallery image'
               />
             ))

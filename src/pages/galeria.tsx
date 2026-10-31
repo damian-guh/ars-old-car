@@ -101,7 +101,7 @@ const GalleryPage = ({
                     alt='Gallery image'
                     objectFit='cover'
                     id={id}
-                    onClick={(event) => handleModal(event)}
+                    onClick={handleModal}
                   />
                 </ImageWrapper>
               ))

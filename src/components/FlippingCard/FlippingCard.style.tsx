@@ -16,8 +16,8 @@ export const FlippingCardsSection = styled.section`
 `;
 
 export const FlippingCardWrapper = styled.div<{
-  isFrontSide: boolean;
-  isHasImage?: boolean;
+  $isFrontSide: boolean;
+  $isHasImage?: boolean;
 }>`
   width: 300px;
   height: 300px;
@@ -25,7 +25,7 @@ export const FlippingCardWrapper = styled.div<{
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  transform: rotateY(${({ isFrontSide }) => (isFrontSide ? '0' : '180deg')});
+  transform: rotateY(${({ $isFrontSide }) => ($isFrontSide ? '0' : '180deg')});
   background-color: ${({ theme }) => theme.colors.headerGray};
 `;
 
@@ -38,21 +38,21 @@ const FlippingCardFace = styled.div`
 `;
 
 export const FlippingCardFront = styled(FlippingCardFace)<{
-  isHasImage?: boolean;
+  $isHasImage?: boolean;
 }>`
   background-color: ${({ theme }) => theme.colors.headerGray};
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: ${({ theme, isHasImage }) =>
-    isHasImage || isHasImage === undefined
+  color: ${({ theme, $isHasImage }) =>
+    $isHasImage || $isHasImage === undefined
       ? theme.colors.white
       : theme.colors.red};
 `;
 
 export const FlippingCardBack = styled(FlippingCardFace)<{
-  isHasImage?: boolean;
+  $isHasImage?: boolean;
 }>`
   background-color: ${({ theme }) => theme.colors.headerGray};
   transform: rotateY(180deg);

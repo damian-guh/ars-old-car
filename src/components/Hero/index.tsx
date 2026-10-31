@@ -28,7 +28,7 @@ type Props = {
 type ImageOrCarouselProps = {
   type: 'image' | 'carousel';
   element: unknown;
-  id: number;
+  id: string | number;
 };
 
 const ImageOrCarousel = ({
@@ -39,12 +39,16 @@ const ImageOrCarousel = ({
   title?: string;
 }) => {
   if (type === 'image') {
-    const imageElement = element as ImageProps;
+    const imageElement = element as any;
     return (
-      <HeroImageWrapper key={imageElement.src as string}>
+      <HeroImageWrapper
+        key={
+          typeof imageElement === 'string' ? imageElement : imageElement?.src
+        }
+      >
         <Overlay />
         <Image
-          {...imageElement}
+          src={imageElement}
           placeholder='blur'
           layout='fill'
           objectFit='cover'
@@ -83,12 +87,12 @@ const Hero = ({ images, title, desc }: Props) => {
   const elements: ImageOrCarouselProps[] = images.map((image, index) => ({
     type: 'image',
     element: image,
-    id: index,
+    id: `image-${index}`,
   }));
   elements.splice(2, 0, {
     type: 'carousel',
     element: carousel,
-    id: 0,
+    id: 'carousel',
   });
 
   return (
@@ -105,17 +109,7 @@ const Hero = ({ images, title, desc }: Props) => {
           <Link href='/kalendarium'>
             <HeroSaleOffer>
               <HeroSaleOfferTitle>KALENDARIUM</HeroSaleOfferTitle>
-              <HeroSaleOfferTitle>ARS OLD CAR 2025</HeroSaleOfferTitle>
-            </HeroSaleOffer>
-          </Link>
-          <Link href='/bastek'>
-            <HeroSaleOffer>
-              <HeroSaleOfferTitle>Nowość 2025!</HeroSaleOfferTitle>
-              <h4>10% taniej</h4>
-              <span>Dwie atrakcje w jeden dzień</span>
-              <span>1. Muzeum motoryzacji</span>
-              <span>2. Spływ Kajakiem Nidą</span>
-              <span>Ognisko z kiełbaskami po spływie</span>
+              <HeroSaleOfferTitle>ARS OLD CAR 2026</HeroSaleOfferTitle>
             </HeroSaleOffer>
           </Link>
           <a

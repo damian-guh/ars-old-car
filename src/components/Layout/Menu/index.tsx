@@ -37,7 +37,7 @@ const adjustNavItemName = (name: string) =>
     .replace(/ą/g, 'a')
     .replace(/ę/g, 'e');
 
-const Menu = ({ ...props }: Props) => {
+const Menu = ({ isOpen, logoRef }: Props) => {
   const [isOpenedSubNav, setIsOpenedSubNav] = useState<string | null>(null);
   const isDesktop = useDesktopMediaQuery();
   const { isMounted } = useMounted();
@@ -95,7 +95,7 @@ const Menu = ({ ...props }: Props) => {
             onClick={(event) => {
               if (isDesktop) {
                 carAnimation(
-                  props.logoRef,
+                  logoRef,
                   event,
                   `/${adjustNavItemName(subtitle.title)}`,
                   router
@@ -113,7 +113,7 @@ const Menu = ({ ...props }: Props) => {
 
   if (isDesktop && isMounted) {
     navContent = (
-      <StyledNav {...props}>
+      <StyledNav $isOpen={isOpen}>
         <NavList>
           {NAV_ITEMS.map(({ title, subtitles, customUrl }) => {
             let navListItemContent;
@@ -140,7 +140,7 @@ const Menu = ({ ...props }: Props) => {
                   tabIndex={-1}
                   onClick={(event) =>
                     carAnimation(
-                      props.logoRef,
+                      logoRef,
                       event,
                       `/${adjustNavItemName(title)}`,
                       router
@@ -159,7 +159,7 @@ const Menu = ({ ...props }: Props) => {
     );
   } else {
     navContent = (
-      <StyledNav {...props}>
+      <StyledNav $isOpen={isOpen}>
         <NavList>
           <HeroActionButton
             href='https://www.google.com/maps/place/Ars+Old+Car/@50.7478915,20.4697656,15z/data=!4m5!3m4!1s0x0:0x16c188f0f4675b70!8m2!3d50.7478915!4d20.4697656'

@@ -6,10 +6,12 @@ export const HEADER_HEIGHT = '100px';
 export const Wrapper = styled.header`
   position: fixed;
   background-color: ${({ theme }) => theme.colors.headerGray};
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: grid;
   grid-template-columns: calc(2 * ${BURGER_DIMENSIONS}) 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr;
   justify-items: center;
   align-items: center;
   height: ${HEADER_HEIGHT};
@@ -28,6 +30,7 @@ export const Wrapper = styled.header`
 
   @media screen and ${({ theme }) => theme.screenSizes.xl} {
     grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr;
     position: sticky;
   }
 `;
